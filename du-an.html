@@ -447,6 +447,78 @@ header.scrolled .search-container {
 .search-box {
     padding: 5px;
 }
+
+//Trang Dự án
+/* Breadcrumb định dạng icon */
+/* Breadcrumb: Dòng dẫn hướng */
+.breadcrumb {
+    margin-bottom: 30px;
+    font-size: 14px;
+    display: none; /* Mặc định ẩn */
+    align-items: center;
+    flex-wrap: wrap; /* Tránh bị tràn dòng trên điện thoại */
+    gap: 12px;       /* Tạo khoảng cách đều 12px giữa các phần tử */
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.breadcrumb a { 
+    text-decoration: none; 
+    color: var(--primary-color); 
+    font-weight: 700;
+}
+
+/* Icon mũi tên Chevron */
+.br-sep { 
+    color: #ccc; 
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    padding: 0 4px; /* Thêm chút khoảng đệm hai bên icon */
+}
+
+#breadcrumb-category {
+    font-weight: 600;
+    color: #444;
+}
+
+#breadcrumb-project {
+    color: #888;
+}
+
+/* Grid 6 ảnh: 3 ảnh mỗi dòng */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Ép 3 cột */
+    gap: 25px;
+}
+
+/* Responsive cho điện thoại (về 1 cột nếu màn hình nhỏ) */
+@media (max-width: 768px) {
+    .project-grid { grid-template-columns: 1fr; }
+}
+
+.project-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: all 0.4s ease;
+    cursor: pointer;
+    border: 1px solid #eee;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+.project-img img { width: 100%; height: 220px; object-fit: cover; transition: 0.5s; }
+.project-card:hover .project-img img { transform: scale(1.1); }
+
+.project-info { padding: 20px; text-align: center; }
+.project-info h3 { margin: 0; color: #1a73e8; font-size: 1.1rem; text-transform: uppercase; }
+.project-info p { margin: 10px 0 0; color: #666; font-style: italic; font-size: 0.95rem; }
     </style>
 </head>
 <body>
@@ -489,11 +561,60 @@ header.scrolled .search-container {
         <h1 class="title-thin">Dự án tiêu biểu của IUS!</h1>
     </section>
 
-    <main class="container">
-        <section id="about">
-            <h2 class="section-title">Thêm nội dung/hình ảnh vào đây!</h2>
-        </section>
-    </main>
+<main class="container">
+<nav class="breadcrumb" id="project-breadcrumb" style="display: none;">
+    <a href="du-an.html">DỰ ÁN</a> 
+    
+    <span class="br-sep"><i class="fas fa-chevron-right"></i></span>
+    
+    <span id="breadcrumb-category"></span>
+    
+    <span class="br-sep"><i class="fas fa-chevron-right"></i></span>
+    
+    <span id="breadcrumb-project"></span>
+</nav>
+
+    <section id="project-section">
+        <h2 class="section-title">Các dự án tiêu biểu</h2>
+        
+        <div class="project-grid">
+            <div class="project-card" onclick="openProject('Dự án 1', 'Vẽ thi công nhà ông ABC')">
+                <div class="project-img"><img src="image/Du-an-1.PNG" alt="Dự án 1"></div>
+                <div class="project-info"><h3>Dự án 1</h3><p>Vẽ thi công nhà ông ABC</p></div>
+            </div>
+            <div class="project-card" onclick="openProject('Dự án 2', 'Thiết kế biệt thự vườn X')">
+                <div class="project-img"><img src="image/Du-an-2.PNG" alt="Dự án 2"></div>
+                <div class="project-info"><h3>Dự án 2</h3><p>Thiết kế biệt thự vườn X</p></div>
+            </div>
+            <div class="project-card" onclick="openProject('Dự án 3', 'Nội thất gỗ hiện đại Y')">
+                <div class="project-img"><img src="image/Du-an-3.PNG" alt="Dự án 3"></div>
+                <div class="project-info"><h3>Dự án 3</h3><p>Nội thất gỗ hiện đại Y</p></div>
+            </div>
+            <div class="project-card" onclick="openProject('Dự án 4', 'Cải tạo nhà phố Z')">
+                <div class="project-img"><img src="image/Du-an-4.PNG" alt="Dự án 4"></div>
+                <div class="project-info"><h3>Dự án 4</h3><p>Cải tạo nhà phố Z</p></div>
+            </div>
+            <div class="project-card" onclick="openProject('Dự án 5', 'Thi công quán Cafe Garden')">
+                <div class="project-img"><img src="image/Du-an-5.PNG" alt="Dự án 5"></div>
+                <div class="project-info"><h3>Dự án 5</h3><p>Thi công quán Cafe Garden</p></div>
+            </div>
+            <div class="project-card" onclick="openProject('Dự án 6', 'Văn phòng làm việc IUS')">
+                <div class="project-img"><img src="image/Du-an-6.PNG" alt="Dự án 6"></div>
+                <div class="project-info"><h3>Dự án 6</h3><p>Văn phòng làm việc IUS</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="project-detail" style="display: none; margin-top: 30px;">
+        <h2 id="detail-title" class="sub-title-green"></h2>
+        <div id="detail-body" style="line-height: 1.8; color: #444;">
+            <p>Nội dung chi tiết của dự án. Có thể chèn thêm hình ảnh hoặc các đoạn văn giới thiệu kỹ thuật tại đây.</p>
+        </div>
+        <button onclick="closeProject()" style="margin-top:30px; padding: 10px 25px; background: var(--primary-color); color: white; border: none; border-radius: 5px; cursor: pointer;">
+            <i class="fas fa-arrow-left"></i> Quay lại danh sách dự án
+        </button>
+    </section>
+</main>
 
     <footer>
         <div class="footer-content">
@@ -540,7 +661,7 @@ header.scrolled .search-container {
             hero_title: "Dự án tiêu biểu của IUS!",
             hero_caption: "Nhà gỗ Nhật Bản (Ảnh: Internet)",
 	    search_placeholder: "Tìm kiếm...",
-            section_main_title: "Thêm nội dung/hình ảnh vào đây!",
+            section_main_title: "Các dự án tiêu biểu của IUS!",
             sub_classic: "Dù là cổ điển",
             sub_modern: "Hay hiện đại",
             sub_morning: "Trẻ trung trong nắng sớm!",
@@ -570,7 +691,7 @@ addr_hq: "📍 An Hà Đông - Quảng Phú - Đà Nẵng - Việt Nam",
             hero_title: "IUS代表プロジェクト！",
             hero_caption: "日本の木造住宅（写真：インターネット）",
 	    search_placeholder: "検索...",
-            section_main_title: "内容/写真を追加する！",
+            section_main_title: "IUS代表プロジェクト！",
             sub_classic: "クラシックでも",
             sub_modern: "モダンでも",
             sub_morning: "朝の光の中で若々しく！",
@@ -701,6 +822,32 @@ window.addEventListener("DOMContentLoaded", () => {
     // Gọi hàm áp dụng ngôn ngữ đó
     applyLanguage(savedLang);
 });
+
+//Trang dự án
+function openProject(category, projectName) {
+    document.getElementById('project-section').style.display = 'none';
+    document.getElementById('project-detail').style.display = 'block';
+
+    // Hiện thanh breadcrumb (Flex giúp gap: 12px hoạt động)
+    const breadcrumb = document.getElementById('project-breadcrumb');
+    breadcrumb.style.display = 'flex';
+
+    document.getElementById('breadcrumb-category').innerText = category;
+    document.getElementById('breadcrumb-project').innerText = projectName;
+    document.getElementById('detail-title').innerText = projectName;
+
+    window.scrollTo({top: 200, behavior: 'smooth'});
+}
+
+function closeProject() {
+    // 1. Hiện lại danh sách 6 ảnh
+    document.getElementById('project-section').style.display = 'block';
+    // 2. Ẩn vùng chi tiết
+    document.getElementById('project-detail').style.display = 'none';
+    
+    // 3. Ẩn luôn thanh Breadcrumb đi cho sạch trang chính
+    document.getElementById('project-breadcrumb').style.display = 'none';
+}
 </script>
 </body>
 </html>
