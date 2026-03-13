@@ -172,7 +172,7 @@ header.scrolled .lang-select {
 
         /* TIÊU ĐỀ CAM SÁNG LÊN KHI HOVER */
         .section-title {
-            color: #ff8c00;
+            color: rgba(0, 0, 200, 0.8);
             font-size: 2.4rem;
             font-weight: 600;
             font-style: italic;
@@ -188,8 +188,8 @@ header.scrolled .lang-select {
         }
 
         .section-title:hover {
-            color: #ffad42; /* Cam sáng hơn chút */
-            text-shadow: 0 0 15px rgba(255, 140, 0, 0.5); /* Phát sáng cam */
+            color: rgba(0, 0, 180, 0.8); /* Cam sáng hơn chút */
+            text-shadow: 0 0 15px rgba(0, 0, 180, 0.5); /* Phát sáng cam */
         }
 
         .section-title::after {
@@ -197,7 +197,7 @@ header.scrolled .lang-select {
             display: block;
             width: 60%;
             height: 3px;
-            background: #ff8c00;
+            background: rgba(0, 0, 200, 0.8);
             opacity: 0.5;
             margin: 10px auto 0 auto;
             border-radius: 10px;
@@ -208,12 +208,12 @@ header.scrolled .lang-select {
         .section-title:hover::after {
             opacity: 1;
             width: 70%;
-            background: #ff8c00;
+            background: rgba(0, 0, 200, 0.8);
         }
 
 	/* Hiển thị chữ xanh và hiệu ứng trong nội dung phần thân trang web */
         .sub-title-green {
-            color: #006400;
+            color: rgba(0, 0, 200, 0.8);
             font-size: 2.2rem;
             font-weight: 500;
             text-align: center;
@@ -225,7 +225,7 @@ header.scrolled .lang-select {
         }
 
         .sub-title-green:hover {
-            color: #004d00; 
+            color: rgba(0, 0, 200, 0.8); 
             letter-spacing: 1px;
         }
 
@@ -447,6 +447,105 @@ header.scrolled .search-container {
 .search-box {
     padding: 5px;
 }
+
+// Phần code của  TRANG DICH VU */
+/* Styling cho sơ đồ dịch vụ */
+.diagram-wrapper {
+    width: 100%;
+    max-width: 800px;
+    margin: 40px auto;
+}
+
+.services-svg {
+    width: 100%;
+    height: auto;
+}
+
+/* Các đường kẻ nối */
+.lines line {
+    stroke: #ddd;
+    stroke-width: 2;
+    stroke-dasharray: 5;
+    animation: dash 10s linear infinite;
+}
+
+@keyframes dash {
+    to { stroke-dashoffset: 100; }
+}
+
+/* Node trung tâm IUS */
+.node.central rect {
+    fill: var(--primary-color);
+}
+.node.central text {
+    fill: white;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* Các node dịch vụ xung quanh */
+.node.branch rect {
+    fill: white;
+    stroke: var(--primary-color);
+    stroke-width: 2;
+    transition: all 0.3s ease;
+}
+.node.branch text {
+    fill: var(--text-color);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Hiệu ứng tương tác */
+.node-link:hover .node.branch rect {
+    fill: #e8f0fe;
+    transform: translateY(-2px);
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+}
+
+.node-link:hover .node.branch text {
+    fill: var(--primary-color);
+}
+
+.node-link {
+    text-decoration: none;
+}
+/* Chống việc bị Header che mất nội dung khi click từ sơ đồ */
+.content-block {
+    scroll-margin-top: 130px; /* Khoảng cách này nên bằng hoặc lớn hơn chiều cao Header của bạn */
+    scroll-behavior: smooth;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* CSS cho các ô chữ trong SVG */
+.svg-node-box {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: white;
+    border: 2px solid var(--primary-color);
+    border-radius: 25px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-color);
+    padding: 5px 10px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    line-height: 1.2;
+}
+
+.node-link:hover .svg-node-box {
+    background: #e8f0fe;
+    color: var(--primary-color);
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
     </style>
 </head>
 <body>
@@ -487,34 +586,126 @@ header.scrolled .search-container {
 
     <section class="hero">
         <h1 class="title-thin">Dịch vụ của IUS!</h1>
-        <p class="caption-bottom">Nhà gỗ Nhật Bản (Ảnh: Internet)</p>
     </section>
 
-    <main class="container">
-        <section id="about">
-            <h2 class="section-title">Thêm nội dung/hình ảnh vào đây!</h2>
-        </section>
-    </main>
+<main class="container">
+    <section id="services-diagram">
+        <h2 class="section-title">Hệ Sinh Thái Dịch Vụ IUS</h2>
+        
+        <div class="diagram-wrapper">
+<svg viewBox="0 0 800 500" preserveAspectRatio="xMidYMid meet" class="services-svg">
+    <g class="lines">
+        <line x1="400" y1="250" x2="150" y2="100" />
+        <line x1="400" y1="250" x2="400" y2="60" />
+        <line x1="400" y1="250" x2="650" y2="100" />
+        <line x1="400" y1="250" x2="150" y2="400" />
+        <line x1="400" y1="250" x2="400" y2="440" />
+        <line x1="400" y1="250" x2="650" y2="400" />
+    </g>
+
+    <g class="node central">
+        <rect x="350" y="220" width="100" height="60" rx="10" />
+        <text x="400" y="258" text-anchor="middle" style="fill: white; font-weight: bold; font-size: 20px;">IUS</text>
+    </g>
+
+    <a href="#service-1" class="node-link">
+        <foreignObject x="50" y="65" width="200" height="70">
+            <div xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box">
+                らくわく構造検討（２×4工法）
+            </div>
+        </foreignObject>
+    </a>
+
+    <a href="#service-2" class="node-link">
+        <foreignObject x="300" y="10" width="200" height="80">
+            <div xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box">
+                PS5生産図（２×4工法、プレカット・パネル）
+            </div>
+        </foreignObject>
+    </a>
+
+    <a href="#service-3" class="node-link">
+        <foreignObject x="550" y="65" width="200" height="70">
+            <div xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box">
+                PS5構造図（２×4工法）
+            </div>
+        </foreignObject>
+    </a>
+
+    <a href="#service-4" class="node-link">
+        <foreignObject x="50" y="365" width="200" height="70">
+            <div xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box">
+                手拾い
+            </div>
+        </foreignObject>
+    </a>
+
+    <a href="#service-5" class="node-link">
+        <foreignObject x="300" y="410" width="200" height="70">
+            <div xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box">
+                プログラム
+            </div>
+        </foreignObject>
+    </a>
+
+    <a href="#service-6" class="node-link">
+        <foreignObject x="550" y="365" width="200" height="70">
+            <div xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box">
+                JW編集
+            </div>
+        </foreignObject>
+    </a>
+</svg>
+        </div>
+    </section>
+
+    <hr style="margin: 80px 0; border: 0; border-top: 1px dashed #ccc;">
+
+    <div id="service-1" class="content-block">
+        <h3 class="sub-title-green">らくわく構造検討（２×4工法）</h3>
+        <p>Giải pháp thiết kế sáng tạo, tối ưu công năng và thẩm mỹ cho ngôi nhà của bạn.</p>
+    </div>
+    <div id="service-2" class="content-block">
+        <h3 class="sub-title-green">PS5生産図（２×4工法、プレカット・パネル）</h3>
+        <p>Tinh hoa kiến trúc gỗ xứ Phù Tang, mang lại sự bền bỉ và không gian thiền định.</p>
+    </div>
+    <div id="service-3" class="content-block">
+        <h3 class="sub-title-green">PS5構造図（２×4工法）</h3>
+        <p>Sự kết hợp hoàn hảo giữa vật liệu thượng hạng và tay nghề thủ công tinh xảo.</p>
+    </div>
+    <div id="service-4" class="content-block">
+        <h3 class="sub-title-green">手拾い</h3>
+        <p>Chìa khóa trao tay, đảm bảo chất lượng từ bản vẽ đến thực tế công trình.</p>
+    </div>
+    <div id="service-5" class="content-block">
+        <h3 class="sub-title-green">プログラム</h3>
+        <p>Đưa thiên nhiên vào không gian sống với thiết kế sân vườn chuẩn phong cách Nhật.</p>
+    </div>
+    <div id="service-6" class="content-block">
+        <h3 class="sub-title-green">JW編集</h3>
+        <p>Đảm bảo sự hài hòa về năng lượng, mang lại tài lộc và bình an cho gia chủ.</p>
+    </div>
+</main>
 
     <footer>
-        <div class="footer-content">
-            <div class="footer-grid">
-                <div>
-                    <h4>Liên hệ</h4>
-                    <p><i class="fas fa-envelope"></i> Email: ngocsy@thietkeius.asia</p>
-                    <p><i class="fas fa-phone"></i> Hotline: 070 2929 345</p>
-                </div>
-                <div>
-                    <h4>Trụ sở chính</h4>
-                    <p>📍 An Hà Đông - Quảng Phú - Đà Nẵng - Việt Nam</p>
-                </div>
-                <div>
-                    <h4>Văn phòng làm việc:</h4>
-		    <p>🏠 Tầng 2, 189 Hùng Vương - Tam Kỳ - Đà Nẵng</p>
-                    <p>🏠 Phước Thành - Quế Sơn Trung - Đà Nẵng</p>
-                    <p>🏠 Tầng 6, 153 Đống Đa - Hải Châu - Đà Nẵng</p>
-                </div>
-            </div>
+<div class="footer-content">
+<div class="footer-grid">
+    <div>
+        <h4 id="f-title-contact">Liên hệ</h4>
+        <p><i class="fas fa-envelope"></i> Email: ngocsy@thietkeius.asia</p>
+        <p><i class="fas fa-phone"></i> Hotline: 070 2929 345</p>
+    </div>
+    <div>
+        <h4 id="f-title-hq">Trụ sở chính</h4>
+        <p id="f-addr-hq">📍 An Hà Đông - Quảng Phú - Đà Nẵng - Việt Nam</p>
+    </div>
+    <div>
+        <h4 id="f-title-branch">Văn phòng làm việc</h4>
+        <p id="f-addr-b1">🏠 Tầng 2, 189 Hùng Vương - Tam Kỳ - Đà Nẵng</p>
+        <p id="f-addr-b2">🏠 Phước Thành - Quế Sơn Trung - Đà Nẵng</p>
+        <p id="f-addr-b3">🏠 Tầng 6, 153 Đống Đa - Hải Châu - Đà Nẵng</p>
+    </div>
+</div>
         
             <div class="footer-bottom">
                 <small>© 2026 Bản quyền thuộc về IUS</small>
@@ -541,7 +732,7 @@ header.scrolled .search-container {
             hero_title: "Dịch vụ của IUS!",
             hero_caption: "Nhà gỗ Nhật Bản (Ảnh: Internet)",
 	    search_placeholder: "Tìm kiếm...",
-            section_main_title: "Thêm nội dung/hình ảnh vào đây!",
+            section_main_title: "Các dịch vụ của IUS!",
             sub_classic: "Dù là cổ điển",
             sub_modern: "Hay hiện đại",
             sub_morning: "Trẻ trung trong nắng sớm!",
@@ -553,6 +744,10 @@ header.scrolled .search-container {
             footer_contact: "Liên hệ",
             footer_headquarters: "Trụ sở chính",
             footer_branch: "Văn Phòng Làm Việc",
+addr_hq: "📍 An Hà Đông - Quảng Phú - Đà Nẵng - Việt Nam",
+        addr_b1: "🏠 Tầng 2, 189 Hùng Vương - Tam Kỳ - Đà Nẵng",
+        addr_b2: "🏠 Phước Thành - Quế Sơn Trung - Đà Nẵng",
+        addr_b3: "🏠 Tầng 6, 153 Đống Đa - Hải Châu - Đà Nẵng",
             footer_copyright: "© 2026 Bản quyền thuộc về IUS"
         },
         ja: {
@@ -567,7 +762,7 @@ header.scrolled .search-container {
             hero_title: "IUSのサービス！",
             hero_caption: "日本の木造住宅（写真：インターネット）",
 	    search_placeholder: "検索...",
-            section_main_title: "内容/写真を追加する！",
+            section_main_title: "IUSサービス！",
             sub_classic: "クラシックでも",
             sub_modern: "モダンでも",
             sub_morning: "朝の光の中で若々しく！",
@@ -579,6 +774,10 @@ header.scrolled .search-container {
             footer_contact: "連絡先",
             footer_headquarters: "本社",
             footer_branch: "オフィス",
+addr_hq: "📍 An Ha Dong, Quang Phu, Da Nang, Vietnam",
+        addr_b1: "🏠 189 Hung Vuong, Tam Ky, Da Nang (2F)",
+        addr_b2: "🏠 Phuoc Thành, Que Son Trung, Da Nang",
+        addr_b3: "🏠 153 Dong Da, Hai Chau, Da Nang (6F)",
             footer_copyright: "© 2026 著作権は IUS に帰属します"
         }
     };
@@ -610,7 +809,6 @@ header.scrolled .search-container {
 
         // Hero
         document.querySelector(".title-thin").innerText = t.hero_title;
-        document.querySelector(".caption-bottom").innerText = t.hero_caption;
 
 	//Search
 	const searchInput = document.getElementById("searchInput");
@@ -620,15 +818,6 @@ header.scrolled .search-container {
 
         // Main Content
         document.querySelector(".section-title").innerText = t.section_main_title;
-        
-        /*const subs = document.querySelectorAll(".sub-title-green");
-        subs[0].innerText = t.sub_classic;
-        subs[1].innerText = t.sub_modern;
-        subs[2].innerText = t.sub_morning;
-        subs[3].innerText = t.sub_noon;
-        subs[4].innerText = t.sub_peace;
-        subs[5].innerText = t.sub_light;
-        subs[6].innerText = t.sub_interior;*/
 
         // Footer
         const footerHeaders = document.querySelectorAll(".footer-grid h4");
@@ -637,16 +826,14 @@ header.scrolled .search-container {
         footerHeaders[2].innerText = t.footer_branch;
         document.querySelector(".footer-bottom small").innerText = t.footer_copyright;
 
-	// Notes
-	// ĐỔI TẤT CẢ CÁC DÒNG CHÚ THÍCH ẢNH
-	const captions = document.querySelectorAll(".lang-caption");
-	captions.forEach(cap => {
-	    cap.innerText = t.hero_caption; // Dùng chung nội dung "Nhà gỗ Nhật Bản..."
-	});
-
-	// Cập nhật luôn cả dòng caption dưới ảnh Hero
-	const heroCap = document.querySelector(".caption-bottom");
-	if(heroCap) heroCap.innerText = t.hero_caption;
+const setText = (id, text) => {
+        const el = document.getElementById(id);
+        if (el && text) el.innerText = text;
+    };
+    setText("f-addr-hq", t.addr_hq);
+    setText("f-addr-b1", t.addr_b1);
+    setText("f-addr-b2", t.addr_b2);
+    setText("f-addr-b3", t.addr_b3);
 }
 
     // --- logic scroll ---

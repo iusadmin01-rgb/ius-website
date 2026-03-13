@@ -119,36 +119,46 @@ header.scrolled .lang-select {
     color: #333;
 }
 
-        /* BANNER (HERO) */
-        .hero {
-            position: relative;
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
-                        url('image/Anh-bia-trang-chu.PNG');
-            background-size: cover;
-            background-position: center;
-            height: 105vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            text-align: center;
-        }
+/* BANNER (HERO) */
+.hero {
+    position: relative;
+    background: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), /* Đổi sang lớp phủ sáng để nổi bật chữ đen */
+                url('image/Anh-bia-trang-chu-new.png');
+    background-size: cover;
+    background-position: center;
+    height: 105vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    /* Đẩy sát qua bên trái */
+    align-items: flex-start; 
+    
+    /* Hở một đoạn nhỏ khoảng 5% chiều ngang hoặc 50px */
+    padding-left: 5%; 
+    
+    color: black; 
+    text-align: left; /* Chữ căn lề trái */
+}
 
-        .title-thin {
-            font-weight: 300;
-            font-size: 2.5rem;
-            font-style: italic;
-            letter-spacing: 1px;
-            transition: all 0.5s ease;
-            cursor: default;
-        }
+.title-thin {
+    font-weight: 300;
+    font-size: 2.5rem;
+    font-style: italic;
+    letter-spacing: 1px;
+    transition: all 0.5s ease;
+    cursor: default;
+    color: #000000;
+    
+    /* Đảm bảo không có margin tự động làm lệch chữ */
+    margin-left: 0; 
+}
 
-        /* Hiệu ứng sáng chữ cho Slogan trên ảnh bìa */
-        .title-thin:hover {
-            text-shadow: 0 0 15px rgba(255,255,255,0.7);
-            transform: scale(1.01);
-        }
+/* Hiệu ứng khi di chuột vào chữ BANNER */
+.title-thin:hover {
+    text-shadow: 0 0 10px rgba(0, 0, 200, 0.3); /* Phát sáng xanh nhạt */
+    transform: translateX(10px); /* Nhích nhẹ sang phải một chút khi hover cho sinh động */
+}
 
         .caption-bottom {
             position: absolute;
@@ -172,7 +182,7 @@ header.scrolled .lang-select {
 
         /* TIÊU ĐỀ CAM SÁNG LÊN KHI HOVER */
         .section-title {
-            color: #ff8c00;
+            color: rgb(0, 0, 200);
             font-size: 2.4rem;
             font-weight: 600;
             font-style: italic;
@@ -188,8 +198,8 @@ header.scrolled .lang-select {
         }
 
         .section-title:hover {
-            color: #ffad42; /* Cam sáng hơn chút */
-            text-shadow: 0 0 15px rgba(255, 140, 0, 0.5); /* Phát sáng cam */
+            color: rgb(0, 0, 180); /* Cam sáng hơn chút */
+            text-shadow: 0 0 15px rgba(0, 0, 200, 0.5); /* Phát sáng cam */
         }
 
         .section-title::after {
@@ -197,7 +207,7 @@ header.scrolled .lang-select {
             display: block;
             width: 60%;
             height: 3px;
-            background: #ff8c00;
+            background: rgb(0, 0, 200);
             opacity: 0.5;
             margin: 10px auto 0 auto;
             border-radius: 10px;
@@ -208,12 +218,12 @@ header.scrolled .lang-select {
         .section-title:hover::after {
             opacity: 1;
             width: 70%;
-            background: #ff8c00;
+            background: rgb(0, 0, 200);
         }
 
 	/* Hiển thị chữ xanh và hiệu ứng trong nội dung phần thân trang web */
         .sub-title-green {
-            color: #006400;
+            color: rgb(0, 0, 200);
             font-size: 2.2rem;
             font-weight: 500;
             text-align: center;
@@ -225,7 +235,7 @@ header.scrolled .lang-select {
         }
 
         .sub-title-green:hover {
-            color: #004d00; 
+            color: rgb(0, 0, 200); 
             letter-spacing: 1px;
         }
 
@@ -447,6 +457,66 @@ header.scrolled .search-container {
 .search-box {
     padding: 5px;
 }
+
+/* Container chứa 7 ô dịch vụ */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Chia làm 3 cột bằng nhau */
+    gap: 25px; /* Khoảng cách giữa các ô */
+    margin-top: 40px;
+}
+
+/* Từng ô dịch vụ đơn lẻ */
+.service-item {
+    text-decoration: none; /* Bỏ gạch chân link */
+    color: inherit;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.service-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.service-pic img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Giúp ảnh không bị móp méo */
+    display: block;
+}
+
+.service-text {
+    padding: 20px;
+    text-align: center;
+}
+
+.service-text h4 {
+    margin: 0 0 10px 0;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    text-transform: uppercase;
+}
+
+.service-text p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Responsive: Trên điện thoại thì xếp 1 cột, máy tính bảng 2 cột */
+@media (max-width: 992px) {
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+    .services-grid { grid-template-columns: 1fr; }
+}
     </style>
 </head>
 <body>
@@ -487,103 +557,89 @@ header.scrolled .search-container {
 
     <section class="hero">
         <h1 class="title-thin">Kiến tạo ngôi nhà bền vững của bạn!</h1>
-        <p class="caption-bottom">Nhà gỗ Nhật Bản (Ảnh: Internet)</p>
     </section>
 
     <main class="container">
-        <section id="about">
-            <h2 class="section-title">Đem đến cho bạn và gia đình sự hoàn hảo tuyệt mỹ với những bản thiết kế mới lạ và đa dạng!</h2>
+<h2 class="section-title">DỊCH VỤ CỦA CHÚNG TÔI</h2>
 
-            <div class="content-block">
-                <span class="sub-title-green">Dù là cổ điển</span>
-                <div class="image-container">
-                    <img src="image/Nha-co-dien.PNG" alt="Nhà cổ điển">
-                    <span class="image-caption lang-caption">Nhà gỗ Nhật Bản (Ảnh: Internet)</span>
-                </div>
-            </div>
+<div class="services-grid">
+    <a href="gioi-thieu.html" class="service-item">
+        <div class="service-pic"><img src="image/Gioi-thieu.PNG" alt="Giới thiệu"></div>
+        <div class="service-text">
+            <h4>Giới thiệu</h4>
+            <p>Tìm hiểu về tầm nhìn và sứ mệnh kiến tạo tổ ấm của IUS.</p>
+        </div>
+    </a>
 
-            <div class="content-block">
-                <span class="sub-title-green">Hay hiện đại</span>
-                <div class="image-container">
-                    <img src="image/Nha-hien-dai.PNG" alt="Nhà hiện đại">
-                    <span class="image-caption lang-caption">Nhà gỗ Nhật Bản (Ảnh: Internet)</span>
-                </div>
-            </div>
+    <a href="dich-vu.html" class="service-item">
+        <div class="service-pic"><img src="image/Dich-vu.PNG" alt="Dịch vụ"></div>
+        <div class="service-text">
+            <h4>Dịch vụ</h4>
+            <p>Thiết kế bản vẽ kiến trúc, lập trình phần mềm xây dựng.</p>
+        </div>
+    </a>
 
-            <div class="content-block">
-                <span class="sub-title-green">Trẻ trung trong nắng sớm!</span>
-                <div class="image-container">
-                    <img src="image/Tre-trung-trong-nam-som.PNG" alt="Nhà buổi sáng">
-                    <span class="image-caption lang-caption">Nhà gỗ Nhật Bản (Ảnh: Internet)</span>
-                </div>
-            </div>
+    <a href="du-an.html" class="service-item">
+        <div class="service-pic"><img src="image/Du-an.PNG" alt="Dự án"></div>
+        <div class="service-text">
+            <h4>Dự án</h4>
+            <p>Các dự án tiêu biểu đã hoàn thành.</p>
+        </div>
+    </a>
 
-            <div class="content-block">
-                <span class="sub-title-green">Xanh mát vườn ban trưa!</span>
-                <div class="image-container">
-                    <img src="image/Xanh-mat-vuon-buoi-trua.PNG" alt="Vườn buổi trưa">
-                    <span class="image-caption lang-caption">Nhà gỗ Nhật Bản (Ảnh: Internet)</span>
-                </div>
-            </div>
+    <a href="tin-tuc.html" class="service-item">
+        <div class="service-pic"><img src="image/Tin-tuc-va-hoat-dong.PNG" alt="Tin tức"></div>
+        <div class="service-text">
+            <h4>Tin tức</h4>
+            <p>Cập nhật những hoạt động và sự kiện mới nhất của công ty.</p>
+        </div>
+    </a>
 
-            <div class="content-block">
-                <span class="sub-title-green">Chiều đô thị bình yên!</span>
-                <div class="image-container">
-                    <img src="image/Binh-yen-giu-do-thi.PNG" alt="Sân buổi chiều">
-                    <span class="image-caption lang-caption">Nhà gỗ Nhật Bản (Ảnh: Internet)</span>
-                </div>
-            </div>
+    <a href="cong-ty-thanh-vien.html" class="service-item">
+        <div class="service-pic"><img src="image/Cong-ty-thanh-vien.png" alt="Thành viên"></div>
+        <div class="service-text">
+            <h4>Công ty thành viên</h4>
+            <p>Hệ sinh thái các đơn vị đối tác và công ty con của IUS.</p>
+        </div>
+    </a>
 
-            <div class="side-by-side">
-                <div class="side-left">
-                    <div class="image-container">
-                        <img src="image/Gieng-troi.PNG" alt="Giếng trời đầy ánh sáng">
-                    </div>
-                    <span class="image-caption lang-caption">Nhà gỗ Nhật Bản (Ảnh: Internet)</span>
-                </div>
+    <a href="tuyen-dung.html" class="service-item">
+        <div class="service-pic"><img src="image/Tuyen-dung.png" alt="Tuyển dụng"></div>
+        <div class="service-text">
+            <h4>Tuyển dụng</h4>
+            <p>Gia nhập đội ngũ kỹ sư và kiến trúc sư tài năng của chúng tôi.</p>
+        </div>
+    </a>
 
-                <div class="side-right">
-                    <span class="sub-title-green">Kín đáo nhưng tràn ánh sáng!</span>
-                </div>
-            </div>
-
-            <div class="content-block">
-                <span class="sub-title-green">Nội thất sang trọng! Mát mẻ mùa hè, ấm áp về đông!</span>
-                <div class="image-group-triple">
-                    <div class="image-item">
-                        <img src="image/Noi-that-1.PNG" alt="Nội thất 1">
-                    </div>
-                    <div class="image-item">
-                        <img src="image/Noi-that-2.PNG" alt="Nội thất 2">
-                    </div>
-                    <div class="image-item">
-                        <img src="image/Noi-that-3.PNG" alt="Nội thất 3">
-                    </div>
-                </div>
-                <span class="image-caption lang-caption">Nhà gỗ Nhật Bản (Ảnh: Internet)</span>
-            </div>
-        </section>
+    <a href="lien-he.html" class="service-item">
+        <div class="service-pic"><img src="image/Lien-he.PNG" alt="Liên hệ"></div>
+        <div class="service-text">
+            <h4>Liên hệ</h4>
+            <p>Gửi yêu cầu tư vấn cho chúng tôi ngay hôm nay.</p>
+        </div>
+    </a>
+</div>
     </main>
 
     <footer>
         <div class="footer-content">
-            <div class="footer-grid">
-                <div>
-                    <h4>Liên hệ</h4>
-                    <p><i class="fas fa-envelope"></i> Email: ngocsy@thietkeius.asia</p>
-                    <p><i class="fas fa-phone"></i> Hotline: 070 2929 345</p>
-                </div>
-                <div>
-                    <h4>Trụ sở chính</h4>
-                    <p>📍 An Hà Đông - Quảng Phú - Đà Nẵng - Việt Nam</p>
-                </div>
-                <div>
-                    <h4>Văn phòng làm việc:</h4>
-		    <p>🏠 Tầng 2, 189 Hùng Vương - Tam Kỳ - Đà Nẵng</p>
-                    <p>🏠 Phước Thành - Quế Sơn Trung - Đà Nẵng</p>
-                    <p>🏠 Tầng 6, 153 Đống Đa - Hải Châu - Đà Nẵng</p>
-                </div>
-            </div>
+<div class="footer-grid">
+    <div>
+        <h4 id="f-title-contact">Liên hệ</h4>
+        <p><i class="fas fa-envelope"></i> Email: ngocsy@thietkeius.asia</p>
+        <p><i class="fas fa-phone"></i> Hotline: 070 2929 345</p>
+    </div>
+    <div>
+        <h4 id="f-title-hq">Trụ sở chính</h4>
+        <p id="f-addr-hq">📍 An Hà Đông - Quảng Phú - Đà Nẵng - Việt Nam</p>
+    </div>
+    <div>
+        <h4 id="f-title-branch">Văn phòng làm việc</h4>
+        <p id="f-addr-b1">🏠 Tầng 2, 189 Hùng Vương - Tam Kỳ - Đà Nẵng</p>
+        <p id="f-addr-b2">🏠 Phước Thành - Quế Sơn Trung - Đà Nẵng</p>
+        <p id="f-addr-b3">🏠 Tầng 6, 153 Đống Đa - Hải Châu - Đà Nẵng</p>
+    </div>
+</div>
         
             <div class="footer-bottom">
                 <small>© 2026 Bản quyền thuộc về IUS</small>
@@ -622,6 +678,10 @@ header.scrolled .search-container {
             footer_contact: "Liên hệ",
             footer_headquarters: "Trụ sở chính",
             footer_branch: "Văn Phòng Làm Việc",
+addr_hq: "📍 An Hà Đông - Quảng Phú - Đà Nẵng - Việt Nam",
+        addr_b1: "🏠 Tầng 2, 189 Hùng Vương - Tam Kỳ - Đà Nẵng",
+        addr_b2: "🏠 Phước Thành - Quế Sơn Trung - Đà Nẵng",
+        addr_b3: "🏠 Tầng 6, 153 Đống Đa - Hải Châu - Đà Nẵng",
             footer_copyright: "© 2026 Bản quyền thuộc về IUS"
         },
         ja: {
@@ -648,6 +708,10 @@ header.scrolled .search-container {
             footer_contact: "連絡先",
             footer_headquarters: "本社",
             footer_branch: "オフィス",
+addr_hq: "📍 An Ha Dong, Quang Phu, Da Nang, Vietnam",
+        addr_b1: "🏠 189 Hung Vuong, Tam Ky, Da Nang (2F)",
+        addr_b2: "🏠 Phuoc Thành, Que Son Trung, Da Nang",
+        addr_b3: "🏠 153 Dong Da, Hai Chau, Da Nang (6F)",
             footer_copyright: "© 2026 著作権は IUS に帰属します"
         }
     };
@@ -679,7 +743,7 @@ header.scrolled .search-container {
 
         // Hero
         document.querySelector(".title-thin").innerText = t.hero_title;
-        document.querySelector(".caption-bottom").innerText = t.hero_caption;
+        //document.querySelector(".caption-bottom").innerText = t.hero_caption;
 	
 	//Search
 	const searchInput = document.getElementById("searchInput");
@@ -689,33 +753,34 @@ header.scrolled .search-container {
 
         // Main Content
         document.querySelector(".section-title").innerText = t.section_main_title;
-        
-        const subs = document.querySelectorAll(".sub-title-green");
-        subs[0].innerText = t.sub_classic;
-        subs[1].innerText = t.sub_modern;
-        subs[2].innerText = t.sub_morning;
-        subs[3].innerText = t.sub_noon;
-        subs[4].innerText = t.sub_peace;
-        subs[5].innerText = t.sub_light;
-        subs[6].innerText = t.sub_interior;
 
         // Footer
         const footerHeaders = document.querySelectorAll(".footer-grid h4");
         footerHeaders[0].innerText = t.footer_contact;
         footerHeaders[1].innerText = t.footer_headquarters;
         footerHeaders[2].innerText = t.footer_branch;
+
         document.querySelector(".footer-bottom small").innerText = t.footer_copyright;
+
+const setText = (id, text) => {
+        const el = document.getElementById(id);
+        if (el && text) el.innerText = text;
+    };
+    setText("f-addr-hq", t.addr_hq);
+    setText("f-addr-b1", t.addr_b1);
+    setText("f-addr-b2", t.addr_b2);
+    setText("f-addr-b3", t.addr_b3);
 
 	// Notes
 	// ĐỔI TẤT CẢ CÁC DÒNG CHÚ THÍCH ẢNH
-	const captions = document.querySelectorAll(".lang-caption");
+	/*const captions = document.querySelectorAll(".lang-caption");
 	captions.forEach(cap => {
 	    cap.innerText = t.hero_caption; // Dùng chung nội dung "Nhà gỗ Nhật Bản..."
 	});
 
 	// Cập nhật luôn cả dòng caption dưới ảnh Hero
 	const heroCap = document.querySelector(".caption-bottom");
-	if(heroCap) heroCap.innerText = t.hero_caption;
+	if(heroCap) heroCap.innerText = t.hero_caption;*/
 }
 
     // --- logic scroll ---

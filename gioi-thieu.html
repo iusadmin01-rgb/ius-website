@@ -172,7 +172,7 @@ header.scrolled .lang-select {
 
         /* TIÊU ĐỀ CAM SÁNG LÊN KHI HOVER */
         .section-title {
-            color: #ff8c00;
+            color: rgba(0, 0, 200, 0.8);
             font-size: 2.4rem;
             font-weight: 600;
             font-style: italic;
@@ -188,8 +188,8 @@ header.scrolled .lang-select {
         }
 
         .section-title:hover {
-            color: #ffad42; /* Cam sáng hơn chút */
-            text-shadow: 0 0 15px rgba(255, 140, 0, 0.5); /* Phát sáng cam */
+            color: rgba(0, 0, 180, 0.8); /* Cam sáng hơn chút */
+            text-shadow: 0 0 15px rgba(0, 0, 180, 0.5); /* Phát sáng cam */
         }
 
         .section-title::after {
@@ -197,7 +197,7 @@ header.scrolled .lang-select {
             display: block;
             width: 60%;
             height: 3px;
-            background: #ff8c00;
+            background: rgba(0, 0, 200, 0.8);
             opacity: 0.5;
             margin: 10px auto 0 auto;
             border-radius: 10px;
@@ -208,12 +208,12 @@ header.scrolled .lang-select {
         .section-title:hover::after {
             opacity: 1;
             width: 70%;
-            background: #ff8c00;
+            background: rgba(0, 0, 200, 0.8);
         }
 
 	/* Hiển thị chữ xanh và hiệu ứng trong nội dung phần thân trang web */
         .sub-title-green {
-            color: #006400;
+            color: rgba(0, 0, 200, 0.8);
             font-size: 2.2rem;
             font-weight: 500;
             text-align: center;
@@ -225,7 +225,7 @@ header.scrolled .lang-select {
         }
 
         .sub-title-green:hover {
-            color: #004d00; 
+            color: rgba(0, 0, 200, 0.8); 
             letter-spacing: 1px;
         }
 
@@ -447,6 +447,53 @@ header.scrolled .search-container {
 .search-box {
     padding: 5px;
 }
+
+//Phần riêng của trang GIỚI THIỆU
+.info-table { width: 100%; border-collapse: collapse; margin: 30px 0; background: #fff; }
+.info-table th, .info-table td { padding: 15px; border: 1px solid #eee; text-align: left; }
+.info-table th { width: 30%; background-color: #f8f9fa; color: #333; font-weight: 600; }
+
+.feature-list { list-style: none; padding: 0; }
+.feature-list li { padding: 12px 0; display: flex; align-items: center; gap: 15px; border-bottom: 1px solid #f0f0f0; }
+.feature-list i { color: #1a73e8; font-size: 1.2rem; }
+
+/* Style cho bảng phần mềm chuyên nghiệp */
+.software-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.software-table th, .software-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.software-table th {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+}
+
+.software-table tr:last-child td {
+    border-bottom: none;
+}
+
+.software-table tr:hover {
+    background-color: #f9f9f9;
+}
+
+.software-category {
+    font-weight: bold;
+    color: var(--primary-color);
+    background: #f0f7ff;
+    width: 25%;
+}
     </style>
 </head>
 <body>
@@ -487,34 +534,95 @@ header.scrolled .search-container {
 
     <section class="hero">
         <h1 class="title-thin">Giới thiệu về IUS!</h1>
-        <p class="caption-bottom">Nhà gỗ Nhật Bản (Ảnh: Internet)</p>
     </section>
 
     <main class="container">
         <section id="about">
-            <h2 class="section-title">Thêm nội dung/hình ảnh vào đây!</h2>
+            <h2 class="section-title" id="title-intro">Giới thiệu</h2>
+<p id="desc-1">Công ty chúng tôi có gần 20 năm kinh nghiệm trong lĩnh vực thiết kế các dữ liệu gia công và bản vẽ thi công của công trình xây dựng tại thị trường Nhật Bản và Philippines.</p>
+<p id="desc-2">Chúng tôi tự hào là doanh nghiệp hàng đầu trong lĩnh vực outsource dữ liệu cho công trình dân dụng, đáp ứng các yêu cầu khắt khe nhất của khách hàng Nhật Bản.</p>
+
+<h2 class="section-title" id="title-profile">Sơ lược công ty</h2>
+<table class="info-table">
+    <tr><th id="th-name">Tên công ty</th><td>CÔNG TY CỔ PHẦN THIẾT KẾ IUS</td></tr>
+    <tr><th id="th-address">Trụ sở chính</th><td id="td-address">An Hà Đông - Quảng Phú - Đà Nẵng - Việt Nam</td></tr>
+    <tr><th id="th-rep">Đại diện pháp luật</th><td id="td-rep">ông Lê Ngọc Sỹ - Giám đốc</td></tr>
+    <tr><th id="th-staff">Tổng số nhân viên</th><td id="td-staff">50 nhân viên (Tính đến 2026/03)</td></tr>
+    <tr><th id="th-software">Phần mềm sử dụng</th><td>PS5, MFC...</td></tr>
+</table>
+
+<h2 class="section-title" id="title-services">Dịch vụ</h2>
+<div class="pp_1" style="margin-top: 30px; margin-bottom: 50px;">
+    <p id="svc-1">1. Thiết kế liên quan công trình dân dụng (Bản vẽ, Kết cấu, Dự toán)</p>
+    <p id="svc-2">2. Lập trình và phát triển phần mềm hỗ trợ thiết kế xây dựng</p>
+</div>
+
+<h2 class="section-title" id="title-software-list">Các phần mềm sử dụng</h2>
+<div style="margin-top: 50px; overflow-x: auto;">
+    <table class="software-table">
+        <thead>
+            <tr>
+                <th>Hạng mục</th>
+                <th>Phần mềm</th>
+                <th>Hãng sản xuất</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="software-category">Kết cấu gỗ (Precut)</td>
+                <td>TOACAD, MPCAD, EAGLEX</td>
+                <td>Toa Engineering, Miyagawa, NetEagle</td>
+            </tr>
+            <tr>
+                <td class="software-category">Kiến trúc (Architect)</td>
+                <td>ARCHITREND ZERO, ALTA, ALTASS</td>
+                <td>Fukui Computer, CST</td>
+            </tr>
+            <tr>
+                <td class="software-category">CAD 2D</td>
+                <td>JWCAD, AUTOCAD, BRICSCAD, IJCAD</td>
+                <td>JWCAD, Autodesk, Bricsys...</td>
+            </tr>
+            <tr>
+                <td class="software-category">BIM / MEP</td>
+                <td>REVIT, ARCHICAD, REBRO, CADEWA</td>
+                <td>Autodesk, Graphisoft, NYK...</td>
+            </tr>
+            <tr>
+                <td class="software-category">Kết cấu thép & ALC</td>
+                <td>S/F REAL4, @PANEL</td>
+                <td>Data Logic, Pixel</td>
+            </tr>
+            <tr>
+                <td class="software-category">Dự toán & Tính toán</td>
+                <td>HOUSE-ST1, 平兵衛くん (Heibei), PBLD</td>
+                <td>Kozosystem, Sanyu, Chiyoda Ute</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
         </section>
     </main>
 
     <footer>
         <div class="footer-content">
-            <div class="footer-grid">
-                <div>
-                    <h4>Liên hệ</h4>
-                    <p><i class="fas fa-envelope"></i> Email: ngocsy@thietkeius.asia</p>
-                    <p><i class="fas fa-phone"></i> Hotline: 070 2929 345</p>
-                </div>
-                <div>
-                    <h4>Trụ sở chính</h4>
-                    <p>📍 An Hà Đông - Quảng Phú - Đà Nẵng - Việt Nam</p>
-                </div>
-                <div>
-                    <h4>Văn phòng làm việc:</h4>
-		    <p>🏠 Tầng 2, 189 Hùng Vương - Tam Kỳ - Đà Nẵng</p>
-                    <p>🏠 Phước Thành - Quế Sơn Trung - Đà Nẵng</p>
-                    <p>🏠 Tầng 6, 153 Đống Đa - Hải Châu - Đà Nẵng</p>
-                </div>
-            </div>
+<div class="footer-grid">
+    <div>
+        <h4 id="f-title-contact">Liên hệ</h4>
+        <p><i class="fas fa-envelope"></i> Email: ngocsy@thietkeius.asia</p>
+        <p><i class="fas fa-phone"></i> Hotline: 070 2929 345</p>
+    </div>
+    <div>
+        <h4 id="f-title-hq">Trụ sở chính</h4>
+        <p id="f-addr-hq">📍 An Hà Đông - Quảng Phú - Đà Nẵng - Việt Nam</p>
+    </div>
+    <div>
+        <h4 id="f-title-branch">Văn phòng làm việc</h4>
+        <p id="f-addr-b1">🏠 Tầng 2, 189 Hùng Vương - Tam Kỳ - Đà Nẵng</p>
+        <p id="f-addr-b2">🏠 Phước Thành - Quế Sơn Trung - Đà Nẵng</p>
+        <p id="f-addr-b3">🏠 Tầng 6, 153 Đống Đa - Hải Châu - Đà Nẵng</p>
+    </div>
+</div>
         
             <div class="footer-bottom">
                 <small>© 2026 Bản quyền thuộc về IUS</small>
@@ -550,9 +658,22 @@ header.scrolled .search-container {
             sub_light: "Kín đáo nhưng tràn ánh sáng!",
             sub_interior: "Nội thất sang trọng! Mát mẻ mùa hè, ấm áp về đông!",
 	    sub_notes: "Nhà gỗ Nhật Bản (Ảnh: Internet)",
+title_intro: "Giới thiệu",
+title_profile: "Sơ lược công ty",
+title_services: "Dịch vụ",
+        title_software_list: "Các phần mềm sử dụng",
+th_name: "Tên công ty",
+th_address: "Trụ sở chính",
+th_rep: "Đại diện pháp luật",
+th_staff: "Nhân sự",
+th_software: "Phần mềm",
             footer_contact: "Liên hệ",
             footer_headquarters: "Trụ sở chính",
             footer_branch: "Văn Phòng Làm Việc",
+addr_hq: "📍 An Hà Đông - Quảng Phú - Đà Nẵng - Việt Nam",
+        addr_b1: "🏠 Tầng 2, 189 Hùng Vương - Tam Kỳ - Đà Nẵng",
+        addr_b2: "🏠 Phước Thành - Quế Sơn Trung - Đà Nẵng",
+        addr_b3: "🏠 Tầng 6, 153 Đống Đa - Hải Châu - Đà Nẵng",
             footer_copyright: "© 2026 Bản quyền thuộc về IUS"
         },
         ja: {
@@ -576,9 +697,22 @@ header.scrolled .search-container {
             sub_light: "控えめながら光に満ちた！",
             sub_interior: "豪華なインテリア！夏は涼しく、冬は暖かく！",
 	    sub_notes: "日本の木造住宅（写真：インターネット）",
+title_intro: "紹介",
+title_profile: "会社概要",
+title_services: "サービス内容",
+        title_software_list: "使用ソフトウェア",
+th_name: "会社名",
+th_address: "本社",
+th_rep: "代表者",
+th_staff: "従業員数",
+th_software: "使用ソフト",
             footer_contact: "連絡先",
             footer_headquarters: "本社",
             footer_branch: "オフィス",
+addr_hq: "📍 An Ha Dong, Quang Phu, Da Nang, Vietnam",
+        addr_b1: "🏠 189 Hung Vuong, Tam Ky, Da Nang (2F)",
+        addr_b2: "🏠 Phuoc Thành, Que Son Trung, Da Nang",
+        addr_b3: "🏠 153 Dong Da, Hai Chau, Da Nang (6F)",
             footer_copyright: "© 2026 著作権は IUS に帰属します"
         }
     };
@@ -590,63 +724,61 @@ header.scrolled .search-container {
         applyLanguage(lang);
     });
 
-    function applyLanguage(lang) {
-	localStorage.setItem("selectedLanguage", lang);// Nho ngon ngu 
+function applyLanguage(lang) {
+    localStorage.setItem("selectedLanguage", lang);
+    const t = translations[lang];
+    if (!t) return;
+    langSelect.value = lang;
 
-        const t = translations[lang];
-	langSelect.value = lang; // Để combobox tự nhảy chữ VI/JA cho đúng
-        
-	if (!t) return;
+    // Hàm phụ để gán text an toàn
+    const setText = (id, text) => {
+        const el = document.getElementById(id);
+        if (el && text) el.innerText = text;
+    };
 
-        // Header & Nav
-	if(document.getElementById("nav-home")) document.getElementById("nav-home").innerText = t.nav_home;
-    	if(document.getElementById("nav-about")) document.getElementById("nav-about").innerText = t.nav_about;
-    	if(document.getElementById("nav-services")) document.getElementById("nav-services").innerText = t.nav_services;
-    	if(document.getElementById("nav-projects")) document.getElementById("nav-projects").innerText = t.nav_projects;
-    	if(document.getElementById("nav-news")) document.getElementById("nav-news").innerText = t.nav_news;
-	if(document.getElementById("nav-sub-company")) document.getElementById("nav-sub-company").innerText = t.nav_sub_company;
-    	if(document.getElementById("nav-jobs")) document.getElementById("nav-jobs").innerText = t.nav_jobs;
-    	if(document.getElementById("nav-contact")) document.getElementById("nav-contact").innerText = t.nav_contact;
+    // 1. Menu Nav
+    setText("nav-home", t.nav_home);
+    setText("nav-about", t.nav_about);
+    setText("nav-services", t.nav_services);
+    setText("nav-projects", t.nav_projects);
+    setText("nav-news", t.nav_news);
+    setText("nav-sub-company", t.nav_sub_company);
+    setText("nav-jobs", t.nav_jobs);
+    setText("nav-contact", t.nav_contact);
 
-        // Hero
-        document.querySelector(".title-thin").innerText = t.hero_title;
-        document.querySelector(".caption-bottom").innerText = t.hero_caption;
+    // 2. Hero Section (Dùng QuerySelector an toàn)
+    const heroTitle = document.querySelector(".title-thin");
+    if (heroTitle) heroTitle.innerText = t.hero_title;
 
-	//Search
-	const searchInput = document.getElementById("searchInput");
-    	if (searchInput) {
-    	    searchInput.placeholder = t.search_placeholder;
-    	}
+    // 3. Nội dung Giới thiệu & Bảng
+    setText("title-intro", t.title_intro);
+    setText("title-profile", t.title_profile);
+setText("title-services", t.title_services);
+    setText("title-software-list", t.title_software_list);
+    setText("title-strength", t.title_strength);
+    setText("th-name", t.th_name);
+    setText("th-address", t.th_address);
+    setText("th-rep", t.th_rep);
+    setText("th-staff", t.th_staff);
+    setText("th-software", t.th_software);
 
-        // Main Content
-        document.querySelector(".section-title").innerText = t.section_main_title;
-        
-        /*const subs = document.querySelectorAll(".sub-title-green");
-        subs[0].innerText = t.sub_classic;
-        subs[1].innerText = t.sub_modern;
-        subs[2].innerText = t.sub_morning;
-        subs[3].innerText = t.sub_noon;
-        subs[4].innerText = t.sub_peace;
-        subs[5].innerText = t.sub_light;
-        subs[6].innerText = t.sub_interior;*/
-
-        // Footer
-        const footerHeaders = document.querySelectorAll(".footer-grid h4");
+    // 5. Footer (Sửa lỗi quan trọng ở đây)
+    const footerHeaders = document.querySelectorAll(".footer-grid h4");
+    if (footerHeaders.length >= 3) {
         footerHeaders[0].innerText = t.footer_contact;
         footerHeaders[1].innerText = t.footer_headquarters;
         footerHeaders[2].innerText = t.footer_branch;
-        document.querySelector(".footer-bottom small").innerText = t.footer_copyright;
+    }
+    setText("f-addr-hq", t.addr_hq);
+    setText("f-addr-b1", t.addr_b1);
+    setText("f-addr-b2", t.addr_b2);
+    setText("f-addr-b3", t.addr_b3);
+    const copyRight = document.querySelector(".footer-bottom small");
+    if (copyRight) copyRight.innerText = t.footer_copyright;
 
-	// Notes
-	// ĐỔI TẤT CẢ CÁC DÒNG CHÚ THÍCH ẢNH
-	const captions = document.querySelectorAll(".lang-caption");
-	captions.forEach(cap => {
-	    cap.innerText = t.hero_caption; // Dùng chung nội dung "Nhà gỗ Nhật Bản..."
-	});
-
-	// Cập nhật luôn cả dòng caption dưới ảnh Hero
-	const heroCap = document.querySelector(".caption-bottom");
-	if(heroCap) heroCap.innerText = t.hero_caption;
+    // 6. Search placeholder
+    const sInput = document.getElementById("searchInput");
+    if (sInput) sInput.placeholder = t.search_placeholder;
 }
 
     // --- logic scroll ---
