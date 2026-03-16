@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #1a73e8;
+            --primary-color: #1a4ba0;
             --text-color: #3c4043;
         }
 
@@ -172,7 +172,7 @@ header.scrolled .lang-select {
 
         /* TIÊU ĐỀ CAM SÁNG LÊN KHI HOVER */
         .section-title {
-            color: rgba(0, 0, 200, 0.8);
+            color: #1a4ba0;
             font-size: 2.4rem;
             font-weight: 600;
             font-style: italic;
@@ -188,8 +188,8 @@ header.scrolled .lang-select {
         }
 
         .section-title:hover {
-            color: rgba(0, 0, 180, 0.8); /* Cam sáng hơn chút */
-            text-shadow: 0 0 15px rgba(0, 0, 180, 0.5); /* Phát sáng cam */
+            color: #1a4ba0; /* Cam sáng hơn chút */
+            text-shadow: 0 0 15px rgba(26, 75, 160, 0.5); /* Phát sáng cam */
         }
 
         .section-title::after {
@@ -197,7 +197,7 @@ header.scrolled .lang-select {
             display: block;
             width: 60%;
             height: 3px;
-            background: rgba(0, 0, 200, 0.8);
+            background: #1a4ba0;
             opacity: 0.5;
             margin: 10px auto 0 auto;
             border-radius: 10px;
@@ -208,12 +208,12 @@ header.scrolled .lang-select {
         .section-title:hover::after {
             opacity: 1;
             width: 70%;
-            background: rgba(0, 0, 200, 0.8);
+            background: #1a4ba0;
         }
 
 	/* Hiển thị chữ xanh và hiệu ứng trong nội dung phần thân trang web */
         .sub-title-green {
-            color: rgba(0, 0, 200, 0.8);
+            color: #1a4ba0;
             font-size: 2.2rem;
             font-weight: 500;
             text-align: center;
@@ -225,7 +225,7 @@ header.scrolled .lang-select {
         }
 
         .sub-title-green:hover {
-            color: rgba(0, 0, 200, 0.8); 
+            color: #1a4ba0; 
             letter-spacing: 1px;
         }
 
@@ -448,79 +448,32 @@ header.scrolled .search-container {
     padding: 5px;
 }
 
-// Phần code của  TRANG DICH VU */
 /* Styling cho sơ đồ dịch vụ */
+/* --- CSS SƠ ĐỒ ĐÃ CÁCH LY KHỎI IMAGE HOVER --- */
 .diagram-wrapper {
     width: 100%;
-    max-width: 800px;
+    max-width: 950px; 
     margin: 40px auto;
+    overflow: visible; /* Giúp đổ bóng không bị cắt */
 }
 
+/* Ép SVG không bị ảnh hưởng bởi các hiệu ứng scale hình ảnh bên ngoài */
 .services-svg {
     width: 100%;
     height: auto;
+    display: block;
+    transform: none !important; /* Chặn hoàn toàn lệnh phóng to từ bên ngoài */
+    filter: none !important;
 }
 
-/* Các đường kẻ nối */
+/* Đường nối: đậm hơn một chút để đỡ mảnh mai */
 .lines line {
-    stroke: #ddd;
+    stroke: #1a4ba0;
     stroke-width: 2;
-    stroke-dasharray: 5;
-    animation: dash 10s linear infinite;
+    opacity: 0.25;
 }
 
-@keyframes dash {
-    to { stroke-dashoffset: 100; }
-}
-
-/* Node trung tâm IUS */
-.node.central rect {
-    fill: var(--primary-color);
-}
-.node.central text {
-    fill: white;
-    font-weight: bold;
-    font-size: 18px;
-}
-
-/* Các node dịch vụ xung quanh */
-.node.branch rect {
-    fill: white;
-    stroke: var(--primary-color);
-    stroke-width: 2;
-    transition: all 0.3s ease;
-}
-.node.branch text {
-    fill: var(--text-color);
-    font-size: 14px;
-    font-weight: 500;
-}
-
-/* Hiệu ứng tương tác */
-.node-link:hover .node.branch rect {
-    fill: #e8f0fe;
-    transform: translateY(-2px);
-    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
-}
-
-.node-link:hover .node.branch text {
-    fill: var(--primary-color);
-}
-
-.node-link {
-    text-decoration: none;
-}
-/* Chống việc bị Header che mất nội dung khi click từ sơ đồ */
-.content-block {
-    scroll-margin-top: 130px; /* Khoảng cách này nên bằng hoặc lớn hơn chiều cao Header của bạn */
-    scroll-behavior: smooth;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-/* CSS cho các ô chữ trong SVG */
+/* Ô chữ: Bo góc ít hơn để nhìn chuyên nghiệp và to hơn */
 .svg-node-box {
     width: 100%;
     height: 100%;
@@ -529,22 +482,80 @@ html {
     justify-content: center;
     text-align: center;
     background: white;
-    border: 2px solid var(--primary-color);
-    border-radius: 25px;
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--text-color);
-    padding: 5px 10px;
+    border: 2px solid #1a4ba0; 
+    border-radius: 8px; /* Bo góc nhẹ */
+    font-size: 16px; /* Chữ to rõ */
+    font-weight: 600;
+    color: #333;
+    padding: 10px;
     box-sizing: border-box;
-    transition: all 0.3s ease;
-    line-height: 1.2;
+    transition: all 0.2s ease-in-out;
+    line-height: 1.4;
 }
 
+/* Hover: Chỉ đổi màu và đổ bóng, không di chuyển vị trí để tránh lệch viền */
 .node-link:hover .svg-node-box {
-    background: #e8f0fe;
-    color: var(--primary-color);
-    transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background: #1a4ba0;
+    color: white !important;
+    box-shadow: 0 5px 15px rgba(26, 75, 160, 0.4);
+    transform: none !important; /* Giữ cố định khung */
+}
+
+/* Sửa lỗi link nhảy bị Header che: Cách này giúp nhảy đúng tên đề mục */
+.content-block {
+    scroll-margin-top: 100px; /* Chừa chỗ cho Header 80px + 20px khoảng cách */
+}
+
+/* Ẩn nút 3 gạch trên máy tính */
+.menu-toggle {
+    display: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+header.scrolled .menu-toggle {
+    color: #333;
+}
+
+/* KHI XEM TRÊN ĐIỆN THOẠI (Dưới 768px) */
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Hiện nút 3 gạch */
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%; /* Đẩy xuống dưới Header */
+        left: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.98);
+        flex-direction: column; /* Xếp menu dọc xuống */
+        gap: 0;
+        display: none; /* Mặc định ẩn menu đi */
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+
+    /* Khi bấm vào nút, lớp 'active' sẽ được thêm vào bằng JS để hiện menu */
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid #eee;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 15px;
+        color: #333 !important; /* Chữ đen cho dễ nhìn trên nền trắng */
+    }
+    
+    .header-tools {
+        gap: 5px; /* Thu hẹp khoảng cách tìm kiếm và ngôn ngữ */
+    }
 }
     </style>
 </head>
@@ -557,6 +568,10 @@ html {
             </a>
         </div>
         
+<div class="menu-toggle" id="mobile-menu">
+        <i class="fas fa-bars"></i>
+    </div>
+
         <nav>
             <ul class="nav-links">
 		<li><a href="index.html" id="nav-home">Trang chủ</a></li>
@@ -592,71 +607,52 @@ html {
     <section id="services-diagram">
         <h2 class="section-title">Hệ Sinh Thái Dịch Vụ IUS</h2>
         
-        <div class="diagram-wrapper">
-<svg viewBox="0 0 800 500" preserveAspectRatio="xMidYMid meet" class="services-svg">
-    <g class="lines">
-        <line x1="400" y1="250" x2="150" y2="100" />
-        <line x1="400" y1="250" x2="400" y2="60" />
-        <line x1="400" y1="250" x2="650" y2="100" />
-        <line x1="400" y1="250" x2="150" y2="400" />
-        <line x1="400" y1="250" x2="400" y2="440" />
-        <line x1="400" y1="250" x2="650" y2="400" />
-    </g>
+<div class="diagram-wrapper">
+    <svg viewBox="0 0 800 400" preserveAspectRatio="xMidYMid meet" class="services-svg">
+        <g class="lines">
+            <line x1="400" y1="200" x2="220" y2="100" />
+            <line x1="400" y1="200" x2="400" y2="70" />
+            <line x1="400" y1="200" x2="580" y2="100" />
+            <line x1="400" y1="200" x2="220" y2="300" />
+            <line x1="400" y1="200" x2="400" y2="330" />
+            <line x1="400" y1="200" x2="580" y2="300" />
+        </g>
 
-    <g class="node central">
-        <rect x="350" y="220" width="100" height="60" rx="10" />
-        <text x="400" y="258" text-anchor="middle" style="fill: white; font-weight: bold; font-size: 20px;">IUS</text>
-    </g>
+        <circle cx="400" cy="200" r="35" fill="#1a4ba0" />
+        <text x="400" y="207" text-anchor="middle" fill="white" style="font-weight: bold; font-size: 20px;">IUS</text>
 
-    <a href="#service-1" class="node-link">
-        <foreignObject x="50" y="65" width="200" height="70">
-            <div xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box">
-                らくわく構造検討（２×4工法）
-            </div>
-        </foreignObject>
-    </a>
-
-    <a href="#service-2" class="node-link">
-        <foreignObject x="300" y="10" width="200" height="80">
-            <div xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box">
-                PS5生産図（２×4工法、プレカット・パネル）
-            </div>
-        </foreignObject>
-    </a>
-
-    <a href="#service-3" class="node-link">
-        <foreignObject x="550" y="65" width="200" height="70">
-            <div xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box">
-                PS5構造図（２×4工法）
-            </div>
-        </foreignObject>
-    </a>
-
-    <a href="#service-4" class="node-link">
-        <foreignObject x="50" y="365" width="200" height="70">
-            <div xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box">
-                手拾い
-            </div>
-        </foreignObject>
-    </a>
-
-    <a href="#service-5" class="node-link">
-        <foreignObject x="300" y="410" width="200" height="70">
-            <div xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box">
-                プログラム
-            </div>
-        </foreignObject>
-    </a>
-
-    <a href="#service-6" class="node-link">
-        <foreignObject x="550" y="365" width="200" height="70">
-            <div xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box">
-                JW編集
-            </div>
-        </foreignObject>
-    </a>
-</svg>
-        </div>
+        <a href="#service-1" class="node-link">
+            <foreignObject x="100" y="60" width="220" height="80">
+                <div xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box">らくわく構造検討<br/>（２×4工法）</div>
+            </foreignObject>
+        </a>
+        <a href="#service-2" class="node-link">
+            <foreignObject x="300" y="5" width="200" height="80">
+                <div xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box">PS5生産図<br/>(2×4, プレカット)</div>
+            </foreignObject>
+        </a>
+        <a href="#service-3" class="node-link">
+            <foreignObject x="480" y="60" width="220" height="80">
+                <div xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box">PS5構造図<br/>（２×4工法）</div>
+            </foreignObject>
+        </a>
+        <a href="#service-4" class="node-link">
+            <foreignObject x="100" y="260" width="220" height="80">
+                <div xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box">手拾い</div>
+            </foreignObject>
+        </a>
+        <a href="#service-5" class="node-link">
+            <foreignObject x="300" y="315" width="200" height="80">
+                <div xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box">プログラム</div>
+            </foreignObject>
+        </a>
+        <a href="#service-6" class="node-link">
+            <foreignObject x="480" y="260" width="220" height="80">
+                <div xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box">JW編集</div>
+            </foreignObject>
+        </a>
+    </svg>
+</div>
     </section>
 
     <hr style="margin: 80px 0; border: 0; border-top: 1px dashed #ccc;">
@@ -892,6 +888,31 @@ window.addEventListener("DOMContentLoaded", () => {
     
     // Gọi hàm áp dụng ngôn ngữ đó
     applyLanguage(savedLang);
+});
+
+// Xử lý nút hamberger cho điện thoại
+const mobileMenu = document.getElementById('mobile-menu');
+const navLinks = document.querySelector('.nav-links');
+
+// Khi bấm vào nút 3 gạch
+mobileMenu.addEventListener('click', () => {
+    // Thêm hoặc xóa class 'active' để hiện/ẩn menu
+    navLinks.classList.toggle('active');
+    
+    // Đổi icon từ 3 gạch sang chữ X khi mở
+    const icon = mobileMenu.querySelector('i');
+    if (navLinks.classList.contains('active')) {
+        icon.classList.replace('fa-bars', 'fa-times');
+    } else {
+        icon.classList.replace('fa-times', 'fa-bars');
+    }
+});
+
+// Tự đóng menu khi bấm vào một link bất kỳ
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+    });
 });
 </script>
 </body>
