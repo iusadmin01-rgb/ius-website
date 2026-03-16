@@ -260,6 +260,8 @@ header.scrolled .lang-select {
             display: flex;
             flex-direction: column;
             align-items: center;
+	    margin-bottom: 120px;
+	    scroll-margin-top: 120px;
         }
 
         .content-block::after {
@@ -623,32 +625,32 @@ header.scrolled .menu-toggle {
 
         <a href="#service-1" class="node-link">
             <foreignObject x="100" y="60" width="220" height="80">
-                <div xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box">らくわく構造検討<br/>（２×4工法）</div>
+                <div id="svg-s1" xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box">らくわく構造検討<br/>（２×4工法）</div>
             </foreignObject>
         </a>
         <a href="#service-2" class="node-link">
             <foreignObject x="300" y="5" width="200" height="80">
-                <div xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box">PS5生産図<br/>(2×4, プレカット)</div>
+                <div id="svg-s2" xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box">PS5生産図<br/>(2×4, プレカット)</div>
             </foreignObject>
         </a>
         <a href="#service-3" class="node-link">
             <foreignObject x="480" y="60" width="220" height="80">
-                <div xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box">PS5構造図<br/>（２×4工法）</div>
+                <div id="svg-s3" xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box">PS5構造図<br/>（２×4工法）</div>
             </foreignObject>
         </a>
         <a href="#service-4" class="node-link">
             <foreignObject x="100" y="260" width="220" height="80">
-                <div xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box">手拾い</div>
+                <div id="svg-s4" xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box">手拾い</div>
             </foreignObject>
         </a>
         <a href="#service-5" class="node-link">
             <foreignObject x="300" y="315" width="200" height="80">
-                <div xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box">プログラム</div>
+                <div id="svg-s5" xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box">プログラム</div>
             </foreignObject>
         </a>
         <a href="#service-6" class="node-link">
             <foreignObject x="480" y="260" width="220" height="80">
-                <div xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box">JW編集</div>
+                <div id="svg-s6" xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box">JW編集</div>
             </foreignObject>
         </a>
     </svg>
@@ -658,28 +660,28 @@ header.scrolled .menu-toggle {
     <hr style="margin: 80px 0; border: 0; border-top: 1px dashed #ccc;">
 
     <div id="service-1" class="content-block">
-        <h3 class="sub-title-green">らくわく構造検討（２×4工法）</h3>
-        <p>Giải pháp thiết kế sáng tạo, tối ưu công năng và thẩm mỹ cho ngôi nhà của bạn.</p>
+        <h3 id="t1" class="sub-title-green">らくわく構造検討（２×4工法）</h3>
+        <p id="d1">Giải pháp thiết kế sáng tạo, tối ưu công năng và thẩm mỹ cho ngôi nhà của bạn.</p>
     </div>
     <div id="service-2" class="content-block">
-        <h3 class="sub-title-green">PS5生産図（２×4工法、プレカット・パネル）</h3>
-        <p>Tinh hoa kiến trúc gỗ xứ Phù Tang, mang lại sự bền bỉ và không gian thiền định.</p>
+        <h3 id="t2" class="sub-title-green">PS5生産図（２×4工法、プレカット・パネル）</h3>
+        <p id="d2" >Tinh hoa kiến trúc gỗ xứ Phù Tang, mang lại sự bền bỉ và không gian thiền định.</p>
     </div>
     <div id="service-3" class="content-block">
-        <h3 class="sub-title-green">PS5構造図（２×4工法）</h3>
-        <p>Sự kết hợp hoàn hảo giữa vật liệu thượng hạng và tay nghề thủ công tinh xảo.</p>
+        <h3 id="t3"  class="sub-title-green">PS5構造図（２×4工法）</h3>
+        <p id="d3" >Sự kết hợp hoàn hảo giữa vật liệu thượng hạng và tay nghề thủ công tinh xảo.</p>
     </div>
     <div id="service-4" class="content-block">
-        <h3 class="sub-title-green">手拾い</h3>
-        <p>Chìa khóa trao tay, đảm bảo chất lượng từ bản vẽ đến thực tế công trình.</p>
+        <h3 id="t4"  class="sub-title-green">手拾い</h3>
+        <p id="d4" >Chìa khóa trao tay, đảm bảo chất lượng từ bản vẽ đến thực tế công trình.</p>
     </div>
     <div id="service-5" class="content-block">
-        <h3 class="sub-title-green">プログラム</h3>
-        <p>Đưa thiên nhiên vào không gian sống với thiết kế sân vườn chuẩn phong cách Nhật.</p>
+        <h3 id="t5"  class="sub-title-green">プログラム</h3>
+        <p id="d5" >Đưa thiên nhiên vào không gian sống với thiết kế sân vườn chuẩn phong cách Nhật.</p>
     </div>
     <div id="service-6" class="content-block">
-        <h3 class="sub-title-green">JW編集</h3>
-        <p>Đảm bảo sự hài hòa về năng lượng, mang lại tài lộc và bình an cho gia chủ.</p>
+        <h3 id="t6"  class="sub-title-green">JW編集</h3>
+        <p id="d6" >Đảm bảo sự hài hòa về năng lượng, mang lại tài lộc và bình an cho gia chủ.</p>
     </div>
 </main>
 
@@ -728,7 +730,21 @@ header.scrolled .menu-toggle {
             hero_title: "Dịch vụ của IUS!",
             hero_caption: "Nhà gỗ Nhật Bản (Ảnh: Internet)",
 	    search_placeholder: "Tìm kiếm...",
-            section_main_title: "Các dịch vụ của IUS!",
+
+            section_main_title: "Hệ Sinh Thái Dịch Vụ IUS!",
+        s1_t: "Phán đoán kết cấu Rakuwaku (phương pháp 2×4)",
+        s1_d: "Giải pháp thiết kế sáng tạo, tối ưu công năng và thẩm mỹ cho ngôi nhà của bạn.",
+        s2_t: "Bản vẽ sản xuất PS5 (phương pháp 2×4, cắt trước/panel)",
+        s2_d: "Tinh hoa kiến trúc gỗ xứ Phù Tang, mang lại sự bền bỉ và không gian thiền định.",
+        s3_t: "Bản vẽ kết cấu PS5 (phương pháp 2×4)",
+        s3_d: "Sự kết hợp hoàn hảo giữa vật liệu thượng hạng và tay nghề thủ công tinh xảo.",
+        s4_t: "Bản vẽ thủ công",
+        s4_d: "Chìa khóa trao tay, đảm bảo chất lượng từ bản vẽ đến thực tế công trình.",
+        s5_t: "Lập trình software",
+        s5_d: "Đưa thiên nhiên vào không gian sống với thiết kế sân vườn chuẩn phong cách Nhật.",
+        s6_t: "Biên tập JW",
+        s6_d: "Đảm bảo sự hài hòa về năng lượng, mang lại tài lộc và bình an cho gia chủ.",
+
             sub_classic: "Dù là cổ điển",
             sub_modern: "Hay hiện đại",
             sub_morning: "Trẻ trung trong nắng sớm!",
@@ -758,7 +774,21 @@ addr_hq: "📍 An Hà Đông - Quảng Phú - Đà Nẵng - Việt Nam",
             hero_title: "IUSのサービス！",
             hero_caption: "日本の木造住宅（写真：インターネット）",
 	    search_placeholder: "検索...",
-            section_main_title: "IUSサービス！",
+
+            section_main_title: "IUSサービスエコシステム！",
+	s1_t: "らくわく構造検討（２×4工法）",
+        s1_d: "住まいの機能性と美しさを最適化する革新的な設計ソリューション。",
+        s2_t: "PS5生産図（２×4工法、プレカット・パネル）",
+        s2_d: "日本の木造建築の精髄。耐久性と静寂な空間を提供します。",
+        s3_t: "PS5構造図（２×4工法）",
+        s3_d: "厳選された素材と熟練した技術の完璧な融合。",
+        s4_t: "手拾い",
+        s4_d: "図面から実際の施工まで、確かな品質を保証するターンキーサービス。",
+        s5_t: "プログラム",
+        s5_d: "日本庭園スタイルのデザインで、自然を生活空間に取り入れます。",
+        s6_t: "JW編集",
+        s6_d: "エネルギーの調和を確保し、施主に繁栄と平安をもたらします。",
+
             sub_classic: "クラシックでも",
             sub_modern: "モダンでも",
             sub_morning: "朝の光の中で若々しく！",
@@ -830,6 +860,19 @@ const setText = (id, text) => {
     setText("f-addr-b1", t.addr_b1);
     setText("f-addr-b2", t.addr_b2);
     setText("f-addr-b3", t.addr_b3);
+
+    setText("svg-s1", t.s1_t);
+    setText("svg-s2", t.s2_t);
+    setText("svg-s3", t.s3_t);
+    setText("svg-s4", t.s4_t);
+    setText("svg-s5", t.s5_t);
+    setText("svg-s6", t.s6_t);
+
+    for (let i = 1; i <= 6; i++) {
+        setText(`t${i}`, t[`s${i}_t`]);
+        setText(`d${i}`, t[`s${i}_d`]);
+    }
+
 }
 
     // --- logic scroll ---
