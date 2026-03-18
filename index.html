@@ -14,7 +14,7 @@
         body {
             font-family: 'Segoe UI', Roboto, Arial, sans-serif;
             margin: 0;
-            padding: 0;
+            padding-top: 95px; /* Khoảng cách này bằng đúng chiều cao Header */
             color: var(--text-color);
             background-color: #f8f9fa;
         }
@@ -25,19 +25,19 @@
             top: 0;
             left: 0;
             width: 100%;
+	    height: 95px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 5%;
+            padding: 0 5%;
             box-sizing: border-box;
             z-index: 1000;
-            background: transparent;
-            transition: all 0.4s ease;
+            background: #ffffff;
+	    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         header.scrolled {
-            background: rgba(255, 255, 255, 0.98);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background: #ffffff;
             padding: 10px 5%;
         }
 
@@ -51,11 +51,10 @@
 
         .nav-links a {
             text-decoration: none;
-            color: #1a4ba0;
-            font-weight: 500;
+            color: var(--primary-color);
+            font-weight: 600;
             font-size: 15px;
             text-transform: uppercase;
-            transition: color 0.3s ease;
         }
 
         .nav-links a:hover {
@@ -80,24 +79,23 @@
             gap: 15px;
         }
 
-	/* Biến Combo box thành phong cách kính mờ */
+	/* Combo box */
 	.lang-select {
-	    background: rgba(255, 255, 255, 0.15); /* Nền mờ */
-	    backdrop-filter: blur(8px);           /* Hiệu ứng kính */
-	    -webkit-backdrop-filter: blur(8px);
-	    color: white;                          /* Chữ trắng trên ảnh bìa */
-	    border: 1px solid rgba(255, 255, 255, 0.3); /* Viền trắng mờ */
-	    padding: 4px 12px;
-	    border-radius: 20px;                   /* Bo tròn */
-	    cursor: pointer;
-	    outline: none;
-	    font-size: 13px;
-	    font-weight: 600;
-	    appearance: none;                      /* Xóa mũi tên đen mặc định */
-	    -webkit-appearance: none;
-	    transition: all 0.3s ease;
-	    text-align: center;
-	    min-width: 50px;
+    background: rgba(26, 75, 160, 0.1); /* Đổi sang xanh nhạt để nổi trên nền trắng */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #1a4ba0; 
+    border: 1px solid rgba(26, 75, 160, 0.3);
+    padding: 4px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    outline: none;
+    font-size: 13px;
+    font-weight: 600;
+    appearance: none;
+    -webkit-appearance: none;
+    text-align: center;
+    min-width: 50px;
 }
 
 /* Khi cuộn chuột xuống - Header chuyển sang nền trắng */
@@ -120,44 +118,60 @@ header.scrolled .lang-select {
 }
 
 /* BANNER (HERO) */
+/* Sửa lại khung Hero để đưa chữ ra giữa và lệch lên */
+/* 1. KHUNG HERO: Căn giữa và đẩy lệch lên trên */
 .hero {
     position: relative;
-    background: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), /* Đổi sang lớp phủ sáng để nổi bật chữ đen */
+    height: calc(100vh - 95px); 
+    background: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), 
                 url('image/Anh-bia-trang-chu-new.png');
     background-size: cover;
     background-position: center;
-    height: 105vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     
-    /* Đẩy sát qua bên trái */
+    display: flex;
+    justify-content: center; 
+    /* Thay vì căn giữa (center), ta căn lên đỉnh (flex-start) */
     align-items: flex-start; 
     
-    /* Hở một đoạn nhỏ khoảng 5% chiều ngang hoặc 50px */
-    padding-left: 5%; 
+    /* Khoảng cách từ Header xuống dòng chữ. 
+       Số này càng nhỏ thì chữ càng sát lên trên. */
+    padding-top: 10vh; 
     
-    color: black; 
-    text-align: left; /* Chữ căn lề trái */
+    text-align: center;      
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 .title-thin {
-    font-weight: 300;
-    font-size: 2.5rem;
+    font-weight: 400;
+    font-size: 3rem;
     font-style: italic;
-    letter-spacing: 1px;
-    transition: all 0.5s ease;
-    cursor: default;
-    color: #000000;
-    
-    /* Đảm bảo không có margin tự động làm lệch chữ */
-    margin-left: 0; 
+    color: var(--primary-color);
+    /* Thêm margin-top âm nếu bạn muốn nó đè lên sát Header hơn nữa */
+    margin-top: 0; 
+    text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.8);
+    white-space: pre-line; 
+    line-height: 1.4;
+    width: 100%; /* Đảm bảo căn giữa toàn màn hình */
 }
 
-/* Hiệu ứng khi di chuột vào chữ BANNER */
-.title-thin:hover {
-    text-shadow: 0 0 10px rgba(0, 0, 200, 0.3); /* Phát sáng xanh nhạt */
-    transform: translateX(10px); /* Nhích nhẹ sang phải một chút khi hover cho sinh động */
+/* 3. HIỆU ỨNG: Chạy ra và Nhấp nháy liên tục */
+.char-effect {
+    display: inline-block;
+    white-space: pre;
+    opacity: 0;
+    /* Chạy fadeIn để hiện ra, sau đó chạy blink liên tục */
+    animation: fadeIn 0.5s forwards, blink 2s infinite;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; filter: brightness(1.2); }
+    50% { opacity: 0.2; filter: brightness(0.8); }
 }
 
         .caption-bottom {
@@ -426,7 +440,7 @@ header.scrolled .lang-select {
 .search-container {
     display: flex;
     align-items: center;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.05); /* Xám nhạt để thấy rõ trên nền trắng */
     border-radius: 20px;
     padding: 2px 10px;
     transition: all 0.3s ease;
@@ -455,7 +469,9 @@ header.scrolled .search-container {
 }
 
 .search-box {
-    padding: 5px;
+    color: #1a4ba0; /* Màu kính lúp xanh theo tone logo */
+    cursor: pointer;
+    font-size: 18px;
 }
 
 /* Container chứa 7 ô dịch vụ */
@@ -521,13 +537,20 @@ header.scrolled .search-container {
 /* Ẩn nút 3 gạch trên máy tính */
 .menu-toggle {
     display: none;
-    color: white;
+    color: var(--primary-color);
     font-size: 24px;
     cursor: pointer;
 }
 
 header.scrolled .menu-toggle {
     color: #333;
+}
+
+/* Dành cho máy tính bảng (màn hình nhỏ hơn 1024px) */
+@media screen and (max-width: 1024px) {
+    .title-thin {
+        font-size: 2.5rem; /* Thu nhỏ từ 3.5rem xuống 2.5rem */
+    }
 }
 
 /* KHI XEM TRÊN ĐIỆN THOẠI (Dưới 768px) */
@@ -567,6 +590,10 @@ header.scrolled .menu-toggle {
     
     .header-tools {
         gap: 5px; /* Thu hẹp khoảng cách tìm kiếm và ngôn ngữ */
+    }
+
+    .title-thin {
+        font-size: 2rem; /* Thu nhỏ lại trên điện thoại để không bị tràn dòng */
     }
 }
     </style>
@@ -719,7 +746,7 @@ header.scrolled .menu-toggle {
 	    nav_sub_company: "Công ty thành viên",
             nav_jobs: "Tuyển dụng",
             nav_contact: "Liên hệ",
-            hero_title: "Kiến tạo ngôi nhà bền vững của bạn!",
+            hero_title: "Công ty chúng tôi chuyên:\n・Gia công bản vẽ\n・Lập trình phần mềm",
             hero_caption: "Nhà gỗ Nhật Bản (Ảnh: Internet)",
 	    search_placeholder: "Tìm kiếm...",
             section_main_title: "Đem đến cho bạn và gia đình sự hoàn hảo tuyệt mỹ với những bản thiết kế mới lạ và đa dạng!",
@@ -749,7 +776,7 @@ addr_hq: "📍 An Hà Đông - Quảng Phú - Đà Nẵng - Việt Nam",
 	    nav_sub_company: "子会社",
             nav_jobs: "採用情報",
             nav_contact: "お問い合わせ",
-            hero_title: "あなたの持続可能な家を築きましょう！",
+            hero_title: "私たちの会社は、\n・建築図面作成\n・ソフトウェア開発",
             hero_caption: "日本の木造住宅（写真：インターネット）",
 	    search_placeholder: "検索...",
             section_main_title: "斬新で多様なデザインで、あなたとご家族に最高の完璧さをお届けします！",
@@ -787,6 +814,29 @@ addr_hq: "📍 An Ha Dong, Quang Phu, Da Nang, Vietnam",
         
 	if (!t) return;
 
+// --- LOGIC CHẠY CHỮ CHO HERO TITLE ---
+const heroTitle = document.querySelector(".title-thin");
+    heroTitle.innerHTML = ""; // Xóa nội dung cũ
+
+    // Lấy chuỗi văn bản (có chứa \n từ translations)
+    const text = t.hero_title; 
+    
+    // Tách từng ký tự để làm hiệu ứng chạy lần lượt
+    text.split("").forEach((char, index) => {
+        const span = document.createElement("span");
+        
+        // Nếu là ký tự xuống dòng, tạo thẻ <br>
+        if (char === "\n") {
+            heroTitle.appendChild(document.createElement("br"));
+        } else {
+            span.innerText = char;
+            span.className = "char-effect";
+            // Delay để chữ hiện ra lần lượt (0.05 giây mỗi chữ)
+            span.style.animationDelay = `${index * 0.05}s, ${index * 0.05 + 2}s`;
+            heroTitle.appendChild(span);
+        }
+    });
+
         // Header & Nav
 	if(document.getElementById("nav-home")) document.getElementById("nav-home").innerText = t.nav_home;
     	if(document.getElementById("nav-about")) document.getElementById("nav-about").innerText = t.nav_about;
@@ -798,7 +848,7 @@ addr_hq: "📍 An Ha Dong, Quang Phu, Da Nang, Vietnam",
     	if(document.getElementById("nav-contact")) document.getElementById("nav-contact").innerText = t.nav_contact;
 
         // Hero
-        document.querySelector(".title-thin").innerText = t.hero_title;
+        //document.querySelector(".title-thin").innerText = t.hero_title;
         //document.querySelector(".caption-bottom").innerText = t.hero_caption;
 	
 	//Search
@@ -844,17 +894,11 @@ const setText = (id, text) => {
     const backToTopBtn = document.getElementById("backToTop");
 
     window.onscroll = function() {
-        if (window.scrollY > 300) {
-            header.classList.add("scrolled");
-        } else {
-            header.classList.remove("scrolled");
-        }
-
-        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+	if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
             backToTopBtn.style.display = "block";
-        } else {
+    	} else {
             backToTopBtn.style.display = "none";
-        }
+    	}
     };
 
     backToTopBtn.onclick = function() {
