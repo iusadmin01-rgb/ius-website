@@ -118,41 +118,39 @@ header.scrolled .lang-select {
 }
 
 /* BANNER (HERO) */
-/* Sửa lại khung Hero để đưa chữ ra giữa và lệch lên */
-/* 1. KHUNG HERO: Căn giữa và đẩy lệch lên trên */
 .hero {
     position: relative;
-    height: calc(100vh - 95px); 
+    width: 100%;
+    min-height: calc(100vw * (1024 / 1536)); /* Công thức tính chiều cao theo tỉ lệ ảnh 1536x1024 */
+    
     background: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), 
                 url('image/Anh-bia-trang-chu-new.png');
-    background-size: cover;
-    background-position: center;
+    
+    background-size: contain; /* Hiện toàn bộ ảnh */
+    background-repeat: no-repeat;
+    background-position: top center; /* Bắt đầu từ đỉnh ảnh */
+    background-color: #ffffff; /* Nền trắng */
     
     display: flex;
     justify-content: center; 
-    /* Thay vì căn giữa (center), ta căn lên đỉnh (flex-start) */
     align-items: flex-start; 
     
-    /* Khoảng cách từ Header xuống dòng chữ. 
-       Số này càng nhỏ thì chữ càng sát lên trên. */
-    padding-top: 10vh; 
-    
+    padding-top: 80px; 
     text-align: center;      
     box-sizing: border-box;
-    overflow: hidden;
 }
 
 .title-thin {
-    font-weight: 400;
+    font-weight: 600;
     font-size: 3rem;
     font-style: italic;
     color: var(--primary-color);
-    /* Thêm margin-top âm nếu bạn muốn nó đè lên sát Header hơn nữa */
-    margin-top: 0; 
-    text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.8);
+    text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.9);
     white-space: pre-line; 
-    line-height: 1.4;
-    width: 100%; /* Đảm bảo căn giữa toàn màn hình */
+    line-height: 1.3;
+    width: 90%; /* Đảm bảo căn giữa toàn màn hình */
+    margin: 0 auto;
+    font-size: 3.5rem; /* Cỡ chữ mặc định cho MÁY TÍNH (Desktop) */
 }
 
 /* 3. HIỆU ỨNG: Chạy ra và Nhấp nháy liên tục */
@@ -548,13 +546,27 @@ header.scrolled .menu-toggle {
 
 /* Dành cho máy tính bảng (màn hình nhỏ hơn 1024px) */
 @media screen and (max-width: 1024px) {
+    .hero {
+        padding-top: 60px; /* Đẩy chữ lên cao hơn một chút */
+    }
+
     .title-thin {
-        font-size: 2.5rem; /* Thu nhỏ từ 3.5rem xuống 2.5rem */
+        font-size: 3rem;
     }
 }
 
 /* KHI XEM TRÊN ĐIỆN THOẠI (Dưới 768px) */
 @media screen and (max-width: 768px) {
+    .hero {
+        padding-top: 30px; /* Đẩy chữ lên sát đỉnh ảnh để không bị thấp */
+    }
+
+    .title-thin {
+        font-size: 1.6rem; /* Thu nhỏ chữ để vừa 3 dòng trên màn hình dọc */
+        line-height: 1.2;
+        font-weight: 700; /* Chữ nhỏ thì đậm hơn để dễ đọc */
+    }
+
     .menu-toggle {
         display: block; /* Hiện nút 3 gạch */
     }
@@ -591,9 +603,15 @@ header.scrolled .menu-toggle {
     .header-tools {
         gap: 5px; /* Thu hẹp khoảng cách tìm kiếm và ngôn ngữ */
     }
+}
 
+/* --- ĐIỀU CHỈNH CHO ĐIỆN THOẠI NHỎ (Dưới 480px) --- */
+@media screen and (max-width: 480px) {
+    .hero {
+        padding-top: 15px; /* Sát lên trên cùng */
+    }
     .title-thin {
-        font-size: 2rem; /* Thu nhỏ lại trên điện thoại để không bị tràn dòng */
+        font-size: 1.2rem; 
     }
 }
     </style>
