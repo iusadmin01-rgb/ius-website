@@ -44,7 +44,7 @@
         .nav-links {
             list-style: none;
             display: flex;
-            gap: 25px;
+            gap: 35px;
             margin: 0;
             padding: 0;
         }
@@ -52,8 +52,8 @@
         .nav-links a {
             text-decoration: none;
             color: #ffffff;
-            font-weight: 500;
-            font-size: 15px;
+            font-weight: 600;
+            font-size: 17px;
             text-transform: uppercase;
             transition: color 0.3s ease;
         }
@@ -61,6 +61,12 @@
         .nav-links a:hover {
             color: var(--primary-color) !important;
         }
+
+	/* Xử lý riêng cho Tiếng Nhật */
+	    body.lang-ja .nav-links a {
+    	    font-size: 18px; /* Tiếng Nhật thường cần to hơn để dễ đọc */
+    	    letter-spacing: 0.15em; /* Giãn cách các ký tự tiếng Nhật */
+	}
 
         header.scrolled .nav-links a,
         header.scrolled .search-box,
@@ -123,7 +129,7 @@ header.scrolled .lang-select {
         .hero {
             position: relative;
             background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
-                        url('image/Anh-bia-trang-chu.PNG');
+                        url('image/Anh-bia-trang-cong-ty-thanh-vien.jfif');
             background-size: cover;
             background-position: center;
             height: 60vh;
@@ -655,6 +661,9 @@ addr_hq: "📍 An Ha Dong, Quang Phu, Da Nang, Vietnam",
     });
 
     function applyLanguage(lang) {
+
+	document.body.className = (lang === 'ja') ? 'lang-ja' : '';
+
 	localStorage.setItem("selectedLanguage", lang);// Nho ngon ngu 
 
         const t = translations[lang];
