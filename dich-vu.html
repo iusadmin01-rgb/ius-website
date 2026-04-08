@@ -170,7 +170,7 @@ header.scrolled .lang-select {
             box-shadow: 0 4px 20px rgba(0,0,0,0.05);
         }
 
-        /* TIÊU ĐỀ CAM SÁNG LÊN KHI HOVER */
+        /* TIÊU ĐỀ XANH SÁNG LÊN KHI HOVER */
         .section-title {
             color: #1a4ba0;
             font-size: 2.4rem;
@@ -188,7 +188,7 @@ header.scrolled .lang-select {
         }
 
         .section-title:hover {
-            color: #1a4ba0; /* Cam sáng hơn chút */
+            color: #1a4ba0; /* Xanh sáng hơn chút */
             text-shadow: 0 0 15px rgba(26, 75, 160, 0.5); /* Phát sáng cam */
         }
 
@@ -204,7 +204,7 @@ header.scrolled .lang-select {
             transition: all 0.4s ease;
         }
 
-        /* Gạch chân dưới chữ cam hiện rõ hơn khi rê chuột */
+        /* Gạch chân dưới chữ xanh hiện rõ hơn khi rê chuột */
         .section-title:hover::after {
             opacity: 1;
             width: 70%;
@@ -254,28 +254,35 @@ header.scrolled .lang-select {
             display: block;
         }
 
-        .content-block {
-            width: 100%;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-	    margin-bottom: 120px;
-	    scroll-margin-top: 120px;
-        }
+
+        /* (thay đổi chỉ riêng trang DỊCH VỤ)(Bắt đầu) NỘI DUNG DƯỚI SƠ ĐỒ */
+.content-block {
+    width: 100%;
+    padding: 60px 0; /* Tạo khoảng trống trên dưới cho thoáng */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    scroll-margin-top: 100px;
+    
+    /* Thay nét đứt bằng đường kẻ xanh đậm rõ ràng */
+    border-bottom: 3px solid rgba(26, 75, 160, 0.2); 
+    position: relative;
+}
+
+/* Mục cuối cùng không cần đường kẻ dưới */
+.content-block:last-of-type {
+    border-bottom: none;
+}
 
         .content-block::after {
-            content: "";
-            display: block;
-            width: 50%;
-            height: 1px;
-            border-bottom: 1px dashed rgba(0, 0, 0, 0.15);
-            margin-top: 10px;
+            display: none !important;
         }
 
         .content-block:last-of-type::after {
             display: none;
         }
+        /* (thay đổi chỉ riêng trang DỊCH VỤ)(Kết thúc) NỘI DUNG DƯỚI SƠ ĐỒ */
+
 
         .side-by-side {
             display: flex;
@@ -414,6 +421,40 @@ header.scrolled .lang-select {
             padding-top: 20px;
         }
 
+/* Style cho khối chứa QR và nhãn */
+.footer-certificates {
+    display: flex;
+    gap: 30px;            /* Khoảng cách giữa 2 khối QR */
+    margin-top: 20px;
+    padding-left: 30px;   
+    align-items: flex-start;
+}
+
+.qr-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* Căn giữa chữ dưới ảnh */
+    gap: 8px;            /* Khoảng cách giữa ảnh và chữ */
+}
+
+.footer-certificates img {
+    height: 140px;        /* Điều chỉnh lại kích thước cho cân đối */
+    width: auto;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+    filter: drop-shadow(2px 2px 5px rgba(0,0,0,0.3));
+}
+
+.qr-item span {
+    font-size: 0.85rem;
+    color: #bdc1c6;
+    font-weight: 500;
+}
+
+.footer-certificates img:hover {
+    transform: scale(1.1);
+}
+
 /* Container chứa cả input và kính lúp */
 .search-container {
     display: flex;
@@ -450,64 +491,6 @@ header.scrolled .search-container {
     padding: 5px;
 }
 
-/* Styling cho sơ đồ dịch vụ */
-/* --- CSS SƠ ĐỒ ĐÃ CÁCH LY KHỎI IMAGE HOVER --- */
-.diagram-wrapper {
-    width: 100%;
-    max-width: 950px; 
-    margin: 40px auto;
-    overflow: visible; /* Giúp đổ bóng không bị cắt */
-}
-
-/* Ép SVG không bị ảnh hưởng bởi các hiệu ứng scale hình ảnh bên ngoài */
-.services-svg {
-    width: 100%;
-    height: auto;
-    display: block;
-    transform: none !important; /* Chặn hoàn toàn lệnh phóng to từ bên ngoài */
-    filter: none !important;
-}
-
-/* Đường nối: đậm hơn một chút để đỡ mảnh mai */
-.lines line {
-    stroke: #1a4ba0;
-    stroke-width: 2;
-    opacity: 0.25;
-}
-
-/* Ô chữ: Bo góc ít hơn để nhìn chuyên nghiệp và to hơn */
-.svg-node-box {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: white;
-    border: 2px solid #1a4ba0; 
-    border-radius: 8px; /* Bo góc nhẹ */
-    font-size: 16px; /* Chữ to rõ */
-    font-weight: 600;
-    color: #333;
-    padding: 10px;
-    box-sizing: border-box;
-    transition: all 0.2s ease-in-out;
-    line-height: 1.4;
-}
-
-/* Hover: Chỉ đổi màu và đổ bóng, không di chuyển vị trí để tránh lệch viền */
-.node-link:hover .svg-node-box {
-    background: #1a4ba0;
-    color: white !important;
-    box-shadow: 0 5px 15px rgba(26, 75, 160, 0.4);
-    transform: none !important; /* Giữ cố định khung */
-}
-
-/* Sửa lỗi link nhảy bị Header che: Cách này giúp nhảy đúng tên đề mục */
-.content-block {
-    scroll-margin-top: 100px; /* Chừa chỗ cho Header 80px + 20px khoảng cách */
-}
-
 /* Ẩn nút 3 gạch trên máy tính */
 .menu-toggle {
     display: none;
@@ -520,10 +503,14 @@ header.scrolled .menu-toggle {
     color: #333;
 }
 
-/* KHI XEM TRÊN ĐIỆN THOẠI (Dưới 768px) */
-@media screen and (max-width: 768px) {
+/* Dành cho máy tính bảng và điện thoại (màn hình nhỏ hơn 1024px) */
+@media screen and (max-width: 1024px) {
     .menu-toggle {
         display: block; /* Hiện nút 3 gạch */
+	color: var(--primary-color);
+        font-size: 24px;
+        cursor: pointer;
+        margin-right: 35%;
     }
 
     .nav-links {
@@ -559,6 +546,141 @@ header.scrolled .menu-toggle {
         gap: 5px; /* Thu hẹp khoảng cách tìm kiếm và ngôn ngữ */
     }
 }
+
+/* --- ĐIỀU CHỈNH CHO ĐIỆN THOẠI NHỎ (Dưới 480px) --- */
+@media screen and (max-width: 480px) {
+    .hero {
+        padding-top: 15px; /* Sát lên trên cùng */
+    }
+    .title-thin {
+        font-size: 1.2rem; 
+    }
+
+.footer-certificates {
+        padding-left: 15px; /* Giảm độ lệch trên điện thoại */
+    }
+    .footer-certificates img {
+        height: 70px;       /* Thu nhỏ nhẹ trên mobile */
+    }
+}
+
+
+/* Lưu ý: (Chỉ có riêng ở trang DỊCH VỤ)(Bắt đầu) */
+/* --- CSS SƠ ĐỒ ĐÃ CÁCH LY KHỎI IMAGE HOVER --- */
+.diagram-wrapper {
+    max-width: 1000px; /* To hơn trước */
+    margin: 50px auto;
+}
+
+/* Ép SVG không bị ảnh hưởng bởi các hiệu ứng scale hình ảnh bên ngoài */
+.services-svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    transform: none !important; /* Chặn hoàn toàn lệnh phóng to từ bên ngoài */
+    filter: none !important;
+}
+
+/* Đường nối: đậm hơn một chút để đỡ mảnh mai */
+.lines line {
+    stroke: #1a4ba0;
+    stroke-width: 2;
+    opacity: 0.25;
+}
+
+/* Ô chữ: Đặc ruột màu xanh dương, chữ trắng to hơn */
+.svg-node-box.color-node {
+    background-color: #5d87d6; /* Màu xanh đồng bộ với IUS */
+    border: 2px solid #1a4ba0; 
+    color: white !important;
+    font-size: 18px; /* Chữ to lên */
+    font-weight: bold;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    line-height: 1.3;
+    padding: 10px;
+}
+
+/* Hiệu ứng Hover chuyên nghiệp */
+.node-link:hover .svg-node-box.color-node {
+    background-color: #1a4ba0;
+    box-shadow: 0 10px 25px rgba(26, 75, 160, 0.5);
+    transform: scale(1.05) !important;
+}
+
+/* Đường nối và Mũi tên */
+.lines line {
+    stroke: #1a4ba0;
+    stroke-width: 2.5; /* Đường nối đậm hơn */
+    opacity: 0.4;
+}
+
+/* Sửa lỗi link nhảy bị Header che: Cách này giúp nhảy đúng tên đề mục */
+/* --- NỘI DUNG DƯỚI SƠ ĐỒ --- */
+.content-block {
+    width: 100%;
+    padding: 60px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    scroll-margin-top: 100px;
+    position: relative; /* Quan trọng để định vị đường kẻ */
+}
+
+/* Tạo đường kẻ ngăn cách */
+.content-block::after {
+    content: "";
+    display: block;
+    width: 60%;               /* Độ dài đường kẻ */
+    height: 3px;              /* Độ dày */
+    background: #1a4ba0;      /* Màu xanh thương hiệu */
+    opacity: 0.3;             /* Độ mờ tinh tế */
+    margin-top: 60px;         /* Khoảng cách từ nội dung trên xuống đường kẻ */
+    border-radius: 10px;
+}
+
+/* Mục cuối cùng không có đường kẻ */
+.content-block:last-of-type::after {
+    display: none !important;
+}
+
+/* XÓA HOẶC SỬA LẠI CÁC DÒNG SAU (Nếu còn tồn tại trong code của bạn) */
+/* Bỏ dòng này: .content-block::after { display: none !important; } */
+/* Bỏ dòng này: .content-block { border-bottom: none !important; } */
+
+.service-image-stack {
+    width: 100%;
+    max-width: 900px; /* Giới hạn độ rộng ảnh cho đẹp */
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.service-image-stack img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    display: block;
+}
+
+/* Không có hiệu ứng phóng to khi di chuột vào các ảnh này */
+.service-image-stack img:hover {
+    transform: none !important;
+    filter: none !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08) !important;
+}
+/* Lưu ý: (Chỉ có riêng ở trang DỊCH VỤ)(Kết thúc)*/
+
+
     </style>
 </head>
 <body>
@@ -605,82 +727,99 @@ header.scrolled .menu-toggle {
     </section>
 
 <main class="container">
-    <section id="services-diagram">
-        <h2 class="section-title">Hệ Sinh Thái Dịch Vụ IUS</h2>
-        
-<div class="diagram-wrapper">
-    <svg viewBox="0 0 800 400" preserveAspectRatio="xMidYMid meet" class="services-svg">
-        <g class="lines">
-            <line x1="400" y1="200" x2="220" y2="100" />
-            <line x1="400" y1="200" x2="400" y2="70" />
-            <line x1="400" y1="200" x2="580" y2="100" />
-            <line x1="400" y1="200" x2="220" y2="300" />
-            <line x1="400" y1="200" x2="400" y2="330" />
-            <line x1="400" y1="200" x2="580" y2="300" />
-        </g>
+<section id="services-diagram">
+    <h2 class="section-title">Hệ Sinh Thái Dịch Vụ IUS</h2>
+    
+    <div class="diagram-wrapper">
+        <svg viewBox="0 0 1000 500" preserveAspectRatio="xMidYMid meet" class="services-svg">
+            <defs>
+                <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+                refX="9" refY="3.5" orient="auto">
+                    <polygon points="0 0, 10 3.5, 0 7" fill="#1a4ba0" />
+                </marker>
+            </defs>
 
-        <circle cx="400" cy="200" r="35" fill="#1a4ba0" />
-        <text x="400" y="207" text-anchor="middle" fill="white" style="font-weight: bold; font-size: 20px;">IUS</text>
+            <g class="lines">
+                <line x1="500" y1="250" x2="270" y2="120" marker-end="url(#arrowhead)" />
+                <line x1="500" y1="250" x2="500" y2="90" marker-end="url(#arrowhead)" />
+                <line x1="500" y1="250" x2="730" y2="120" marker-end="url(#arrowhead)" />
+                <line x1="500" y1="250" x2="270" y2="380" marker-end="url(#arrowhead)" />
+                <line x1="500" y1="250" x2="500" y2="410" marker-end="url(#arrowhead)" />
+                <line x1="500" y1="250" x2="730" y2="380" marker-end="url(#arrowhead)" />
+            </g>
 
-        <a href="#service-1" class="node-link">
-            <foreignObject x="100" y="60" width="220" height="80">
-                <div id="svg-s1" xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box">らくわく構造検討<br/>（２×4工法）</div>
-            </foreignObject>
-        </a>
-        <a href="#service-2" class="node-link">
-            <foreignObject x="300" y="5" width="200" height="80">
-                <div id="svg-s2" xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box">PS5生産図<br/>(2×4, プレカット)</div>
-            </foreignObject>
-        </a>
-        <a href="#service-3" class="node-link">
-            <foreignObject x="480" y="60" width="220" height="80">
-                <div id="svg-s3" xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box">PS5構造図<br/>（２×4工法）</div>
-            </foreignObject>
-        </a>
-        <a href="#service-4" class="node-link">
-            <foreignObject x="100" y="260" width="220" height="80">
-                <div id="svg-s4" xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box">手拾い</div>
-            </foreignObject>
-        </a>
-        <a href="#service-5" class="node-link">
-            <foreignObject x="300" y="315" width="200" height="80">
-                <div id="svg-s5" xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box">プログラム</div>
-            </foreignObject>
-        </a>
-        <a href="#service-6" class="node-link">
-            <foreignObject x="480" y="260" width="220" height="80">
-                <div id="svg-s6" xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box">JW編集</div>
-            </foreignObject>
-        </a>
-    </svg>
-</div>
-    </section>
+ <rect x="420" y="210" width="160" height="80" rx="12" ry="12" 
+      fill="#5d87d6" stroke="#1a4ba0" stroke-width="3" />
 
-    <hr style="margin: 80px 0; border: 0; border-top: 1px dashed #ccc;">
+<text x="500" y="250" text-anchor="middle" fill="white" 
+      style="font-weight: 800; font-size: 32px; pointer-events: none; 
+             dominant-baseline: central;">IUS</text>
+
+<a href="#service-1" class="node-link">
+    <foreignObject x="40" y="70" width="240" height="90">
+        <div id="svg-s1" xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box color-node">Tạo bản vẽ test lực kết cấu</div>
+    </foreignObject>
+</a>
+<a href="#service-2" class="node-link">
+    <foreignObject x="380" y="5" width="240" height="90">
+        <div id="svg-s2" xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box color-node">Tạo bản vẽ hoàn thiện</div>
+    </foreignObject>
+</a>
+<a href="#service-3" class="node-link">
+    <foreignObject x="720" y="70" width="240" height="90">
+        <div id="svg-s3" xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box color-node">Tạo bản vẽ kết cấu</div>
+    </foreignObject>
+</a>
+<a href="#service-4" class="node-link">
+    <foreignObject x="40" y="340" width="240" height="90">
+        <div id="svg-s4" xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box color-node">Lập dự toán vật liệu</div>
+    </foreignObject>
+</a>
+<a href="#service-5" class="node-link">
+    <foreignObject x="380" y="405" width="240" height="90">
+        <div id="svg-s5" xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box color-node">Lập trình phần mềm</div>
+    </foreignObject>
+</a>
+<a href="#service-6" class="node-link">
+    <foreignObject x="720" y="340" width="240" height="90">
+        <div id="svg-s6" xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box color-node">Chỉnh sửa bản vẽ bằng JWcad</div>
+    </foreignObject>
+</a>
+        </svg>
+    </div>
+</section>
+
+    <hr style="width: 60%; margin: 80px auto; border: 0; border-top: 3px solid #1a4ba0; opacity: 0.3; border-radius: 10px;">
 
     <div id="service-1" class="content-block">
         <h3 id="t1" class="sub-title-green">らくわく構造検討（２×4工法）</h3>
-        <p id="d1">Giải pháp thiết kế sáng tạo, tối ưu công năng và thẩm mỹ cho ngôi nhà của bạn.</p>
-    </div>
-    <div id="service-2" class="content-block">
+        <div class="service-image-stack">
+            <img src="image/dichvu_testluc_1.PNG" alt="dichvu_testluc_1">
+            <img src="image/dichvu_testluc_2.PNG" alt="dichvu_testluc_2">
+        </div>
+    </div> <div id="service-2" class="content-block">
         <h3 id="t2" class="sub-title-green">PS5生産図（２×4工法、プレカット・パネル）</h3>
-        <p id="d2" >Tinh hoa kiến trúc gỗ xứ Phù Tang, mang lại sự bền bỉ và không gian thiền định.</p>
-    </div>
-    <div id="service-3" class="content-block">
-        <h3 id="t3"  class="sub-title-green">PS5構造図（２×4工法）</h3>
-        <p id="d3" >Sự kết hợp hoàn hảo giữa vật liệu thượng hạng và tay nghề thủ công tinh xảo.</p>
-    </div>
-    <div id="service-4" class="content-block">
-        <h3 id="t4"  class="sub-title-green">手拾い</h3>
-        <p id="d4" >Chìa khóa trao tay, đảm bảo chất lượng từ bản vẽ đến thực tế công trình.</p>
-    </div>
-    <div id="service-5" class="content-block">
-        <h3 id="t5"  class="sub-title-green">プログラム</h3>
-        <p id="d5" >Đưa thiên nhiên vào không gian sống với thiết kế sân vườn chuẩn phong cách Nhật.</p>
-    </div>
-    <div id="service-6" class="content-block">
-        <h3 id="t6"  class="sub-title-green">JW編集</h3>
-        <p id="d6" >Đảm bảo sự hài hòa về năng lượng, mang lại tài lộc và bình an cho gia chủ.</p>
+        <div class="service-image-stack">
+            <img src="image/dichvu_taobanve_1.PNG" alt="dichvu_taobanve_1">
+            <img src="image/dichvu_taobanve_2.PNG" alt="dichvu_taobanve_2">
+        </div>
+    </div> <div id="service-3" class="content-block">
+        <h3 id="t3" class="sub-title-green">PS5構造図（２×4工法）</h3>
+        <div class="service-image-stack">
+            <img src="image/dichvu_taobanveketcau_1.PNG" alt="dichvu_taobanveketcau_1">
+            <img src="image/dichvu_taobanveketcau_2.PNG" alt="dichvu_taobanveketcau_2">
+        </div>
+    </div> <div id="service-6" class="content-block">
+        <h3 id="t6" class="sub-title-green">JW編集</h3>
+        <div class="service-image-stack">
+            <img src="image/dichvu_JW.PNG" alt="dichvu_JW">
+        </div>
+    </div> <div id="service-5" class="content-block">
+        <h3 id="t5" class="sub-title-green">プログラム</h3>
+        <p id="d5"></p>
+    </div> <div id="service-4" class="content-block">
+        <h3 id="t4" class="sub-title-green">手拾い</h3>
+        <p id="d4"></p>
     </div>
 </main>
 
@@ -691,6 +830,18 @@ header.scrolled .menu-toggle {
         <h4 id="f-title-contact">Liên hệ</h4>
         <p><i class="fas fa-envelope"></i> Email: ngocsy@thietkeius.asia</p>
         <p><i class="fas fa-phone"></i> Hotline: 070 2929 345</p>
+
+	<div class="footer-certificates">
+    <div class="qr-item">
+        <img src="image/QR-Line.png" alt="QR Line">
+        <span>Line</span>
+    </div>
+    <div class="qr-item">
+        <img src="image/QR-Zalo.png" alt="QR Zalo">
+        <span>Zalo</span>
+    </div>
+</div>
+
     </div>
     <div>
         <h4 id="f-title-hq">Trụ sở chính</h4>
@@ -729,28 +880,21 @@ header.scrolled .menu-toggle {
             hero_caption: "Nhà gỗ Nhật Bản (Ảnh: Internet)",
 	    search_placeholder: "Tìm kiếm...",
 
-            section_main_title: "Hệ Sinh Thái Dịch Vụ IUS!",
-        s1_t: "Phán đoán kết cấu Rakuwaku (phương pháp 2×4)",
+            section_main_title: "Dịch vụ của chúng tôi!",
+        s1_t: "Tạo bản vẽ test lực kết cấu",
         s1_d: "Giải pháp thiết kế sáng tạo, tối ưu công năng và thẩm mỹ cho ngôi nhà của bạn.",
-        s2_t: "Bản vẽ sản xuất PS5 (phương pháp 2×4, cắt trước/panel)",
+        s2_t: "Tạo bản vẽ hoàn thiện",
         s2_d: "Tinh hoa kiến trúc gỗ xứ Phù Tang, mang lại sự bền bỉ và không gian thiền định.",
-        s3_t: "Bản vẽ kết cấu PS5 (phương pháp 2×4)",
+        s3_t: "Tạo bản vẽ kết cấu",
         s3_d: "Sự kết hợp hoàn hảo giữa vật liệu thượng hạng và tay nghề thủ công tinh xảo.",
-        s4_t: "Bản vẽ thủ công",
-        s4_d: "Chìa khóa trao tay, đảm bảo chất lượng từ bản vẽ đến thực tế công trình.",
-        s5_t: "Lập trình software",
-        s5_d: "Đưa thiên nhiên vào không gian sống với thiết kế sân vườn chuẩn phong cách Nhật.",
-        s6_t: "Biên tập JW",
+        s4_t: "Lập dự toán vật liệu",
+        s4_d: "Anh Sỹ đang tạo",
+        s5_t: "Lập trình phần mềm",
+        s5_d: "Sẽ chèn Video giới thiệu sau",
+        s6_t: "Chỉnh sửa bản vẽ bằng JWcad",
         s6_d: "Đảm bảo sự hài hòa về năng lượng, mang lại tài lộc và bình an cho gia chủ.",
 
-            sub_classic: "Dù là cổ điển",
-            sub_modern: "Hay hiện đại",
-            sub_morning: "Trẻ trung trong nắng sớm!",
-            sub_noon: "Xanh mát vườn ban trưa!",
-            sub_peace: "Chiều đô thị bình yên!",
-            sub_light: "Kín đáo nhưng tràn ánh sáng!",
-            sub_interior: "Nội thất sang trọng! Mát mẻ mùa hè, ấm áp về đông!",
-	    sub_notes: "Nhà gỗ Nhật Bản (Ảnh: Internet)",
+
             footer_contact: "Liên hệ",
             footer_headquarters: "Trụ sở chính",
             footer_branch: "Văn Phòng Làm Việc",
@@ -772,28 +916,21 @@ addr_hq: "📍 An Hà Đông - Quảng Phú - Đà Nẵng - Việt Nam",
             hero_caption: "日本の木造住宅（写真：インターネット）",
 	    search_placeholder: "検索...",
 
-            section_main_title: "IUSサービスエコシステム！",
-	s1_t: "らくわく構造検討（２×4工法）",
+            section_main_title: "私たちのサービス！",
+	s1_t: "らくわく、キズクリ構造検討<br/>（２×4工法）",
         s1_d: "住まいの機能性と美しさを最適化する革新的な設計ソリューション。",
-        s2_t: "PS5生産図（２×4工法、プレカット・パネル）",
+        s2_t: "PS5生産図<br/>（２×4工法、プレカット・パネル）",
         s2_d: "日本の木造建築の精髄。耐久性と静寂な空間を提供します。",
-        s3_t: "PS5構造図（２×4工法）",
+        s3_t: "PS5構造図<br/>（２×4工法）",
         s3_d: "厳選された素材と熟練した技術の完璧な融合。",
         s4_t: "手拾い",
-        s4_d: "図面から実際の施工まで、確かな品質を保証するターンキーサービス。",
-        s5_t: "プログラム",
-        s5_d: "日本庭園スタイルのデザインで、自然を生活空間に取り入れます。",
+        s4_d: "Anh Sỹ đang tạo",
+        s5_t: "プログラム<br/>ソフトウェアの開発",
+        s5_d: "Sẽ chèn Video giới thiệu sau",
         s6_t: "JW編集",
         s6_d: "エネルギーの調和を確保し、施主に繁栄と平安をもたらします。",
 
-            sub_classic: "クラシックでも",
-            sub_modern: "モダンでも",
-            sub_morning: "朝の光の中で若々しく！",
-            sub_noon: "真昼の涼しい庭！",
-            sub_peace: "穏やかな都市の夕暮れ！",
-            sub_light: "控えめながら光に満ちた！",
-            sub_interior: "豪華なインテリア！夏は涼しく、冬は暖かく！",
-	    sub_notes: "日本の木造住宅（写真：インターネット）",
+
             footer_contact: "連絡先",
             footer_headquarters: "本社",
             footer_branch: "オフィス",
@@ -858,16 +995,21 @@ const setText = (id, text) => {
     setText("f-addr-b2", t.addr_b2);
     setText("f-addr-b3", t.addr_b3);
 
-    setText("svg-s1", t.s1_t);
-    setText("svg-s2", t.s2_t);
-    setText("svg-s3", t.s3_t);
-    setText("svg-s4", t.s4_t);
-    setText("svg-s5", t.s5_t);
-    setText("svg-s6", t.s6_t);
+
+const setHTML = (id, text) => {
+    const el = document.getElementById(id);
+    if (el && text) el.innerHTML = text; // .innerHTML sẽ giúp xuống dòng
+};
+    setHTML("svg-s1", t.s1_t);
+    setHTML("svg-s2", t.s2_t);
+    setHTML("svg-s3", t.s3_t);
+    setHTML("svg-s4", t.s4_t);
+    setHTML("svg-s5", t.s5_t);
+    setHTML("svg-s6", t.s6_t);
 
     for (let i = 1; i <= 6; i++) {
-        setText(`t${i}`, t[`s${i}_t`]);
-        setText(`d${i}`, t[`s${i}_d`]);
+        setHTML(`t${i}`, t[`s${i}_t`]);
+        setHTML(`d${i}`, t[`s${i}_d`]);
     }
 
 }

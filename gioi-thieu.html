@@ -412,6 +412,40 @@ header.scrolled .lang-select {
             padding-top: 20px;
         }
 
+/* Style cho khối chứa QR và nhãn */
+.footer-certificates {
+    display: flex;
+    gap: 30px;            /* Khoảng cách giữa 2 khối QR */
+    margin-top: 20px;
+    padding-left: 30px;   
+    align-items: flex-start;
+}
+
+.qr-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* Căn giữa chữ dưới ảnh */
+    gap: 8px;            /* Khoảng cách giữa ảnh và chữ */
+}
+
+.footer-certificates img {
+    height: 140px;        /* Điều chỉnh lại kích thước cho cân đối */
+    width: auto;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+    filter: drop-shadow(2px 2px 5px rgba(0,0,0,0.3));
+}
+
+.qr-item span {
+    font-size: 0.85rem;
+    color: #bdc1c6;
+    font-weight: 500;
+}
+
+.footer-certificates img:hover {
+    transform: scale(1.1);
+}
+
 /* Container chứa cả input và kính lúp */
 .search-container {
     display: flex;
@@ -448,7 +482,82 @@ header.scrolled .search-container {
     padding: 5px;
 }
 
-/* Phần riêng của trang GIỚI THIỆU */
+/* Ẩn nút 3 gạch trên máy tính */
+.menu-toggle {
+    display: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+header.scrolled .menu-toggle {
+    color: #333;
+}
+
+/* Dành cho máy tính bảng và điện thoại (màn hình nhỏ hơn 1024px) */
+@media screen and (max-width: 1024px) {
+    .menu-toggle {
+        display: block; /* Hiện nút 3 gạch */
+	color: var(--primary-color);
+        font-size: 24px;
+        cursor: pointer;
+        margin-right: 35%;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%; /* Đẩy xuống dưới Header */
+        left: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.98);
+        flex-direction: column; /* Xếp menu dọc xuống */
+        gap: 0;
+        display: none; /* Mặc định ẩn menu đi */
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+
+    /* Khi bấm vào nút, lớp 'active' sẽ được thêm vào bằng JS để hiện menu */
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid #eee;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 15px;
+        color: #333 !important; /* Chữ đen cho dễ nhìn trên nền trắng */
+    }
+    
+    .header-tools {
+        gap: 5px; /* Thu hẹp khoảng cách tìm kiếm và ngôn ngữ */
+    }
+}
+
+/* --- ĐIỀU CHỈNH CHO ĐIỆN THOẠI NHỎ (Dưới 480px) --- */
+@media screen and (max-width: 480px) {
+    .hero {
+        padding-top: 15px; /* Sát lên trên cùng */
+    }
+    .title-thin {
+        font-size: 1.2rem; 
+    }
+
+.footer-certificates {
+        padding-left: 15px; /* Giảm độ lệch trên điện thoại */
+    }
+    .footer-certificates img {
+        height: 70px;       /* Thu nhỏ nhẹ trên mobile */
+    }
+}
+
+
+/* Lưu ý: (Chỉ có riêng ở trang GIỚI THIỆU)(Bắt đầu) */
+/* HIỂN THỊ Ở THÂN WEBSITE: Bảng thông tin */
 .info-table { width: 100%; border-collapse: collapse; margin: 30px 0; background: #fff; }
 .info-table th, .info-table td { padding: 15px; border: 1px solid #eee; text-align: left; }
 .info-table th { width: 30%; background-color: #f8f9fa; color: #333; font-weight: 600; }
@@ -494,58 +603,9 @@ header.scrolled .search-container {
     background: #f0f7ff;
     width: 25%;
 }
+/* Lưu ý: (Chỉ có riêng ở trang GIỚI THIỆU)(Kết thúc)*/
 
-/* Ẩn nút 3 gạch trên máy tính */
-.menu-toggle {
-    display: none;
-    color: white;
-    font-size: 24px;
-    cursor: pointer;
-}
 
-header.scrolled .menu-toggle {
-    color: #333;
-}
-
-/* KHI XEM TRÊN ĐIỆN THOẠI (Dưới 768px) */
-@media screen and (max-width: 768px) {
-    .menu-toggle {
-        display: block; /* Hiện nút 3 gạch */
-    }
-
-    .nav-links {
-        position: absolute;
-        top: 100%; /* Đẩy xuống dưới Header */
-        left: 0;
-        width: 100%;
-        background: rgba(255, 255, 255, 0.98);
-        flex-direction: column; /* Xếp menu dọc xuống */
-        gap: 0;
-        display: none; /* Mặc định ẩn menu đi */
-        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-    }
-
-    /* Khi bấm vào nút, lớp 'active' sẽ được thêm vào bằng JS để hiện menu */
-    .nav-links.active {
-        display: flex;
-    }
-
-    .nav-links li {
-        width: 100%;
-        text-align: center;
-        border-bottom: 1px solid #eee;
-    }
-
-    .nav-links a {
-        display: block;
-        padding: 15px;
-        color: #333 !important; /* Chữ đen cho dễ nhìn trên nền trắng */
-    }
-    
-    .header-tools {
-        gap: 5px; /* Thu hẹp khoảng cách tìm kiếm và ngôn ngữ */
-    }
-}
     </style>
 </head>
 <body>
@@ -567,7 +627,7 @@ header.scrolled .menu-toggle {
                 <li><a href="gioi-thieu.html" id="nav-about">Giới thiệu</a></li>
                 <li><a href="dich-vu.html" id="nav-services">Dịch vụ</a></li>
 		<li><a href="cong-ty-thanh-vien.html" id="nav-sub-company">Công ty thành viên</a></li>
-                <li><a href="dia-phuong-va-chung-toi.html" id="nav-news">Tin tức và hoạt động</a></li>
+                <li><a href="dia-phuong-va-chung-toi.html" id="nav-news">Địa phương và chúng tôi</a></li>
                 <li><a href="tuyen-dung.html" id="nav-jobs">Tuyển dụng</a></li>
                 <li><a href="lien-he.html" id="nav-contact">Liên hệ</a></li>
             </ul>
@@ -625,6 +685,18 @@ header.scrolled .menu-toggle {
         <h4 id="f-title-contact">Liên hệ</h4>
         <p><i class="fas fa-envelope"></i> Email: ngocsy@thietkeius.asia</p>
         <p><i class="fas fa-phone"></i> Hotline: 070 2929 345</p>
+
+	<div class="footer-certificates">
+    <div class="qr-item">
+        <img src="image/QR-Line.png" alt="QR Line">
+        <span>Line</span>
+    </div>
+    <div class="qr-item">
+        <img src="image/QR-Zalo.png" alt="QR Zalo">
+        <span>Zalo</span>
+    </div>
+</div>
+
     </div>
     <div>
         <h4 id="f-title-hq">Trụ sở chính</h4>
@@ -750,7 +822,7 @@ header.scrolled .menu-toggle {
             td_parent: "カスタマーサービス株式会社",
             td_subsidiary: "Tanpopo software(TPS)",
             td_office: "Da Nang市、Tam Ky区、Hung Vuong通り、189番地 2階<br>Da Nang市、 Que Son Trung区、Phuoc Thanh村<br>Da Nang市、 Hai Chau区、 Dong Da通り、153番地 6階",
-            td_partner: "三井ホームエステート株式会社、タカヤマ金属工業株式会社、CS工場等",
+            td_partner: "三井ホームエステート株式会社、タカヤマ金属工業株式会社、CS工業等",
             td_software: "PS5, らくわく, キズクリ, JWCad",
 
             footer_contact: "連絡先",

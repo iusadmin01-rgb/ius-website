@@ -170,7 +170,7 @@ header.scrolled .lang-select {
             box-shadow: 0 4px 20px rgba(0,0,0,0.05);
         }
 
-        /* TIÊU ĐỀ CAM SÁNG LÊN KHI HOVER */
+        /* TIÊU ĐỀ XANH SÁNG LÊN KHI HOVER */
         .section-title {
             color: #1a4ba0;
             font-size: 2.4rem;
@@ -204,7 +204,7 @@ header.scrolled .lang-select {
             transition: all 0.4s ease;
         }
 
-        /* Gạch chân dưới chữ cam hiện rõ hơn khi rê chuột */
+        /* Gạch chân dưới chữ xanh hiện rõ hơn khi rê chuột */
         .section-title:hover::after {
             opacity: 1;
             width: 70%;
@@ -412,6 +412,40 @@ header.scrolled .lang-select {
             padding-top: 20px;
         }
 
+/* Style cho khối chứa QR và nhãn */
+.footer-certificates {
+    display: flex;
+    gap: 30px;            /* Khoảng cách giữa 2 khối QR */
+    margin-top: 20px;
+    padding-left: 30px;   
+    align-items: flex-start;
+}
+
+.qr-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* Căn giữa chữ dưới ảnh */
+    gap: 8px;            /* Khoảng cách giữa ảnh và chữ */
+}
+
+.footer-certificates img {
+    height: 140px;        /* Điều chỉnh lại kích thước cho cân đối */
+    width: auto;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+    filter: drop-shadow(2px 2px 5px rgba(0,0,0,0.3));
+}
+
+.qr-item span {
+    font-size: 0.85rem;
+    color: #bdc1c6;
+    font-weight: 500;
+}
+
+.footer-certificates img:hover {
+    transform: scale(1.1);
+}
+
 /* Container chứa cả input và kính lúp */
 .search-container {
     display: flex;
@@ -461,10 +495,14 @@ header.scrolled .menu-toggle {
     color: #333;
 }
 
-/* KHI XEM TRÊN ĐIỆN THOẠI (Dưới 768px) */
-@media screen and (max-width: 768px) {
+/* Dành cho máy tính bảng và điện thoại (màn hình nhỏ hơn 1024px) */
+@media screen and (max-width: 1024px) {
     .menu-toggle {
         display: block; /* Hiện nút 3 gạch */
+	color: var(--primary-color);
+        font-size: 24px;
+        cursor: pointer;
+        margin-right: 35%;
     }
 
     .nav-links {
@@ -500,6 +538,121 @@ header.scrolled .menu-toggle {
         gap: 5px; /* Thu hẹp khoảng cách tìm kiếm và ngôn ngữ */
     }
 }
+
+/* --- ĐIỀU CHỈNH CHO ĐIỆN THOẠI NHỎ (Dưới 480px) --- */
+@media screen and (max-width: 480px) {
+    .hero {
+        padding-top: 15px; /* Sát lên trên cùng */
+    }
+    .title-thin {
+        font-size: 1.2rem; 
+    }
+
+.footer-certificates {
+        padding-left: 15px; /* Giảm độ lệch trên điện thoại */
+    }
+    .footer-certificates img {
+        height: 70px;       /* Thu nhỏ nhẹ trên mobile */
+    }
+}
+
+
+/* Lưu ý: (Chỉ có riêng ở trang TUYỂN DỤNG)(Bắt đầu) */
+/* HIỂN THỊ Ở THÂN WEBSITE: 3 ô dịch vụ đơn lẻ */
+/* Lưới 3 cột cho trang tuyển dụng */
+.recruitment-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.recruitment-item {
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.recruitment-item:hover {
+    transform: translateY(-10px);
+}
+
+.recruitment-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.recruitment-item h3 {
+    margin-top: 15px;
+    color: #1a4ba0;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+/* Class cho đoạn văn giới thiệu đa ngôn ngữ */
+.intro-section {
+    text-align: center;
+    margin-top: 20px;   /* Khoảng cách từ cụm ảnh xuống dòng chữ đầu tiên */
+    margin-bottom: 20px;
+}
+
+.lang-text-recruitment {
+    margin: 5px 0;      /* Quan trọng: Thu hẹp khoảng cách trên/dưới của mỗi dòng */
+    padding: 0;
+    font-size: 1.1rem;
+    line-height: 1.6;   /* Độ cao của bản thân dòng chữ */
+    color: #444;
+}
+
+/* Các section nội dung bên dưới */
+.job-detail-section {
+    padding: 20px 0;
+    border-bottom: 1px dashed #ddd;
+}
+
+.job-container {
+    padding: 20px;
+    background-color: #fff;
+    line-height: 1.6;
+    color: #333;
+}
+
+.job-vi {
+    margin-bottom: 30px;
+}
+
+.job-ja {
+    color: #555; /* Màu chữ tiếng Nhật nhạt hơn một chút */
+    font-style: normal;
+}
+
+/* Đường gạch ngang trang trí giữa 2 ngôn ngữ */
+.job-separator {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(26, 75, 160, 0.4), rgba(0, 0, 0, 0));
+    margin: 30px 0;
+}
+
+/* Định dạng in đậm và gạch chân cho tiêu đề chính */
+u b {
+    font-size: 1.3rem;
+    color: #1a4ba0;
+    text-transform: uppercase;
+}
+
+/* Responsive cho điện thoại */
+@media screen and (max-width: 768px) {
+    .recruitment-grid {
+        grid-template-columns: 1fr; /* Chuyển thành 1 cột trên mobile */
+    }
+}
+/* Lưu ý: (Chỉ có riêng ở trang TUYỂN DỤNG)(Kết thúc)*/
+
+
     </style>
 </head>
 <body>
@@ -546,9 +699,240 @@ header.scrolled .menu-toggle {
     </section>
 
     <main class="container">
-        <section id="about">
-            <h2 class="section-title">Thêm nội dung/hình ảnh vào đây!</h2>
-        </section>
+        <h2 class="section-title">Thông tin về tuyển dụng</h2>
+
+	<div class="recruitment-grid">
+        	<div class="recruitment-item" onclick="scrollToSection('architect')">
+            	<img src="image/nhan vien gia cong ban ve.png" alt="Nhân viên gia công bản vẽ">
+            	<h3 id="job-title-1">Nhân viên gia công bản vẽ</h3>
+        	</div>
+        
+        	<div class="recruitment-item" onclick="scrollToSection('interpreter')">
+            	<img src="image/nhan vien tieng Nhat.png" alt="Nhân sự biết tiếng Nhật">
+            	<h3 id="job-title-2">Nhân sự biết tiếng Nhật</h3>
+        	</div>
+        
+        	<div class="recruitment-item" onclick="scrollToSection('programer')">
+            	<img src="image/lap trinh vien C++.png" alt="Lập trình viên C++">
+            	<h3 id="job-title-3">Lập trình viên C++</h3>
+        	</div>
+        </div>
+
+        <div class="intro-section">
+        	<p class="intro-desc"></p>
+        	<p class="intro-desc"></p>
+		<p class="intro-desc"></p>
+		<p class="intro-desc"></p>
+		<p class="intro-desc"></p>
+		<p class="intro-desc"></p>
+        </div>
+
+    <hr style="border: 0; border-top: 1px solid #eee; margin: 50px 0;">
+
+    <section id="architect" class="job-detail-section">
+     <h2 class="sub-title-green" id="detail-h-1">Nhân viên gia công bản vẽ</h2>
+        
+      <div class="job-container">
+        <div class="job-vi">
+            <u><b>Nhân viên gia công bản vẽ:</b></u><br><br>
+            <b>- Nội dung công việc:</b><br>
+            Nhận yêu cầu thiết kế từ khách hàng sau đó sử dụng phần mềm chuyên dụng của công ty và dựa vào kiến thức, quy trình làm việc cố định để nhập/check bản vẽ.<br><br>
+            <b>- Yêu cầu:</b><br>
+            + Giới tính: nam/ nữ.<br>
+            + Tuổi: 19 đến 35 tuổi.<br>
+            + Có nguyện vọng tìm công việc gắn bó lâu dài.<br>
+            + Ngoại ngữ: không yêu cầu.<br>
+            + Bằng cấp: bằng trung cấp trở lên các ngành bất kì, hoặc các chứng chỉ liên quan bản vẽ kĩ thuật.<br>
+            + Có đam mê và khả năng tưởng tượng tốt về hình học không gian (có điểm số môn toán hình cấp 3 đạt loại khá trở lên).<br>
+            + Có tinh thần cầu tiến, ham học hỏi, kỹ luật cao, chịu được áp lực công việc cao.<br>
+            + Kinh nghiệm: <b>không yêu cầu</b>, sẽ được công ty <b>đào tạo từ đầu</b> trước khi làm việc chính thức.<br><br>
+            <b>- Quyền lợi:</b><br>
+            + Lương: cụ thể mức lương sẽ trao đổi khi phỏng vấn.<br>
+            + Được hưởng tất cả các chế độ BHXH, nghỉ phép, thưởng lễ thưởng tết...<br>
+            + Xét tăng lương hàng năm.<br>
+            + Công ty tổ chức Teambuilding hàng năm và các hoạt động tiệc trà vui chơi giải trí khác...<br><br>
+            <b>- Thời gian làm việc:</b><br>
+            Làm giờ hành chính, 8 tiếng/ 1 ngày.<br>Nghỉ các ngày thứ 7 xen kẽ, tất cả các ngày CN, lễ, tết theo quy định.<br>
+            <i>(Nghỉ xen kẽ nghĩa là thứ 7 tuần này nghỉ thì thứ 7 tuần sau đi làm, cứ như vậy đan xen nhau).</i><br><br>
+            <b>- Thời gian học việc:</b> học việc kéo dài từ 2 - 4 tháng tùy vào năng lực thực tế của ứng viên.<br>(Trong thời gian học việc ứng viên vẫn được nhận mức lương học việc).<br><br>
+            <b>- Địa điểm làm việc:</b> 100% tại VP: Tầng 2, 189 Hùng Vương - Tam Kỳ - Đà Nẵng hoặc tại Chợ Nón - Phước Thành - Quế Sơn Trung - Đà Nẵng.
+        </div>
+
+        <hr class="job-separator">
+
+        <div class="job-ja">
+            <u><b>図面作成スタッフ（CADオペレーター）募集</b></u><br><br>
+            <b>■ 業務内容</b><br>
+            お客様からの設計依頼を受け、当社専用ソフトを使用し、既定の業務フローおよび専門知識に基づいて図面の入力・チェック業務を行っていただきます。<br><br>
+            <b>■ 応募条件</b><br>
+            ・性別：不問<br>
+            ・年齢：19歳～35歳<br>
+            ・長期的に安定して勤務できる方<br>
+            ・語学力：不問<br>
+            ・学歴：専門学校卒以上（専攻不問）または図面・CAD関連資格をお持ちの方<br>
+            ・空間認識能力および図形への理解力がある方（高校数学〈図形分野〉で良好な成績を修めた方歓迎）<br>
+            ・向上心があり、学習意欲が高く、規律を守れる方<br>
+            ・業務上のプレッシャーに対応できる方<br>
+            ・経験：不問 （入社前に基礎から丁寧に研修を行います）<br><br>
+            <b>■ 待遇・福利厚生</b><br>
+            ・給与：面接時にご相談<br>
+            ・社会保険完備、有給休暇、祝日手当、年末年始手当など各種手当あり<br>
+            ・年1回の昇給制度あり<br>
+            ・年1回の社員旅行（チームビルディング）および各種レクリエーション活動あり<br><br>
+            <b>■ 勤務時間</b><br>
+            ・1日8時間勤務（通常勤務）<br>
+            ・隔週土曜日休み、毎週日曜日および祝日・年末年始休暇あり<br>
+            （※隔週土曜日休み：今週休みの場合、翌週は出勤）<br><br>
+            <b>■ 研修期間</b><br>
+            ・2～4ヶ月（能力に応じて変動）<br>※研修期間中も給与支給あり<br><br>
+            <b>■ 勤務地</b><br>
+            ・100％オフィス勤務<br>
+            ・住所：<br>&nbsp;&nbsp;&nbsp;&nbsp;ダナン市タムキー区フンヴオン通り189番地 2階<br>&nbsp;&nbsp;&nbsp;&nbsp;または<br>&nbsp;&nbsp;&nbsp;&nbsp;ダナン市クエソン地区フオックタイン・チョーノンオフィス
+        </div>
+      </div>
+    </section>
+
+    <section id="interpreter" class="job-detail-section">
+     <h2 class="sub-title-green" id="detail-h-2">Nhân sự biết tiếng Nhật</h2>
+        
+      <div class="job-container">
+        <div class="job-vi">
+            <u><b>Nhân sự tiếng Nhật(Cơ hội rất cao trở thành leader):</b></u><br><br>
+            <b>- Nội dung công việc:</b><br>
+             + Nhận yêu cầu thiết kế từ khách hàng sau đó sử dụng phần mềm chuyên dụng của công ty và dựa vào kiến thức, quy trình làm việc cố định để nhập/check bản vẽ .<br>
+	     + Tương tác trực tiếp với quản lý người Nhật để nắm yêu cầu công việc hàng ngày.<br>
+	     + Hỗ trợ dịch thuật cho các thành viên khác trong nhóm.<br><br>
+            <b>- Yêu cầu:</b><br>
+            + Giới tính: nam/ nữ.<br>
+            + Tuổi: 19 đến 35 tuổi.<br>
+            + Có nguyện vọng tìm công việc gắn bó lâu dài.<br>
+            + Ngoại ngữ: Tiếng Nhật tương đương N3( tự tin giao tiếp với người Nhật là được).<br>
+            + Bằng cấp: bằng trung cấp trở lên các ngành bất kì, hoặc các chứng chỉ liên quan bản vẽ kĩ thuật.<br>
+            + Có đam mê và khả năng tưởng tượng tốt về hình học không gian (có điểm số môn toán hình cấp 3 đạt loại khá trở lên).<br>
+            + Có tinh thần cầu tiến, ham học hỏi, kỹ luật cao, chịu được áp lực công việc cao.<br>
+            + Kinh nghiệm: <b>không yêu cầu</b>, sẽ được công ty <b>đào tạo từ đầu</b> trước khi làm việc chính thức.<br><br>
+            <b>- Quyền lợi:</b><br>
+            + Lương: cụ thể mức lương sẽ trao đổi khi phỏng vấn.<br>
+            + Được hưởng tất cả các chế độ BHXH, nghỉ phép, thưởng lễ thưởng tết...<br>
+            + Xét tăng lương hàng năm.<br>
+            + Công ty tổ chức Teambuilding hàng năm và các hoạt động tiệc trà vui chơi giải trí khác...<br><br>
+            <b>- Thời gian làm việc:</b><br>
+            Làm giờ hành chính, 8 tiếng/ 1 ngày.<br>
+	    Nghỉ các ngày thứ 7 xen kẽ, tất cả các ngày CN, lễ, tết theo quy định.<br>
+            <i>(Nghỉ xen kẽ nghĩa là thứ 7 tuần này nghỉ thì thứ 7 tuần sau đi làm, cứ như vậy đan xen nhau).</i><br><br>
+            <b>- Thời gian học việc:</b> học việc kéo dài từ 2 - 4 tháng tùy vào năng lực thực tế của ứng viên.<br>
+	    (Trong thời gian học việc ứng viên vẫn được nhận mức lương học việc).<br><br>
+            <b>- Địa điểm làm việc:</b> 100% tại VP: Tầng 2, 189 Hùng Vương - Tam Kỳ - Đà Nẵng hoặc tại Chợ Nón - Phước Thành - Quế Sơn Trung - Đà Nẵng.
+        </div>
+
+        <hr class="job-separator">
+
+        <div class="job-ja">
+            <u><b>日本語対応スタッフ（将来リーダー候補）募集</b></u><br><br>
+            <b>■ 業務内容</b><br>
+            ・お客様からの設計依頼を受け、当社専用ソフトを使用し、既定の業務フローおよび専門知識に基づいて図面の入力・チェックを行っていただきます。<br>
+	    ・日本人マネージャーと直接コミュニケーションを取り、日々の業務内容や要件を把握します。<br>
+	    ・チームメンバーへの通訳・翻訳サポートを担当していただきます。<br><br>
+            <b>■ 応募条件</b><br>
+            ・性別：不問<br>
+・年齢：19歳～35歳<br>
+・長期的に勤務できる方<br>
+・日本語能力：JLPT N3相当以上（日本人との会話がスムーズにできるレベル）<br>
+・学歴：専門学校卒以上（専攻不問）または図面・CAD関連資格をお持ちの方<br>
+・空間認識能力および図形への理解力がある方（高校数学〈図形分野〉で良好な成績を修めた方歓迎）<br>
+・向上心があり、学習意欲が高く、規律を守れる方<br>
+・業務上のプレッシャーに対応できる方<br>
+・経験：不問（入社前に基礎から丁寧に研修を行います）<br><br>
+
+            <b>■ 待遇・福利厚生</b><br>
+・給与：面接時にご相談<br>
+・社会保険完備、有給休暇、祝日手当、年末年始手当など各種手当あり<br>
+・年1回の昇給制度あり<br>
+・年1回の社員旅行（チームビルディング）および各種レクリエーション活動あり<br><br>
+
+            <b>■ 勤務時間</b><br>
+・1日8時間勤務（通常勤務）<br>
+・隔週土曜日休み、毎週日曜日および祝日・年末年始休暇あり<br>
+（※隔週土曜日休み：今週休みの場合、翌週は出勤）<br><br>
+
+            <b>■ 研修期間</b><br>
+            ・2～4ヶ月（能力に応じて変動）<br>※研修期間中も給与支給あり<br><br>
+
+            <b>■ 勤務地</b><br>
+            ・100％オフィス勤務<br>
+            ・住所：<br>&nbsp;&nbsp;&nbsp;&nbsp;ダナン市タムキー区フンヴオン通り189番地 2階<br>&nbsp;&nbsp;&nbsp;&nbsp;または<br>&nbsp;&nbsp;&nbsp;&nbsp;ダナン市クエソン地区フオックタイン・チョーノンオフィス
+        </div>
+      </div>
+    </section>
+
+    <section id="programer" class="job-detail-section">
+        <h2 class="sub-title-green" id="detail-h-3">Lập trình viên C++</h2>
+        
+      <div class="job-container">
+        <div class="job-vi">
+            <u><b>Lập trình viên C++:</b></u><br><br>
+            <b>- Nội dung công việc:</b><br>
+             Sử dụng ngôn ngữ C++ để Update, cải tiến các chức năng mới của phần mềm theo yêu cầu của khách hàng.<br><br>
+            <b>- Yêu cầu:</b><br>
+            + Giới tính: nam/ nữ.<br>
+            + Tuổi: 19 đến 35 tuổi.<br>
+            + Có nguyện vọng tìm công việc gắn bó lâu dài.<br>
+            + Ngoại ngữ: chúng tôi tuyển cả 2 vị trí biết tiếng Nhật và không biết tiếng Nhật.br>
+            + Bằng cấp: tốt nghiệp đại học chuyên ngành liên quan C++.<br>
+            + Có tinh thần cầu tiến, ham học hỏi, kỹ luật cao, chịu được áp lực công việc cao.<br>
+            + Kinh nghiệm: <b>không yêu cầu</b>, sẽ được công ty <b>đào tạo từ đầu</b> trước khi làm việc chính thức.<br><br>
+            <b>- Quyền lợi:</b><br>
+            + Lương: cụ thể mức lương sẽ trao đổi khi phỏng vấn.<br>
+            + Được hưởng tất cả các chế độ BHXH, nghỉ phép, thưởng lễ thưởng tết...<br>
+            + Xét tăng lương hàng năm.<br>
+            + Công ty tổ chức Teambuilding hàng năm và các hoạt động tiệc trà vui chơi giải trí khác...<br><br>
+            <b>- Thời gian làm việc:</b><br>
+            Làm giờ hành chính, 8 tiếng/ 1 ngày.<br>
+	    Nghỉ tất cả các ngày thứ 7  CN, lễ, tết theo quy định.<br><br>
+            <b>- Thời gian học việc:</b> học việc kéo dài từ 2 - 4 tháng tùy vào năng lực thực tế của ứng viên.<br>
+	    (Trong thời gian học việc ứng viên vẫn được nhận mức lương học việc).<br><br>
+            <b>- Địa điểm làm việc:</b> 100% tại VP, Tầng 6, 153 Đống Đa - Hải Châu - Đà Nẵng.
+        </div>
+
+        <hr class="job-separator">
+
+        <div class="job-ja">
+            <u><b>C++プログラマー募集</b></u><br><br>
+            <b>■ 業務内容</b><br>
+            C++言語を使用し、お客様の要望に基づいてソフトウェアの機能アップデートおよび新機能の開発・改善を行っていただきます。<br><br>
+            <b>■ 応募条件</b><br>
+            ・性別：不問<br>
+・年齢：19歳～35歳<br>
+・長期的に勤務できる方<br>
+・語学力：不問（日本語ができる方・できない方いずれも歓迎）<br>
+・学歴：大学卒業以上（C++関連専攻）<br>
+・向上心があり、学習意欲が高く、規律を守れる方<br>
+・業務上のプレッシャーに対応できる方<br>
+・経験：不問（入社前に基礎から研修を行います）
+<br><br>
+
+            <b>■ 待遇・福利厚生</b><br>
+・給与：面接時にご相談<br>
+・社会保険完備、有給休暇、祝日手当、年末年始手当など各種手当あり<br>
+・年1回の昇給制度あり<br>
+・年1回の社員旅行（チームビルディング）および各種レクリエーション活動あり
+<br><br>
+
+            <b>■ 勤務時間</b><br>
+・1日8時間勤務（通常勤務）<br>
+・土曜日・日曜日・祝日・年末年始休暇あり<br><br>
+
+            <b>■ 研修期間</b><br>
+            ・2～4ヶ月（能力に応じて変動）<br>
+※研修期間中も給与支給あり<br><br>
+
+            <b>■ 勤務地</b><br>
+            ・100％オフィス勤務<br>
+            ・住所：ダナン市ハイチャウ区ドンダー通り153番地 6階
+
+        </div>
+      </div>
+    </section>
     </main>
 
     <footer>
@@ -558,6 +942,18 @@ header.scrolled .menu-toggle {
         <h4 id="f-title-contact">Liên hệ</h4>
         <p><i class="fas fa-envelope"></i> Email: ngocsy@thietkeius.asia</p>
         <p><i class="fas fa-phone"></i> Hotline: 070 2929 345</p>
+
+	<div class="footer-certificates">
+    <div class="qr-item">
+        <img src="image/QR-Line.png" alt="QR Line">
+        <span>Line</span>
+    </div>
+    <div class="qr-item">
+        <img src="image/QR-Zalo.png" alt="QR Zalo">
+        <span>Zalo</span>
+    </div>
+</div>
+
     </div>
     <div>
         <h4 id="f-title-hq">Trụ sở chính</h4>
@@ -595,15 +991,28 @@ header.scrolled .menu-toggle {
             hero_title: "IUS tin tức tuyển dụng!",
             hero_caption: "Nhà gỗ Nhật Bản (Ảnh: Internet)",
 	    search_placeholder: "Tìm kiếm...",
-            section_main_title: "Thêm nội dung/hình ảnh vào đây!",
-            sub_classic: "Dù là cổ điển",
-            sub_modern: "Hay hiện đại",
-            sub_morning: "Trẻ trung trong nắng sớm!",
-            sub_noon: "Xanh mát vườn ban trưa!",
-            sub_peace: "Chiều đô thị bình yên!",
-            sub_light: "Kín đáo nhưng tràn ánh sáng!",
-            sub_interior: "Nội thất sang trọng! Mát mẻ mùa hè, ấm áp về đông!",
-	    sub_notes: "Nhà gỗ Nhật Bản (Ảnh: Internet)",
+            section_main_title: "Các vị trí tuyển dụng!",
+
+// Tiêu đề 3 vị trí công việc
+            job_title_1: "Nhân viên gia công bản vẽ",
+            job_title_2: "Nhân sự biết tiếng Nhật",
+            job_title_3: "Lập trình viên C++",
+
+// Mảng chứa các dòng giới thiệu
+        recruitment_intro: [
+            "Chúng tôi luôn lấy con người làm giá trị cốt lõi cho sự phát triển bền vững.",
+            "Mỗi thành viên đều là một mắt xích quan trọng, góp phần tạo nên sức mạnh tập thể của công ty.",
+	    "Vì vậy, chúng tôi đặc biệt chú trọng đến việc đào tạo và phát triển chuyên môn, giúp mỗi nhân sự sau khi trở thành nhân viên chính thức đều có khả năng làm việc độc lập cũng như phối hợp hiệu quả trong đội nhóm.",
+	    "Với môi trường làm việc trẻ trung, năng động và hội nhập quốc tế, chúng tôi tự tin là nơi bạn có thể phát triển sự nghiệp và gắn bó lâu dài.",
+	    "Chúng tôi luôn biết ơn, trân trọng tất cả sự đóng góp của các thành viên cũ, đồng thời luôn luôn chào đón thành viên mới gia nhập tổ chức của chúng tôi.",
+	    "Hãy liên hệ ngay cho chúng tôi bất kỳ lúc nào bạn sẵn sàng!"
+        ],
+
+// Chi tiết các Section bên dưới
+            detail_title_1: "Nhân viên gia công bản vẽ",
+            detail_title_2: "Nhân sự biết tiếng Nhật",
+            detail_title_3: "Lập trình viên C++",
+
             footer_contact: "Liên hệ",
             footer_headquarters: "Trụ sở chính",
             footer_branch: "Văn Phòng Làm Việc",
@@ -624,15 +1033,28 @@ addr_hq: "📍 An Hà Đông - Quảng Phú - Đà Nẵng - Việt Nam",
             hero_title: "IUS採用情報！",
             hero_caption: "日本の木造住宅（写真：インターネット）",
 	    search_placeholder: "検索...",
-            section_main_title: "内容/写真を追加する！",
-            sub_classic: "クラシックでも",
-            sub_modern: "モダンでも",
-            sub_morning: "朝の光の中で若々しく！",
-            sub_noon: "真昼の涼しい庭！",
-            sub_peace: "穏やかな都市の夕暮れ！",
-            sub_light: "控えめながら光に満ちた！",
-            sub_interior: "豪華なインテリア！夏は涼しく、冬は暖かく！",
-	    sub_notes: "日本の木造住宅（写真：インターネット）",
+            section_main_title: "採用情報！",
+
+// Tiêu đề 3 vị trí công việc (Tiếng Nhật)
+            job_title_1: "図面作成スタッフ（CADオペレーター）募集",
+            job_title_2: "日本語対応スタッフ（将来リーダー候補）募集",
+            job_title_3: "C++プログラマー募集",
+
+// Mảng chứa các dòng giới thiệu
+        recruitment_intro: [
+            "私たちは常に「人」を持続的な発展の中核的価値として位置づけております。",
+            "すべてのメンバーは重要な役割を担い、会社の集団的な力を築く大切な存在です。",
+	    "そのため、私たちは人材の教育と専門的な成長に特に注力し、正社員となった後には、各人が独立して業務を遂行できると同時に、チームの中で効果的に協働できるよう支援しております。",
+	    "若く活気に満ち、国際的に開かれた職場環境のもと、私たちは皆様がキャリアを発展させ、長くご活躍いただける場であると自信を持っております。",
+	    "また、これまで貢献してくださったメンバーの皆様に心より感謝と敬意を表するとともに、新たに加わる仲間を常に歓迎いたします。",
+	    "ぜひ、いつでもお気軽にご連絡ください。"
+        ],
+
+// Chi tiết các Section bên dưới (Tiếng Nhật)
+            detail_title_1: "図面作成スタッフ（CADオペレーター）募集",
+            detail_title_2: "日本語対応スタッフ（将来リーダー候補）募集",
+            detail_title_3: "C++プログラマー募集",
+
             footer_contact: "連絡先",
             footer_headquarters: "本社",
             footer_branch: "オフィス",
@@ -650,6 +1072,7 @@ addr_hq: "📍 An Ha Dong, Quang Phu, Da Nang, Vietnam",
         const lang = e.target.value;
         applyLanguage(lang);
     });
+
 
     function applyLanguage(lang) {
 	localStorage.setItem("selectedLanguage", lang);// Nho ngon ngu 
@@ -680,6 +1103,29 @@ addr_hq: "📍 An Ha Dong, Quang Phu, Da Nang, Vietnam",
         // Main Content
         document.querySelector(".section-title").innerText = t.section_main_title;
         
+	// Dịch 3 tiêu đề dưới ảnh (Dùng ID bạn đã đặt: job-title-1, ...)
+        if(document.getElementById("job-title-1")) document.getElementById("job-title-1").innerText = t.job_title_1;
+        if(document.getElementById("job-title-2")) document.getElementById("job-title-2").innerText = t.job_title_2;
+        if(document.getElementById("job-title-3")) document.getElementById("job-title-3").innerText = t.job_title_3;
+
+	// Đoạn giới thiệu
+    const introElements = document.querySelectorAll(".intro-desc");
+    introElements.forEach((el, index) => {
+        if (t.recruitment_intro[index]) {
+            el.innerText = t.recruitment_intro[index];
+        }
+    });
+
+	//Dịch 3 khối chi tiết bên dưới
+        const setText = (id, text) => {
+            const el = document.getElementById(id);
+            if (el && text) el.innerText = text;
+        };
+
+        setText("detail-h-1", t.detail_title_1);
+        setText("detail-h-2", t.detail_title_2);
+        setText("detail-h-3", t.detail_title_3);
+
         // Footer
         const footerHeaders = document.querySelectorAll(".footer-grid h4");
         footerHeaders[0].innerText = t.footer_contact;
@@ -687,15 +1133,12 @@ addr_hq: "📍 An Ha Dong, Quang Phu, Da Nang, Vietnam",
         footerHeaders[2].innerText = t.footer_branch;
         document.querySelector(".footer-bottom small").innerText = t.footer_copyright;
 
-const setText = (id, text) => {
-        const el = document.getElementById(id);
-        if (el && text) el.innerText = text;
-    };
     setText("f-addr-hq", t.addr_hq);
     setText("f-addr-b1", t.addr_b1);
     setText("f-addr-b2", t.addr_b2);
     setText("f-addr-b3", t.addr_b3);
 }
+
 
     // --- logic scroll ---
     const header = document.querySelector("header");
@@ -779,6 +1222,21 @@ document.querySelectorAll('.nav-links a').forEach(link => {
         navLinks.classList.remove('active');
     });
 });
+
+function scrollToSection(sectionId) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+        // Lấy chiều cao của header để cuộn cho chính xác
+        const headerOffset = 100; 
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth"
+        });
+    }
+}
 </script>
 </body>
 </html>

@@ -412,6 +412,40 @@ header.scrolled .lang-select {
             padding-top: 20px;
         }
 
+/* Style cho khối chứa QR và nhãn */
+.footer-certificates {
+    display: flex;
+    gap: 30px;            /* Khoảng cách giữa 2 khối QR */
+    margin-top: 20px;
+    padding-left: 30px;   
+    align-items: flex-start;
+}
+
+.qr-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* Căn giữa chữ dưới ảnh */
+    gap: 8px;            /* Khoảng cách giữa ảnh và chữ */
+}
+
+.footer-certificates img {
+    height: 140px;        /* Điều chỉnh lại kích thước cho cân đối */
+    width: auto;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+    filter: drop-shadow(2px 2px 5px rgba(0,0,0,0.3));
+}
+
+.qr-item span {
+    font-size: 0.85rem;
+    color: #bdc1c6;
+    font-weight: 500;
+}
+
+.footer-certificates img:hover {
+    transform: scale(1.1);
+}
+
 /* Container chứa cả input và kính lúp */
 .search-container {
     display: flex;
@@ -507,10 +541,14 @@ header.scrolled .menu-toggle {
     color: #333;
 }
 
-/* KHI XEM TRÊN ĐIỆN THOẠI (Dưới 768px) */
-@media screen and (max-width: 768px) {
+/* Dành cho máy tính bảng và điện thoại (màn hình nhỏ hơn 1024px) */
+@media screen and (max-width: 1024px) {
     .menu-toggle {
         display: block; /* Hiện nút 3 gạch */
+	color: #ac127f;
+        font-size: 24px;
+        cursor: pointer;
+        margin-right: 35%;
     }
 
     .nav-links {
@@ -544,6 +582,23 @@ header.scrolled .menu-toggle {
     
     .header-tools {
         gap: 5px; /* Thu hẹp khoảng cách tìm kiếm và ngôn ngữ */
+    }
+}
+
+/* --- ĐIỀU CHỈNH CHO ĐIỆN THOẠI NHỎ (Dưới 480px) --- */
+@media screen and (max-width: 480px) {
+    .hero {
+        padding-top: 15px; /* Sát lên trên cùng */
+    }
+    .title-thin {
+        font-size: 1.2rem; 
+    }
+
+.footer-certificates {
+        padding-left: 15px; /* Giảm độ lệch trên điện thoại */
+    }
+    .footer-certificates img {
+        height: 70px;       /* Thu nhỏ nhẹ trên mobile */
     }
 }
     </style>
@@ -620,6 +675,18 @@ header.scrolled .menu-toggle {
         <h4 id="f-title-contact">Liên hệ</h4>
         <p><i class="fas fa-envelope"></i> Email: ngocsy@thietkeius.asia</p>
         <p><i class="fas fa-phone"></i> Hotline: 070 2929 345</p>
+
+	<div class="footer-certificates">
+    <div class="qr-item">
+        <img src="image/QR-Line.png" alt="QR Line">
+        <span>Line</span>
+    </div>
+    <div class="qr-item">
+        <img src="image/QR-Zalo.png" alt="QR Zalo">
+        <span>Zalo</span>
+    </div>
+</div>
+
     </div>
     <div>
         <h4 id="f-title-hq">Trụ sở chính</h4>

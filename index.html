@@ -165,24 +165,11 @@ header.scrolled .lang-select {
     max-width: 100%; /* Giới hạn để không bị tràn màn hình */
 }
 
-/* 3. HIỆU ỨNG: Chạy ra và Nhấp nháy liên tục */
-.char-effect {
-    display: inline-block;
-    white-space: pre;
-    opacity: 0;
-    /* Chạy fadeIn để hiện ra, sau đó chạy blink liên tục */
-    animation: fadeIn 0.5s forwards, blink 2s infinite;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes blink {
-    0%, 100% { opacity: 1; filter: brightness(1.2); }
-    50% { opacity: 0.2; filter: brightness(0.8); }
-}
+/* Hiệu ứng sáng chữ cho Slogan trên ảnh bìa */
+        .title-thin:hover {
+            text-shadow: 0 0 15px rgba(255,255,255,0.7);
+            transform: scale(1.01);
+        }
 
         .caption-bottom {
             position: absolute;
@@ -238,7 +225,7 @@ header.scrolled .lang-select {
             transition: all 0.4s ease;
         }
 
-        /* Gạch chân dưới chữ cam hiện rõ hơn khi rê chuột */
+        /* Gạch chân dưới chữ xanh hiện rõ hơn khi rê chuột */
         .section-title:hover::after {
             opacity: 1;
             width: 70%;
@@ -446,6 +433,40 @@ header.scrolled .lang-select {
             padding-top: 20px;
         }
 
+/* Style cho khối chứa QR và nhãn */
+.footer-certificates {
+    display: flex;
+    gap: 30px;            /* Khoảng cách giữa 2 khối QR */
+    margin-top: 20px;
+    padding-left: 30px;   
+    align-items: flex-start;
+}
+
+.qr-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* Căn giữa chữ dưới ảnh */
+    gap: 8px;            /* Khoảng cách giữa ảnh và chữ */
+}
+
+.footer-certificates img {
+    height: 140px;        /* Điều chỉnh lại kích thước cho cân đối */
+    width: auto;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+    filter: drop-shadow(2px 2px 5px rgba(0,0,0,0.3));
+}
+
+.qr-item span {
+    font-size: 0.85rem;
+    color: #bdc1c6;
+    font-weight: 500;
+}
+
+.footer-certificates img:hover {
+    transform: scale(1.1);
+}
+
 /* Container chứa cả input và kính lúp */
 .search-container {
     display: flex;
@@ -484,66 +505,7 @@ header.scrolled .search-container {
     font-size: 18px;
 }
 
-/* Container chứa 7 ô dịch vụ */
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Chia làm 3 cột bằng nhau */
-    gap: 25px; /* Khoảng cách giữa các ô */
-    margin-top: 40px;
-}
-
-/* Từng ô dịch vụ đơn lẻ */
-.service-item {
-    text-decoration: none; /* Bỏ gạch chân link */
-    color: inherit;
-    background: #fff;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    transition: all 0.3s ease;
-    display: flex;
-    flex-direction: column;
-}
-
-.service-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-}
-
-.service-pic img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover; /* Giúp ảnh không bị móp méo */
-    display: block;
-}
-
-.service-text {
-    padding: 20px;
-    text-align: center;
-}
-
-.service-text h4 {
-    margin: 0 0 10px 0;
-    color: #1a4ba0;
-    font-size: 1.1rem;
-    text-transform: uppercase;
-}
-
-.service-text p {
-    margin: 0;
-    font-size: 0.9rem;
-    color: #666;
-    line-height: 1.5;
-}
-
-/* Responsive: Trên điện thoại thì xếp 1 cột, máy tính bảng 2 cột */
-@media (max-width: 992px) {
-    .services-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 600px) {
-    .services-grid { grid-template-columns: 1fr; }
-}
-
+/* Nút hamberger cho điện thoại */
 /* Ẩn nút 3 gạch trên máy tính */
 .menu-toggle {
     display: none;
@@ -608,7 +570,99 @@ header.scrolled .menu-toggle {
     .title-thin {
         font-size: 1.2rem; 
     }
+
+.footer-certificates {
+        padding-left: 15px; /* Giảm độ lệch trên điện thoại */
+    }
+    .footer-certificates img {
+        height: 70px;       /* Thu nhỏ nhẹ trên mobile */
+    }
 }
+
+/* Container chứa 7 ô dịch vụ */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Chia làm 3 cột bằng nhau */
+    gap: 25px; /* Khoảng cách giữa các ô */
+    margin-top: 40px;
+}
+
+
+
+/* Lưu ý: (Chỉ có riêng ở trang TRANG CHỦ)(Bắt đầu) */
+/* HIỆU ỨNG Ở BÌA: Chạy ra và Nhấp nháy liên tục ở bìa */
+.char-effect {
+    display: inline-block;
+    white-space: pre;
+    opacity: 0;
+    /* Chạy fadeIn để hiện ra, sau đó chạy blink liên tục */
+    animation: fadeIn 0.5s forwards, blink 2s infinite;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; filter: brightness(1.2); }
+    50% { opacity: 0.2; filter: brightness(0.8); }
+}
+
+/* HIỂN THỊ Ở THÂN WEBSITE: Từng ô dịch vụ đơn lẻ */
+.service-item {
+    text-decoration: none; /* Bỏ gạch chân link */
+    color: inherit;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.service-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.service-pic img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Giúp ảnh không bị móp méo */
+    display: block;
+}
+
+.service-text {
+    padding: 20px;
+    text-align: center;
+}
+
+.service-text h4 {
+    margin: 0 0 10px 0;
+    color: #1a4ba0;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+}
+
+.service-text p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Responsive: Trên điện thoại thì xếp 1 cột, máy tính bảng 2 cột */
+@media (max-width: 992px) {
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+    .services-grid { grid-template-columns: 1fr; }
+}
+/* Lưu ý: (Chỉ có riêng ở trang TRANG CHỦ)(Kết thúc)*/
+
+
     </style>
 </head>
 <body>
@@ -675,7 +729,7 @@ header.scrolled .menu-toggle {
     </a>
 
     <a href="cong-ty-thanh-vien.html" class="service-item">
-        <div class="service-pic"><img src="image/Cong-ty-thanh-vien.png" alt="Thành viên"></div>
+        <div class="service-pic"><img src="image/lo-go-cong-ty-tps.png" alt="Thành viên"></div>
         <div class="service-text">
             <h4>Công ty thành viên</h4>
             <p>Hệ sinh thái các đơn vị đối tác và công ty con của IUS.</p>
@@ -683,9 +737,9 @@ header.scrolled .menu-toggle {
     </a>
 
     <a href="dia-phuong-va-chung-toi.html" class="service-item">
-        <div class="service-pic"><img src="image/Tin-tuc-va-hoat-dong.PNG" alt="Tin tức"></div>
+        <div class="service-pic"><img src="image/Tin-tuc-va-hoat-dong.PNG" alt="Địa phương và chúng tôi"></div>
         <div class="service-text">
-            <h4>Tin tức</h4>
+            <h4>Địa phương và chúng tôi</h4>
             <p>Cập nhật những hoạt động và sự kiện mới nhất của công ty.</p>
         </div>
     </a>
@@ -715,6 +769,18 @@ header.scrolled .menu-toggle {
         <h4 id="f-title-contact">Liên hệ</h4>
         <p><i class="fas fa-envelope"></i> Email: ngocsy@thietkeius.asia</p>
         <p><i class="fas fa-phone"></i> Hotline: 070 2929 345</p>
+
+	<div class="footer-certificates">
+    <div class="qr-item">
+        <img src="image/QR-Line.png" alt="QR Line">
+        <span>Line</span>
+    </div>
+    <div class="qr-item">
+        <img src="image/QR-Zalo.png" alt="QR Zalo">
+        <span>Zalo</span>
+    </div>
+</div>
+
     </div>
     <div>
         <h4 id="f-title-hq">Trụ sở chính</h4>
