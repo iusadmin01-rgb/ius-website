@@ -329,12 +329,6 @@ header.scrolled .lang-select {
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
         }
 
-        /* MAP GRID riêng của trang LIÊN HỆ */
-        .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 30px; }
-        .map-box { background: #fff; padding: 15px; border: 1px solid #eee; border-radius: 12px; text-align: center; transition: transform 0.3s ease; }
-        .map-box:hover { transform: translateY(-5px); }
-        .map-box h3 { color: #1a4ba0; font-style: italic; margin-bottom: 10px; }
-        @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } }
 
 /* Thiết lập nút Back to Top - Xóa sạch khung hình vuông/tròn cũ */
 #backToTop {
@@ -562,6 +556,28 @@ header.scrolled .menu-toggle {
         height: 70px;       /* Thu nhỏ nhẹ trên mobile */
     }
 }
+
+
+/* Lưu ý: chỉ dùng cho trang LIÊN HỆ (bắt đầu) */
+       /* MAP GRID riêng của trang LIÊN HỆ */
+        .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 30px; }
+        .map-box { background: #fff; padding: 15px; border: 1px solid #eee; border-radius: 12px; text-align: center; transition: transform 0.3s ease; }
+        .map-box:hover { transform: translateY(-5px); }
+        .map-box h3 { color: #1a4ba0; font-style: italic; margin-bottom: 10px; }
+        @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } }
+.btn-direction {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 8px 14px;
+    background: #1a73e8;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+}
+.btn-direction:hover {
+    background: #0c57c7;
+}
+/* Lưu ý: chỉ dùng cho trang LIÊN HỆ (kết thúc) */
     </style>
 </head>
 <body>
@@ -613,22 +629,40 @@ header.scrolled .menu-toggle {
         <div class="map-box">
             <h3 class="sub-branch">Văn Phòng Tam Kỳ</h3>
             <p>🏠 <b>Tam Kỳ</b></p>
-            <p><i class="fas fa-map-marker-alt"></i> 189 Hùng Vương - Tam Kỳ - Quảng Nam</p>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3844.2562548858734!2d108.4816158!3d15.5510659!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3169dd78351536e1%3A0x679468972983792b!2zMTg5IEjDuW5nIFbGsMahbmcsIFRhbSBL4buzLCBRdeG6o25nIE5hbQ!5e0!3m2!1svi!2s!4v1700000000000" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <p><i class="fas fa-map-marker-alt"></i> 189 Hùng Vương - Tam Kỳ - Quảng Nam</p>  
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4614.136132265936!2d108.47556597586222!3d15.567840385041315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3169dcde2abfc40b%3A0x659f7409a2236436!2zMTg5IEjDuW5nIFbGsMahbmcsIFBoxrDhu51uZyBBbiBN4bu5LCBUYW0gS-G7sywgxJDDoCBO4bq1bmcgNTYwMDAwLCBWaWV0bmFt!5e1!3m2!1sen!2sus!4v1775704988189!5m2!1sen!2sus" width="300" height="225" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<a 
+  href="https://maps.app.goo.gl/58GaB7s4ySoVZATNA"
+  target="_blank"
+  class="btn-direction">
+  👉 Chỉ đường
+</a>
         </div>
 
         <div class="map-box">
             <h3 class="sub-branch">Văn Phòng Quế Sơn</h3>
             <p>🏠 <b>Quế Sơn</b></p>
             <p><i class="fas fa-map-marker-alt"></i> Phước Thành - Quế Xuân - Quảng Nam</p>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1152.8243874414009!2d108.2571667!3d15.693861100000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTXCsDQxJzM3LjkiTiAxMDjCsDE1JzI1LjgiRQ!5e1!3m2!1svi!2s!4v1773221204744!5m2!1svi!2s" width=100% height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d4611.297552026929!2d108.257167!3d15.693861!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTXCsDQxJzM3LjkiTiAxMDjCsDE1JzI1LjgiRQ!5e1!3m2!1svi!2sjp!4v1775705038794!5m2!1svi!2sjp" width="300" height="225" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<a 
+  href="https://maps.app.goo.gl/b4hyYjTXhfgUdee77"
+  target="_blank"
+  class="btn-direction">
+  👉 Chỉ đường
+</a>
         </div>
 
         <div class="map-box">
             <h3 class="sub-branch">Văn Phòng Đà Nẵng</h3>
             <p>🏠 <b>Đà Nẵng</b></p>
             <p><i class="fas fa-map-marker-alt"></i> 153 Đống Đa - Hải Châu - Đà Nẵng</p>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3833.8407425881023!2d108.2166585!3d16.0737402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3142183060699763%3A0xc3f5c78216449a5b!2zMTUzIMSQ4buRbmcgxJBhLCBUaOG6oWNoIFRoYW5nLCBI4bqjaSBDaMOidSwgxJDDoCBO4bq5bmc!5e0!3m2!1svi!2s!4v1700000000000" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4602.507395531889!2d108.214465275871!3d16.077997784602765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31421838532ae107%3A0x77a7c2e5d924bfb9!2zMTUzIMSQ4buRbmcgxJBhLCBUaOG6oWNoIFRoYW5nLCBI4bqjaSBDaMOidSwgxJDDoCBO4bq1bmcgNTUwMDAwLCBWaWV0bmFt!5e1!3m2!1sen!2sus!4v1775705075476!5m2!1sen!2sus" width="300" height="225" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<a 
+  href="https://maps.app.goo.gl/7SpHdxgHM396oKES6"
+  target="_blank"
+  class="btn-direction">
+  👉 Chỉ đường
+</a>
         </div>
     </div>
 </main>

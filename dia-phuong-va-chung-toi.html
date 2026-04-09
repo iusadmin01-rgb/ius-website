@@ -80,7 +80,7 @@
             gap: 15px;
         }
 
-	/* Biến Combo box thành phong cách kính mờ */
+	/* Combo box phong cách kính mờ */
 	.lang-select {
 	    background: rgba(255, 255, 255, 0.15); /* Nền mờ */
 	    backdrop-filter: blur(8px);           /* Hiệu ứng kính */
@@ -170,46 +170,7 @@ header.scrolled .lang-select {
             box-shadow: 0 4px 20px rgba(0,0,0,0.05);
         }
 
-        /* TIÊU ĐỀ CAM SÁNG LÊN KHI HOVER */
-        .section-title {
-            color: #1a4ba0;
-            font-size: 2.4rem;
-            font-weight: 600;
-            font-style: italic;
-            margin-bottom: 30px;
-            letter-spacing: 2px;
-            text-align: center;
-            display: block;
-            width: 100%;
-            position: relative;
-            padding-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-            transition: all 0.4s ease; /* Thêm hiệu ứng mượt */
-        }
-
-        .section-title:hover {
-            color: #1a4ba0; /* Cam sáng hơn chút */
-            text-shadow: 0 0 15px rgba(26, 75, 160, 0.5); /* Phát sáng cam */
-        }
-
-        .section-title::after {
-            content: "";
-            display: block;
-            width: 60%;
-            height: 3px;
-            background: #1a4ba0;
-            opacity: 0.5;
-            margin: 10px auto 0 auto;
-            border-radius: 10px;
-            transition: all 0.4s ease;
-        }
-
-        /* Gạch chân dưới chữ cam hiện rõ hơn khi rê chuột */
-        .section-title:hover::after {
-            opacity: 1;
-            width: 70%;
-            background: #1a4ba0;
-        }
+/* Bỏ các class section-title, section-title:hover, .section-title::after, .section-title:hover::after khác với các trang khác để thêm hiệu ứng riêng của sheet ĐỊA PHƯƠNG VÀ CHÚNG TÔI */
 
 	/* Hiển thị chữ xanh và hiệu ứng trong nội dung phần thân trang web */
         .sub-title-green {
@@ -555,6 +516,163 @@ header.scrolled .menu-toggle {
         height: 70px;       /* Thu nhỏ nhẹ trên mobile */
     }
 }
+
+
+/* Lưu ý: dành riêng cho trang ĐỊA PHƯƠNG VÀ CHÚNG TÔI (Bắt đầu) */
+/* Tạo khung giới hạn và hiệu ứng chữ chạy */
+.scrolling-wrapper {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    background: #fff; /* Hoặc màu tùy chọn */
+    padding: 15px 0;
+}
+
+.section-title {
+    color: #1a4ba0;
+    font-size: 2.2rem;
+    font-weight: 600;
+    font-style: italic;
+    text-align: center;
+    display: block;
+    width: 100%;
+    margin: 30px 0;
+    
+    /* Hiệu ứng nhấp nháy lấp lánh */
+    animation: sparkle 3s ease-in-out infinite;
+    transition: all 0.4s ease;
+}
+
+/* Định nghĩa chuyển động chạy từ phải sang trái */
+@keyframes scrollText {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+/* Định nghĩa hiệu ứng lấp lánh */
+@keyframes sparkle {
+    0%, 100% {
+        text-shadow: 0 0 10px rgba(26, 75, 160, 0.2);
+        opacity: 0.8;
+    }
+    50% {
+        text-shadow: 0 0 20px rgba(26, 75, 160, 0.8), 
+                     0 0 30px rgba(66, 133, 244, 0.5);
+        opacity: 1;
+        transform: scale(1.02); /* Phóng nhẹ một chút khi sáng lên */
+    }
+}
+
+.image-desc {
+    margin-top: 15px;
+    line-height: 1.6;
+    color: #555;
+    text-align: justify;
+    padding: 0 20px;
+}
+
+/* Custom cho phần Di chuyển: 2 ảnh nằm ngang */
+.image-row {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.image-row img {
+    flex: 1; /* Chia đều 50-50 cho 2 ảnh */
+    width: 50%; /* Trừ hao khoảng cách gap */
+    height: 500px; /* Có thể chỉnh độ cao tùy ý */
+    object-fit: cover; /* Giúp ảnh không bị méo khi co giãn */
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.image-row img:hover {
+    transform: scale(1.03);
+}
+
+/* Căn giữa dòng chữ mô tả bên dưới */
+.text-center-desc {
+    text-align: center !important; /* Ghi đè lệnh justify cũ */
+    width: 100%;
+    padding: 0 10%;
+    margin-top: 10px;
+}
+
+/* Hỗ trợ điện thoại: Xếp dọc lại để ảnh không quá bé */
+@media screen and (max-width: 600px) {
+    .image-row {
+        flex-direction: column;
+    }
+    .image-row img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* Container chứa 9 ảnh khít nhau */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Chia làm 3 cột */
+    width: 100%;
+    max-width: 900px; /* Độ rộng tổng thể của khối 9 ảnh */
+    margin: 40px auto;
+    gap: 0; /* Xóa hoàn toàn khoảng cách giữa các ảnh */
+    line-height: 0; /* Xóa khoảng trống nhỏ dưới chân ảnh */
+}
+
+.grid-item {
+    overflow: visible; /* Để khi to ra nó chùm lên ảnh khác */
+    z-index: 1;
+}
+
+.grid-item img {
+    width: 100%;
+    height: 250px; /* Bạn có thể chỉnh lại chiều cao theo ý muốn */
+    object-fit: cover;
+    transition: transform 0.4s ease, z-index 0s;
+    cursor: pointer;
+}
+
+/* Khi rê chuột vào: tăng z-index để nó đè lên các ảnh xung quanh */
+.grid-item:hover {
+    z-index: 10;
+}
+
+.grid-item:hover img {
+    transform: scale(1.3); /* Độ phóng to */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* --- Xử lý hướng tỏa ra --- */
+
+/* Hàng 1: Tỏa lên trên */
+.top-left img { transform-origin: top left; }
+.top-center img { transform-origin: top center; }
+.top-right img { transform-origin: top right; }
+
+/* Hàng 2: Tỏa sang ngang hoặc ở giữa */
+.middle-left img { transform-origin: center left; }
+.center img { transform-origin: center center; } /* Tấm giữa to tại chỗ */
+.middle-right img { transform-origin: center right; }
+
+/* Hàng 3: Tỏa xuống dưới */
+.bottom-left img { transform-origin: bottom left; }
+.bottom-center img { transform-origin: bottom center; }
+.bottom-right img { transform-origin: bottom right; }
+
+/* Mobile: Xếp lại thành 2 cột hoặc 1 cột để nhìn rõ hơn */
+@media screen and (max-width: 600px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+/* Lưu ý: dành riêng cho trang ĐỊA PHƯƠNG VÀ CHÚNG TÔI (Kết thúc) */
+
+
     </style>
 </head>
 <body>
@@ -601,9 +719,119 @@ header.scrolled .menu-toggle {
     </section>
 
     <main class="container">
-        <section id="about">
-            <h2 class="section-title">Thêm nội dung/hình ảnh vào đây!</h2>
+        <section id="section-diemthamquan">
+	  <div class="scrolling-wrapper">
+            <h2 class="section-title" id="f-sub_section-title">Điểm tham quan</h2>
+	  </div>
+
+            <div class="content-block">
+                <span class="sub-title-green" id="f-sub_place_hoian">Phố cổ Hội An</span>
+                <div class="image-container">
+                    <img src="image/pho co hoi an.png" alt="Phố cổ Hội An">
+		    <p class="image-desc" id="desc-hoian">Nội dung mô tả về phố cổ Hội An!</p>
+                </div>
+            </div>
+
+            <div class="content-block">
+                <span class="sub-title-green" id="f-sub_place_bana">Bà nà Hills</span>
+                <div class="image-container">
+                    <img src="image/bana hills.png" alt="Bà Nà Hills">
+		    <p class="image-desc" id="desc-bana">Nội dung mô tả về Bà Nà Hills!</p>
+                </div>
+            </div>
+
+            <div class="content-block">
+                <span class="sub-title-green" id="f-sub_place_rung7mau">Rừng dừa 7 mẫu</span>
+                <div class="image-container">
+                    <img src="image/rung dua 7 mau.png" alt="Rừng dừa 7 mẫu">
+		    <p class="image-desc" id="desc-rung7mau">Nội dung mô tả về Rừng dừa 7 mẫu!</p>
+                </div>
+            </div>
         </section>
+
+<hr style="border: 2px solid #1a4ba0; margin: 60px 0; width: 80%; margin-left: auto; margin-right: auto; opacity: 0.8;">
+
+<section id="section-dichuyen">
+    <div class="scrolling-wrapper">
+        <h2 class="section-title" id="f-section-dichuyen">Tiêu đề phần di chuyển</h2>
+    </div>
+
+    <div class="content-block">
+        <div class="image-row">
+            <img src="image/dn-tky 1.jpg" alt="Tuyền đường Đà Nẵng - Tam Kỳ thứ nhất!">
+            <img src="image/dn-tky 2.png" alt="Tuyền đường Đà Nẵng - Tam Kỳ thứ hai!">
+        </div>
+        
+        <p class="image-desc text-center-desc" id="f-sub_dichuyen">Nội dung mô tả</p>
+    </div>
+</section>
+
+<hr style="border: 2px solid #1a4ba0; margin: 60px 0; width: 80%; margin-left: auto; margin-right: auto; opacity: 0.8;">
+
+<section id="section-teambuilding">
+    <div class="scrolling-wrapper">
+        <h2 class="section-title" id="f-gallery-teambuilding">Bộ sưu tập hình ảnh Team Building IUS</h2>
+    </div>
+
+    <div class="grid-container">
+        <div class="grid-item top-left"><img src="image/TB_1.JPG" alt="1"></div>
+        <div class="grid-item top-center"><img src="image/TB_2.jpg" alt="2"></div>
+        <div class="grid-item top-right"><img src="image/TB_3.JPG" alt="3"></div>
+        <div class="grid-item middle-left"><img src="image/TB_4.jpg" alt="4"></div>
+        <div class="grid-item center"><img src="image/TB_5.JPG" alt="5"></div>
+        <div class="grid-item middle-right"><img src="image/TB_6.JPG" alt="6"></div>
+        <div class="grid-item bottom-left"><img src="image/TB_7.JPG" alt="7"></div>
+        <div class="grid-item bottom-center"><img src="image/TB_8.jpg" alt="8"></div>
+        <div class="grid-item bottom-right"><img src="image/TB_9.JPG" alt="9"></div>
+    </div>
+</section>
+
+<hr style="border: 2px solid #1a4ba0; margin: 60px 0; width: 80%; margin-left: auto; margin-right: auto; opacity: 0.8;">
+
+<section id="section-baonhat">
+    <div class="scrolling-wrapper">
+        <h2 class="section-title" id="f-section-newspapers">Tiêu đề phần công ty trên báo Nhật</h2>
+    </div>
+
+    <div class="content-block">
+        <div class="image-row">
+            <img src="image/Bao_Nhat_1.png" alt="IUS trên báo Nhật 1!">
+            <img src="image/Bao_Nhat_2.png" alt="IUS trên báo Nhật 2!">
+        </div>
+    </div>
+</section>
+
+<hr style="border: 2px solid #1a4ba0; margin: 60px 0; width: 80%; margin-left: auto; margin-right: auto; opacity: 0.8;">
+
+<section id="section-visitors">
+    <div class="scrolling-wrapper">
+        <h2 class="section-title" id="f-gallery-visitors">Bộ sưu tập hình ảnh khách của IUS</h2>
+    </div>
+
+    <div class="grid-container">
+        <div class="grid-item top-left"><img src="image/VS_1.JPG" alt="1"></div>
+        <div class="grid-item top-center"><img src="image/VS_2.jpg" alt="2"></div>
+        <div class="grid-item top-right"><img src="image/VS_3.JPG" alt="3"></div>
+        <div class="grid-item middle-left"><img src="image/VS_4.jpg" alt="4"></div>
+        <div class="grid-item center"><img src="image/VS_5.JPG" alt="5"></div>
+        <div class="grid-item middle-right"><img src="image/VS_6.JPG" alt="6"></div>
+        <div class="grid-item bottom-left"><img src="image/VS_7.JPG" alt="7"></div>
+        <div class="grid-item bottom-center"><img src="image/VS_8.jpg" alt="8"></div>
+        <div class="grid-item bottom-right"><img src="image/VS_9.JPG" alt="9"></div>
+    </div>
+
+    <div class="grid-container">
+        <div class="grid-item top-left"><img src="image/VS_10.JPG" alt="10"></div>
+        <div class="grid-item top-center"><img src="image/VS_11.jpg" alt="11"></div>
+        <div class="grid-item top-right"><img src="image/VS_12.JPG" alt="12"></div>
+        <div class="grid-item middle-left"><img src="image/VS_13.jpg" alt="13"></div>
+        <div class="grid-item center"><img src="image/VS_14.JPG" alt="14"></div>
+        <div class="grid-item middle-right"><img src="image/VS_15.jpeg" alt="15"></div>
+        <div class="grid-item bottom-left"><img src="image/VS_16.jpeg" alt="16"></div>
+        <div class="grid-item bottom-center"><img src="image/VS_17.jpeg" alt="17"></div>
+        <div class="grid-item bottom-right"><img src="image/VS_18.jpeg" alt="18"></div>
+    </div>
+</section>
     </main>
 
     <footer>
@@ -649,6 +877,16 @@ header.scrolled .menu-toggle {
     </button>
 
 <script>
+const setText = (id, text) => {
+        const el = document.getElementById(id);
+        if (el && text) el.innerText = text;
+    };
+
+    const setHTML = (id, htmlContent) => {
+        const el = document.getElementById(id);
+        if (el && htmlContent) el.innerHTML = htmlContent;
+    };
+
     // Cấu hình đa ngôn ngữ
     const translations = {
         vi: {
@@ -659,18 +897,27 @@ header.scrolled .menu-toggle {
 	    nav_sub_company: "Công ty thành viên",
             nav_jobs: "Tuyển dụng",
             nav_contact: "Liên hệ",
-            hero_title: "Tin tức và hoạt động của IUS!",
+            hero_title: "Địa phương và chúng tôi!",
             hero_caption: "Nhà gỗ Nhật Bản (Ảnh: Internet)",
 	    search_placeholder: "Tìm kiếm...",
-            section_main_title: "Thêm nội dung/hình ảnh vào đây!",
-            sub_classic: "Dù là cổ điển",
-            sub_modern: "Hay hiện đại",
-            sub_morning: "Trẻ trung trong nắng sớm!",
-            sub_noon: "Xanh mát vườn ban trưa!",
-            sub_peace: "Chiều đô thị bình yên!",
-            sub_light: "Kín đáo nhưng tràn ánh sáng!",
-            sub_interior: "Nội thất sang trọng! Mát mẻ mùa hè, ấm áp về đông!",
-	    sub_notes: "Nhà gỗ Nhật Bản (Ảnh: Internet)",
+
+            section_main_title: "Là điểm đến hấp dẫn của du khách quốc tế<br>với các địa danh nổi tiếng thế giới!",
+            sub_place_hoian: "Phố cổ Hội An",
+	    desc_hoian: "Phố cổ Hội An là một đô thị cổ nằm ở hạ lưu sông Thu Bồn, thuộc đồng bằng ven biển tỉnh Quảng Nam, cách thành phố Đà Nẵng khoảng 30km về phía Nam. Nơi đây từng là thương cảng quốc tế sầm uất bậc nhất Đông Nam Á từ thế kỷ 16. Với sự giao thoa văn hóa giữa Việt Nam, Nhật Bản và Trung Hoa, Hội An sở hữu quần thể di tích kiến trúc độc đáo gồm những ngôi nhà gỗ sơn vàng, mái ngói rêu phong và các hội quán rực rỡ. UNESCO đã công nhận Hội An là Di sản Văn hóa Thế giới nhờ nỗ lực bảo tồn nguyên vẹn các giá trị truyền thống. Đến đây, du khách sẽ bị mê hoặc bởi vẻ đẹp lung linh của đèn lồng về đêm và nét ẩm thực đặc trưng như Cao Lầu, bánh mì Hội An.",
+            sub_place_bana: "Bà Nà hills",
+	    desc_bana: "Nằm ở độ cao 1.487m trên đỉnh núi Chúa hùng vĩ, Bà Nà Hills được mệnh danh là 'Đường lên tiên cảnh' và là điểm đến nghỉ dưỡng hàng đầu miền Trung. Nơi đây sở hữu khí hậu ôn hòa với 4 mùa trong một ngày, mang đến cảm giác thư thái tuyệt đối. Điểm nhấn ấn tượng nhất chính là Cầu Vàng (Golden Bridge) – biểu tượng du lịch thế giới với đôi bàn tay khổng lồ nâng đỡ dải lụa vàng giữa mây ngàn. Ngoài ra, du khách còn được khám phá làng Pháp cổ kính, hầm rượu cổ Debay và khu vui chơi trong nhà đẳng cấp quốc tế. Bà Nà Hills không chỉ là nơi ngắm cảnh mà còn là hành trình trải nghiệm đỉnh cao của dịch vụ và kiến trúc phương Tây giữa lòng núi rừng Việt Nam.",
+            sub_place_rung7mau: "Rừng dừa 7 mẫu",
+	    desc_rung7mau: "Rừng dừa Bảy Mẫu, hay còn gọi là rừng dừa Cẩm Thanh, được ví như một 'Miền Tây thu nhỏ' giữa lòng Quảng Nam. Cách phố cổ Hội An khoảng 3km, đây là khu sinh thái ngập mặn độc đáo với diện tích rừng dừa nước bạt ngàn. Trải nghiệm thú vị nhất tại đây chính là ngồi thuyền thúng len lỏi qua những con rạch nhỏ, tận hưởng không khí trong lành của sông nước. Du khách sẽ được thưởng thức màn trình diễn 'múa thúng' điêu luyện của các nghệ nhân địa phương, tham gia các trò chơi dân gian và tự tay làm quà lưu niệm từ lá dừa. Đây là điểm đến lý tưởng cho những ai muốn tìm về sự bình yên và khám phá nét văn hóa sông nước mộc mạc của người dân miền Trung.",
+
+	    section_dichuyen: "Lộ trình của chúng ta!",
+	    sub_dichuyen: "Di chuyển từ Đà Nẵng về Tam Kỳ!",
+
+	    gallery_teambuilding: "Các hoạt động bên ngoài văn phòng!",
+
+	    section_newspapers: "Công ty chúng tôi trên báo Nhật!",
+
+	    gallery_visitors: "Khách hàng của chúng tôi!",
+
             footer_contact: "Liên hệ",
             footer_headquarters: "Trụ sở chính",
             footer_branch: "Văn Phòng Làm Việc",
@@ -688,18 +935,27 @@ addr_hq: "📍 An Hà Đông - Quảng Phú - Đà Nẵng - Việt Nam",
 	    nav_sub_company: "子会社",
             nav_jobs: "採用情報",
             nav_contact: "お問い合わせ",
-            hero_title: "IUSサービス！",
+            hero_title: "地域と私たち！",
             hero_caption: "日本の木造住宅（写真：インターネット）",
 	    search_placeholder: "検索...",
-            section_main_title: "内容/写真を追加する！",
-            sub_classic: "クラシックでも",
-            sub_modern: "モダンでも",
-            sub_morning: "朝の光の中で若々しく！",
-            sub_noon: "真昼の涼しい庭！",
-            sub_peace: "穏やかな都市の夕暮れ！",
-            sub_light: "控えめながら光に満ちた！",
-            sub_interior: "豪華なインテリア！夏は涼しく、冬は暖かく！",
-	    sub_notes: "日本の木造住宅（写真：インターネット）",
+
+            section_main_title: "国際的な観光客にとって、<br>世界的に有名な観光スポットを有する魅力的な目的地です。",
+            sub_place_hoian: "ホイアン旧市街",
+	    desc_hoian: "ホイアン旧市街は、ダナンから南へ約30km、クアンナム省のトゥボン川の下流に位置する古い港町です。16世紀から東南アジア屈指の国際貿易港として栄えました。ベトナム、日本、中国の文化が融合したこの地には、黄色い壁の木造家屋や苔むした瓦屋根、華やかな会館など、独自の建築群が残っています。伝統的な価値観がそのまま保存されていることから、ユネスコ世界文化遺産にも登録されました。夜になると街中を照らすランタンの幻想的な風景や、カオラウやホイアン風バインミーといった独特な食文化は、訪れる人々を魅了してやまない魅力となっています。",
+            sub_place_bana: "バナヒルズ",
+	    desc_bana: "標高1,487メートルの主山（ヌイチア）の頂に位置するバナヒルズは、「地上天国への道」と称される中部ベトナム屈指の避暑地です。1日の中で四季を感じられるほど穏やかな気候が特徴で、最高の癒やしを提供してくれます。最大の見どころは、巨大な手によって支えられた黄金の橋「ゴールデンブリッジ」で、雲の中に浮かぶ金のシルクのような姿は世界的に有名な観光名所となっています。他にも、中世フランスの街並みを再現したフレンチヴィレッジや歴史的なドゥベイワインセラーなど、ベトナムの山中にいながらヨーロッパの雰囲気とハイレベルなサービスを満喫できるエンターテインメント施設です。",
+            sub_place_rung7mau: "七ヘクタールのヤシの森",
+	    desc_rung7mau: "カミタイン村にあるセブン・ヘクタール・ココナッツフォレスト（水ココナッツの森）は、中部ベトナムにいながら「小さなメコンデルタ」を体験できる場所として知られています。ホイアン旧市街から約3kmの場所に位置し、広大な水ココナッツの森が広がるユニークなマングローブ生態系を誇ります。ここでの一番の楽しみは、丸い竹製の「お椀舟（シントゥン）」に揺られながら細い運河を進み、自然の清々しさを肌で感じることです。地元の人々による迫力満点のお椀舟ダンスや、ココナッツの葉を使った手作りお土産体験、素朴な川遊びなどは、都会の喧騒を離れて静かな時間を過ごしたい旅行者に最適です。",
+
+	    section_dichuyen: "私たちのルート！",
+	    sub_dichuyen: "ダナンからタムキーへ移動。",
+
+	    gallery_teambuilding: "オフィス外での活動",
+
+	    section_newspapers: "弊社が日本の新聞に掲載されました。",
+
+	    gallery_visitors: "当社のお客様",
+
             footer_contact: "連絡先",
             footer_headquarters: "本社",
             footer_branch: "オフィス",
@@ -745,7 +1001,24 @@ addr_hq: "📍 An Ha Dong, Quang Phu, Da Nang, Vietnam",
     	}
 
         // Main Content
-        document.querySelector(".section-title").innerText = t.section_main_title;
+        //document.querySelector(".section-title").innerText = t.section_main_title;
+
+	setHTML("f-sub_section-title", t.section_main_title);
+	setText("f-sub_place_hoian", t.sub_place_hoian);
+	setHTML("desc-hoian", t.desc_hoian);
+	setText("f-sub_place_bana", t.sub_place_bana);
+	setHTML("desc-bana", t.desc_bana);
+	setText("f-sub_place_rung7mau", t.sub_place_rung7mau);
+	setHTML("desc-rung7mau", t.desc_rung7mau);
+
+	setHTML("f-section-dichuyen", t.section_dichuyen);
+	setText("f-sub_dichuyen", t.sub_dichuyen);
+
+	setText("f-gallery-teambuilding", t.gallery_teambuilding);
+
+	setText("f-section-newspapers", t.section_newspapers);
+
+	setText("f-gallery-visitors", t.gallery_visitors);
 
         // Footer
         const footerHeaders = document.querySelectorAll(".footer-grid h4");
@@ -754,10 +1027,7 @@ addr_hq: "📍 An Ha Dong, Quang Phu, Da Nang, Vietnam",
         footerHeaders[2].innerText = t.footer_branch;
         document.querySelector(".footer-bottom small").innerText = t.footer_copyright;
 
-const setText = (id, text) => {
-        const el = document.getElementById(id);
-        if (el && text) el.innerText = text;
-    };
+
     setText("f-addr-hq", t.addr_hq);
     setText("f-addr-b1", t.addr_b1);
     setText("f-addr-b2", t.addr_b2);
