@@ -74,7 +74,7 @@
         header.scrolled .nav-links a,
         header.scrolled .search-box,
         header.scrolled .header-tools {
-            color: #333333;
+            color: var(--primary-color);
         }
 
         .search-box {
@@ -110,9 +110,9 @@
 
 /* Khi cuộn chuột xuống - Header chuyển sang nền trắng */
 header.scrolled .lang-select {
-    background: rgba(0, 0, 0, 0.05);       /* Nền xám nhạt mờ */
-    color: #333;                           /* Chữ đen */
-    border-color: rgba(0, 0, 0, 0.1);
+    background: rgba(26, 75, 160, 0.1);
+    color: var(--primary-color);
+    border-color: rgba(26, 75, 160, 0.3);
 }
 
 /* Hiệu ứng khi di chuột vào nút */
@@ -125,6 +125,45 @@ header.scrolled .lang-select {
 .lang-select option {
     background-color: #fff;
     color: #333;
+}
+
+/* Container chứa cả input và kính lúp */
+.search-container {
+    display: flex;
+    align-items: center;
+    background: rgba(26, 75, 160, 0.1); /* Xám nhạt để thấy rõ trên nền trắng */
+    border-radius: 20px;
+    padding: 2px 10px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(26, 75, 160, 0.3);
+}
+
+/* Ẩn hiện khung nhập khi header đổi màu */
+header.scrolled .search-container {
+    background: rgba(26, 75, 160, 0.1);
+}
+
+#searchInput {
+    width: 0; /* Mặc định ẩn */
+    border: none;
+    background: transparent;
+    outline: none;
+    color: inherit;
+    transition: width 0.4s ease;
+    font-size: 14px;
+}
+
+/* Khi người dùng muốn nhập, ô này sẽ dài ra */
+.search-container:hover #searchInput,
+#searchInput:focus {
+    width: 150px;
+    padding-left: 5px;
+}
+
+.search-box {
+    color: #1a4ba0; /* Màu kính lúp xanh theo tone logo */
+    cursor: pointer;
+    font-size: 18px;
 }
 
 /* BANNER (HERO) */
@@ -153,7 +192,6 @@ header.scrolled .lang-select {
 .title-thin {
     font-weight: 600;
     font-size: clamp(1.5rem, 4vw, 3.5rem);
-    font-style: italic;
     color: var(--primary-color);
     text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.9);
     white-space: pre-line; 
@@ -465,44 +503,6 @@ header.scrolled .lang-select {
 
 .footer-certificates img:hover {
     transform: scale(1.1);
-}
-
-/* Container chứa cả input và kính lúp */
-.search-container {
-    display: flex;
-    align-items: center;
-    background: rgba(0, 0, 0, 0.05); /* Xám nhạt để thấy rõ trên nền trắng */
-    border-radius: 20px;
-    padding: 2px 10px;
-    transition: all 0.3s ease;
-}
-
-/* Ẩn hiện khung nhập khi header đổi màu */
-header.scrolled .search-container {
-    background: rgba(0, 0, 0, 0.05);
-}
-
-#searchInput {
-    width: 0; /* Mặc định ẩn */
-    border: none;
-    background: transparent;
-    outline: none;
-    color: inherit;
-    transition: width 0.4s ease;
-    font-size: 14px;
-}
-
-/* Khi người dùng muốn nhập, ô này sẽ dài ra */
-.search-container:hover #searchInput,
-#searchInput:focus {
-    width: 150px;
-    padding-left: 5px;
-}
-
-.search-box {
-    color: #1a4ba0; /* Màu kính lúp xanh theo tone logo */
-    cursor: pointer;
-    font-size: 18px;
 }
 
 /* Nút hamberger cho điện thoại */

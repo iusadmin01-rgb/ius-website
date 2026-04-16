@@ -25,47 +25,56 @@
             top: 0;
             left: 0;
             width: 100%;
+	    height: 95px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 5%;
+            padding: 0 5%;
             box-sizing: border-box;
             z-index: 1000;
-            background: transparent;
-            transition: all 0.4s ease;
+            background: #ffffff;
+	    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         header.scrolled {
-            background: rgba(255, 255, 255, 0.98);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background: #ffffff;
             padding: 10px 5%;
         }
 
         .nav-links {
             list-style: none;
             display: flex;
-            gap: 25px;
+            gap: 35px;
             margin: 0;
             padding: 0;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: #ffffff;
-            font-weight: 500;
-            font-size: 15px;
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 17px;
             text-transform: uppercase;
-            transition: color 0.3s ease;
+	    transition: all 0.3s ease; /* Thêm để các hiệu ứng mượt mà */
+    	    display: inline-block;
         }
 
         .nav-links a:hover {
             color: var(--primary-color) !important;
+	    transform: scale(1.1); /* Phóng to 10% */
+    	    text-shadow: 0 0 10px rgba(26, 75, 160, 0.3); /* Hiệu ứng sáng lên */
         }
+
+	/* Xử lý riêng cho Tiếng Nhật */
+	    body.lang-ja .nav-links a {
+    	    font-size: 18px; /* Tiếng Nhật thường cần to hơn để dễ đọc */
+    	    letter-spacing: 0.15em; /* Giãn cách các ký tự tiếng Nhật */
+	}
 
         header.scrolled .nav-links a,
         header.scrolled .search-box,
         header.scrolled .header-tools {
-            color: #333333;
+            color: var(--primary-color);
         }
 
         .search-box {
@@ -80,31 +89,30 @@
             gap: 15px;
         }
 
-	/* Biến Combo box thành phong cách kính mờ */
+	/* Combo box */
 	.lang-select {
-	    background: rgba(255, 255, 255, 0.15); /* Nền mờ */
-	    backdrop-filter: blur(8px);           /* Hiệu ứng kính */
-	    -webkit-backdrop-filter: blur(8px);
-	    color: white;                          /* Chữ trắng trên ảnh bìa */
-	    border: 1px solid rgba(255, 255, 255, 0.3); /* Viền trắng mờ */
-	    padding: 4px 12px;
-	    border-radius: 20px;                   /* Bo tròn */
-	    cursor: pointer;
-	    outline: none;
-	    font-size: 13px;
-	    font-weight: 600;
-	    appearance: none;                      /* Xóa mũi tên đen mặc định */
-	    -webkit-appearance: none;
-	    transition: all 0.3s ease;
-	    text-align: center;
-	    min-width: 50px;
+    background: rgba(26, 75, 160, 0.1); /* Đổi sang xanh nhạt để nổi trên nền trắng */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #1a4ba0; 
+    border: 1px solid rgba(26, 75, 160, 0.3);
+    padding: 4px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    outline: none;
+    font-size: 13px;
+    font-weight: 600;
+    appearance: none;
+    -webkit-appearance: none;
+    text-align: center;
+    min-width: 50px;
 }
 
 /* Khi cuộn chuột xuống - Header chuyển sang nền trắng */
 header.scrolled .lang-select {
-    background: rgba(0, 0, 0, 0.05);       /* Nền xám nhạt mờ */
-    color: #333;                           /* Chữ đen */
-    border-color: rgba(0, 0, 0, 0.1);
+    background: rgba(26, 75, 160, 0.1);
+    color: var(--primary-color);
+    border-color: rgba(26, 75, 160, 0.3);
 }
 
 /* Hiệu ứng khi di chuột vào nút */
@@ -117,6 +125,45 @@ header.scrolled .lang-select {
 .lang-select option {
     background-color: #fff;
     color: #333;
+}
+
+/* Container chứa cả input và kính lúp */
+.search-container {
+    display: flex;
+    align-items: center;
+    background: rgba(26, 75, 160, 0.1); /* Xám nhạt để thấy rõ trên nền trắng */
+    border-radius: 20px;
+    padding: 2px 10px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(26, 75, 160, 0.3);
+}
+
+/* Ẩn hiện khung nhập khi header đổi màu */
+header.scrolled .search-container {
+    background: rgba(26, 75, 160, 0.1);
+}
+
+#searchInput {
+    width: 0; /* Mặc định ẩn */
+    border: none;
+    background: transparent;
+    outline: none;
+    color: inherit;
+    transition: width 0.4s ease;
+    font-size: 14px;
+}
+
+/* Khi người dùng muốn nhập, ô này sẽ dài ra */
+.search-container:hover #searchInput,
+#searchInput:focus {
+    width: 150px;
+    padding-left: 5px;
+}
+
+.search-box {
+    color: #1a4ba0; /* Màu kính lúp xanh theo tone logo */
+    cursor: pointer;
+    font-size: 18px;
 }
 
         /* BANNER (HERO) */
@@ -138,7 +185,6 @@ header.scrolled .lang-select {
         .title-thin {
             font-weight: 300;
             font-size: 2.5rem;
-            font-style: italic;
             letter-spacing: 1px;
             transition: all 0.5s ease;
             cursor: default;
@@ -446,42 +492,6 @@ header.scrolled .lang-select {
     transform: scale(1.1);
 }
 
-/* Container chứa cả input và kính lúp */
-.search-container {
-    display: flex;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 20px;
-    padding: 2px 10px;
-    transition: all 0.3s ease;
-}
-
-/* Ẩn hiện khung nhập khi header đổi màu */
-header.scrolled .search-container {
-    background: rgba(0, 0, 0, 0.05);
-}
-
-#searchInput {
-    width: 0; /* Mặc định ẩn */
-    border: none;
-    background: transparent;
-    outline: none;
-    color: inherit;
-    transition: width 0.4s ease;
-    font-size: 14px;
-}
-
-/* Khi người dùng muốn nhập, ô này sẽ dài ra */
-.search-container:hover #searchInput,
-#searchInput:focus {
-    width: 150px;
-    padding-left: 5px;
-}
-
-.search-box {
-    padding: 5px;
-}
-
 /* Phần riêng của trang ĐỊA PHƯƠNG VÀ CHÚNG TÔI */
 .info-table { width: 100%; border-collapse: collapse; margin: 30px 0; background: #fff; }
 .info-table th, .info-table td { padding: 15px; border: 1px solid #eee; text-align: left; }
@@ -649,9 +659,9 @@ header.scrolled .menu-toggle {
     <main class="container">
         <section id="about">
             <h2 class="section-title" id="title-intro">Giới thiệu</h2>
-                <p id="desc-1">✔ Được thành lập vào tháng 10/2022, ban đầu công ty là một bộ phận trực thuộc pháp lý của công ty IUS. Nhằm nâng cao hiệu quả quản lý và định hướng phát triển chuyên sâu, đến ngày 27/06/2023, công ty chính thức được thành lập và hoạt động với pháp danh Tanpopo Software.</p>
-                <p id="desc-2">✔ Hoạt động chính của chúng tôi là hỗ trợ cập nhật và phát triển phần mềm PS5 – một sản phẩm được phát hành từ năm 1993 bởi Career-Net và hiện đang được sử dụng rộng rãi tại nhiều quốc gia trên thế giới.</p>
-                <p id="desc-3">✔ Với đội ngũ nhân sự trẻ trung, năng động, nhiệt huyết cùng khả năng thích ứng linh hoạt trong thời đại công nghệ đổi mới, chúng tôi tự tin mang đến các giải pháp lập trình phần mềm chất lượng cao, đặc biệt trong lĩnh vực xây dựng.</p>
+                <p id="desc-1">・Được thành lập vào tháng 10/2022, ban đầu công ty là một bộ phận trực thuộc pháp lý của công ty IUS. Nhằm nâng cao hiệu quả quản lý và định hướng phát triển chuyên sâu, đến ngày 27/06/2023, công ty chính thức được thành lập và hoạt động với pháp danh Tanpopo Software.</p>
+                <p id="desc-2">・Hoạt động chính của chúng tôi là hỗ trợ cập nhật và phát triển phần mềm PS5 – một sản phẩm được phát hành từ năm 1993 bởi Career-Net và hiện đang được sử dụng rộng rãi tại nhiều quốc gia trên thế giới.</p>
+                <p id="desc-3">・Với đội ngũ nhân sự trẻ trung, năng động, nhiệt huyết cùng khả năng thích ứng linh hoạt trong thời đại công nghệ đổi mới, chúng tôi tự tin mang đến các giải pháp lập trình phần mềm chất lượng cao, đặc biệt trong lĩnh vực xây dựng.</p>
 
             <h2 class="section-title" id="title-profile">Sơ lược công ty</h2>
                 <table class="info-table">
@@ -726,9 +736,9 @@ header.scrolled .menu-toggle {
 	    search_placeholder: "Tìm kiếm...",
 
 	    title_intro: "Giới thiệu",
-	    desc_1: "✔ Được thành lập vào tháng 10/2022, ban đầu công ty là một bộ phận trực thuộc pháp lý của công ty IUS. Nhằm nâng cao hiệu quả quản lý và định hướng phát triển chuyên sâu, đến ngày 27/06/2023, công ty chính thức được thành lập và hoạt động với pháp danh Tanpopo Software.",
-    	    desc_2: "✔ Hoạt động chính của chúng tôi là hỗ trợ cập nhật và phát triển phần mềm PS5 – một sản phẩm được phát hành từ năm 1993 bởi Career-Net và hiện đang được sử dụng rộng rãi tại nhiều quốc gia trên thế giới.",
-    	    desc_3: "✔ Với đội ngũ nhân sự trẻ trung, năng động, nhiệt huyết cùng khả năng thích ứng linh hoạt trong thời đại công nghệ đổi mới, chúng tôi tự tin mang đến các giải pháp lập trình phần mềm chất lượng cao, đặc biệt trong lĩnh vực xây dựng.",
+	    desc_1: "・Được thành lập vào tháng 10/2022, ban đầu công ty là một bộ phận trực thuộc pháp lý của công ty IUS. Nhằm nâng cao hiệu quả quản lý và định hướng phát triển chuyên sâu, đến ngày 27/06/2023, công ty chính thức được thành lập và hoạt động với pháp danh Tanpopo Software.",
+    	    desc_2: "・Hoạt động chính của chúng tôi là hỗ trợ cập nhật và phát triển phần mềm PS5 – một sản phẩm được phát hành từ năm 1993 bởi Career-Net và hiện đang được sử dụng rộng rãi tại nhiều quốc gia trên thế giới.",
+    	    desc_3: "・Với đội ngũ nhân sự trẻ trung, năng động, nhiệt huyết cùng khả năng thích ứng linh hoạt trong thời đại công nghệ đổi mới, chúng tôi tự tin mang đến các giải pháp lập trình phần mềm chất lượng cao, đặc biệt trong lĩnh vực xây dựng.",
 
 	    title_profile: "Sơ lược công ty",
             th_name: "Tên công ty",
@@ -773,9 +783,9 @@ header.scrolled .menu-toggle {
 	    search_placeholder: "検索...",
 
 	    title_intro: "概略",
-	    desc_1: "✔ 当社は2022年10月に設立され、当初はIUS社の法的部門の一部として運営されておりました。管理体制の強化および専門的な発展を目的として、2023年6月27日よりTanpopo Software (TPS)として正式に独立し、事業を開始いたしました。",
-    	    desc_2: "✔ 当社の主な事業内容は、ソフトウェア「PS5」の更新および開発支援です。本ソフトウェアは1993年にキャリアネットによって発表され、現在では世界各国で広く利用されています。",
-    	    desc_3: "✔ 若くて活気にあふれた人材と高い柔軟性を持つチームとして、技術革新の時代に対応しながら、特に建設分野において高品質なソフトウェア開発ソリューションを提供してまいります。",
+	    desc_1: "・当社は2022年10月に設立され、当初はIUS社の法的部門の一部として運営されておりました。管理体制の強化および専門的な発展を目的として、2023年6月27日よりTanpopo Software (TPS)として正式に独立し、事業を開始いたしました。",
+    	    desc_2: "・当社の主な事業内容は、ソフトウェア「PS5」の更新および開発支援です。本ソフトウェアは1993年にキャリアネットによって発表され、現在では世界各国で広く利用されています。",
+    	    desc_3: "・若くて活気にあふれた人材と高い柔軟性を持つチームとして、技術革新の時代に対応しながら、特に建設分野において高品質なソフトウェア開発ソリューションを提供してまいります。",
 
 	    title_profile: "会社概要",
             th_name: "社名",
