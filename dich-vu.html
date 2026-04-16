@@ -688,6 +688,22 @@ header.scrolled .menu-toggle {
     filter: none !important;
     box-shadow: 0 4px 15px rgba(0,0,0,0.08) !important;
 }
+
+/* Style cho khung chứa video */
+.video-container {
+    width: 100%;
+    max-width: 800px; /* Giới hạn chiều rộng video */
+    margin: 20px auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.video-container video {
+    width: 100%;
+    display: block;
+    background: #000;
+}
 /* Lưu ý: (Chỉ có riêng ở trang DỊCH VỤ)(Kết thúc)*/
 
 
@@ -826,6 +842,13 @@ header.scrolled .menu-toggle {
         </div>
     </div> <div id="service-5" class="content-block">
         <h3 id="t5" class="sub-title-green">プログラム</h3>
+<div class="video-container">
+        <video controls poster="image/lo-go-cong-ty.PNG">
+            <source src="video/VideoIUSwebsite_JA.mp4" type="video/mp4">
+            Trình duyệt của bạn không hỗ trợ xem video.
+        </video>
+    </div>
+
         <p id="d5"></p>
     </div> <div id="service-4" class="content-block">
         <h3 id="t4" class="sub-title-green">手拾い</h3>
@@ -903,7 +926,7 @@ header.scrolled .menu-toggle {
         s4_t: "Lập dự toán vật liệu",
         s4_d: "Dựa vào bản vẽ kết cấu và yêu cầu khách đưa: chúng tôi có thể xuất dự toán chi tiết vật liệu ván, bó trụ, kanamono,…",
         s5_t: "Lập trình phần mềm",
-        s5_d: "Sẽ chèn Video giới thiệu sau",
+        s5_d: "Công việc của chúng tôi là tạo các chức năng mới hoặc nâng cấp chức năng cũ!",
         s6_t: "Chỉnh sửa bản vẽ bằng JWcad",
         s6_d: "Đảm bảo sự hài hòa về năng lượng, mang lại tài lộc và bình an cho gia chủ.",
 
@@ -939,7 +962,7 @@ addr_hq: "📍 An Hà Đông - Quảng Phú - Đà Nẵng - Việt Nam",
         s4_t: "手拾い",
         s4_d: "お客様からご提供いただいた構造図および仕様書を基に、IUSでは合わせ柱・合板・金物などの必要数量を拾い出し、詳細な積算表を作成いたします。",
         s5_t: "プログラム<br/>ソフトウェアの開発",
-        s5_d: "Sẽ chèn Video giới thiệu sau",
+        s5_d: "私たちの仕事は、新しい機能を作成したり、既存の機能をアップグレードしたりすることです！",
         s6_t: "JW編集",
         s6_d: "エネルギーの調和を確保し、施主に繁栄と平安をもたらします。",
 

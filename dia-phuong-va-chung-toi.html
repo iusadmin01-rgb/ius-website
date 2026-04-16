@@ -170,10 +170,10 @@ header.scrolled .search-container {
         .hero {
             position: relative;
             background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
-                        url('image/Anh-bia-trang-chu.png');
+                        url('video/dia-phuong-va-chung-toi.mp4');
             background-size: cover;
             background-position: center;
-            height: 60vh;
+            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -729,9 +729,16 @@ align-items: center;
         </div>
     </header>
 
-    <section class="hero">
-        <h1 class="title-thin">Tin tức và hoạt động của IUS!</h1>
-    </section>
+<section class="hero">
+    <video autoplay muted loop playsinline id="hero-video">
+        <source src="video/dia-phuong-va-chung-toi.mp4" type="video/mp4">
+        Trình duyệt của bạn không hỗ trợ video.
+    </video>
+    
+    <div class="hero-content">
+        <h1 class="title-thin" id="f-hero_title">Tin tức và hoạt động của IUS!</h1>
+    </div>
+</section>
 
     <main class="container">
         <section id="section-diemthamquan">
