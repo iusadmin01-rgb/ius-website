@@ -798,32 +798,32 @@ header.scrolled .menu-toggle {
       style="font-weight: 800; font-size: 32px; pointer-events: none; 
              dominant-baseline: central;">IUS</text>
 
-<a xlink:href="#service-1" href="#service-1" class="node-link">
+<a href="#service-1" class="node-link" onclick="event.preventDefault(); scrollToSection('service-1')">
     <foreignObject x="40" y="70" width="240" height="90">
         <div id="svg-s1" xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box color-node">Tạo bản vẽ test lực kết cấu</div>
     </foreignObject>
 </a>
-<a xlink:href="#service-2" href="#service-2" class="node-link">
+<a href="#service-2" class="node-link" onclick="event.preventDefault(); scrollToSection('service-2')">
     <foreignObject x="380" y="5" width="240" height="90">
         <div id="svg-s2" xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box color-node">Tạo bản vẽ hoàn thiện</div>
     </foreignObject>
 </a>
-<a xlink:href="#service-3" href="#service-3" class="node-link">
+<a href="#service-3" class="node-link" onclick="event.preventDefault(); scrollToSection('service-3')">
     <foreignObject x="720" y="70" width="240" height="90">
         <div id="svg-s3" xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box color-node">Tạo bản vẽ kết cấu</div>
     </foreignObject>
 </a>
-<a xlink:href="#service-4" href="#service-4" class="node-link">
+<a href="#service-4" class="node-link" onclick="event.preventDefault(); scrollToSection('service-4')">
     <foreignObject x="40" y="340" width="240" height="90">
         <div id="svg-s4" xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box color-node">Lập dự toán vật liệu</div>
     </foreignObject>
 </a>
-<a xlink:href="#service-5" href="#service-5" class="node-link">
+<a href="#service-5" class="node-link" onclick="event.preventDefault(); scrollToSection('service-5')">
     <foreignObject x="380" y="405" width="240" height="90">
         <div id="svg-s5" xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box color-node">Lập trình phần mềm</div>
     </foreignObject>
 </a>
-<a xlink:href="#service-6" href="#service-6" class="node-link">
+<a href="#service-6" class="node-link" onclick="event.preventDefault(); scrollToSection('service-6')">
     <foreignObject x="720" y="340" width="240" height="90">
         <div id="svg-s6" xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box color-node">Chỉnh sửa bản vẽ bằng JWcad</div>
     </foreignObject>
@@ -1162,6 +1162,21 @@ document.querySelectorAll('.node-link').forEach(link => {
         }
     });
 });
+
+function scrollToSection(sectionId) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+        // Lấy chiều cao của header để cuộn cho chính xác
+        const headerOffset = 100; 
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth"
+        });
+    }
+}
 </script>
 </body>
 </html>
