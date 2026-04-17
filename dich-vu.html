@@ -1148,6 +1148,22 @@ document.querySelectorAll('.nav-links a').forEach(link => {
         navLinks.classList.remove('active');
     });
 });
+
+//Safari nhận link
+document.querySelectorAll('.node-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            e.preventDefault();
+            // Cuộn mượt mà đến mục tiêu
+            window.scrollTo({
+                top: targetElement.offsetTop - 100, // -100 để không bị Header che
+                behavior: 'smooth'
+            });
+        }
+    });
+});
 </script>
 </body>
 </html>
