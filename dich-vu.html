@@ -171,11 +171,13 @@ header.scrolled .search-container {
             position: relative;
             background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
                         url('image/Anh-bia-trang-chu.png');
-            background-size: cover;
+    margin-top: 95px;
+            background-size: contain;
+	    background-repeat: no-repeat
             background-position: center;
-            height: 60vh;
+            height: calc(100vw * (768 / 1366));
             display: flex;
-            flex-direction: column;
+	    flex-direction: column;
             justify-content: center;
             align-items: center;
             color: white;
@@ -704,6 +706,21 @@ header.scrolled .menu-toggle {
     display: block;
     background: #000;
 }
+
+/* Kiểm soát trên trình duyệt Safari */
+.node-link {
+    cursor: pointer;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent; /* Xóa khung xám khi chạm trên iPhone */
+}
+
+.node-link foreignObject {
+    pointer-events: none; /* Để sự kiện click xuyên qua div và rơi vào thẻ <a> */
+}
+
+.svg-node-box {
+    pointer-events: auto; /* Cho phép tương tác lại với nội dung bên trong nếu cần */
+}
 /* Lưu ý: (Chỉ có riêng ở trang DỊCH VỤ)(Kết thúc)*/
 
 
@@ -781,32 +798,32 @@ header.scrolled .menu-toggle {
       style="font-weight: 800; font-size: 32px; pointer-events: none; 
              dominant-baseline: central;">IUS</text>
 
-<a href="#service-1" class="node-link">
+<a xlink:href="#service-1" href="#service-1" class="node-link">
     <foreignObject x="40" y="70" width="240" height="90">
         <div id="svg-s1" xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box color-node">Tạo bản vẽ test lực kết cấu</div>
     </foreignObject>
 </a>
-<a href="#service-2" class="node-link">
+<a xlink:href="#service-2" href="#service-2" class="node-link">
     <foreignObject x="380" y="5" width="240" height="90">
         <div id="svg-s2" xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box color-node">Tạo bản vẽ hoàn thiện</div>
     </foreignObject>
 </a>
-<a href="#service-3" class="node-link">
+<a xlink:href="#service-3" href="#service-3" class="node-link">
     <foreignObject x="720" y="70" width="240" height="90">
         <div id="svg-s3" xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box color-node">Tạo bản vẽ kết cấu</div>
     </foreignObject>
 </a>
-<a href="#service-4" class="node-link">
+<a xlink:href="#service-4" href="#service-4" class="node-link">
     <foreignObject x="40" y="340" width="240" height="90">
         <div id="svg-s4" xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box color-node">Lập dự toán vật liệu</div>
     </foreignObject>
 </a>
-<a href="#service-5" class="node-link">
+<a xlink:href="#service-5" href="#service-5" class="node-link">
     <foreignObject x="380" y="405" width="240" height="90">
         <div id="svg-s5" xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box color-node">Lập trình phần mềm</div>
     </foreignObject>
 </a>
-<a href="#service-6" class="node-link">
+<a xlink:href="#service-6" href="#service-6" class="node-link">
     <foreignObject x="720" y="340" width="240" height="90">
         <div id="svg-s6" xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box color-node">Chỉnh sửa bản vẽ bằng JWcad</div>
     </foreignObject>

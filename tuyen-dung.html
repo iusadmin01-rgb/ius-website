@@ -171,11 +171,13 @@ header.scrolled .search-container {
             position: relative;
             background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
                         url('image/Tuyen-dung.png');
-            background-size: cover;
+	    margin-top: 95px;
+            background-size: contain;
+	    background-repeat: no-repeat
             background-position: center;
-            height: 115vh;
+            height: calc(100vw * (768 / 1366));
             display: flex;
-            flex-direction: column;
+	    flex-direction: column;
             justify-content: center;
             align-items: center;
             color: white;
