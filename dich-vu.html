@@ -934,17 +934,17 @@ header.scrolled .menu-toggle {
 	    search_placeholder: "Tìm kiếm...",
 
             section_main_title: "Dịch vụ của chúng tôi!",
-        s1_t: "Tạo bản vẽ test lực kết cấu",
+        svg_s1: "Tạo bản vẽ test lực kết cấu",
         s1_d: "Giải pháp thiết kế sáng tạo, tối ưu công năng và thẩm mỹ cho ngôi nhà của bạn.",
-        s2_t: "Tạo bản vẽ hoàn thiện",
+        svg_s2: "Tạo bản vẽ hoàn thiện",
         s2_d: "Tinh hoa kiến trúc gỗ xứ Phù Tang, mang lại sự bền bỉ và không gian thiền định.",
-        s3_t: "Tạo bản vẽ kết cấu",
+        svg_s3: "Tạo bản vẽ kết cấu",
         s3_d: "Sự kết hợp hoàn hảo giữa vật liệu thượng hạng và tay nghề thủ công tinh xảo.",
-        s4_t: "Lập dự toán vật liệu",
+        svg_s4: "Lập dự toán vật liệu",
         s4_d: "Dựa vào bản vẽ kết cấu và yêu cầu khách đưa: chúng tôi có thể xuất dự toán chi tiết vật liệu ván, bó trụ, kanamono,…",
-        s5_t: "Lập trình phần mềm",
+        svg_s5: "Lập trình phần mềm",
         s5_d: "Công việc của chúng tôi là tạo các chức năng mới hoặc nâng cấp chức năng cũ!",
-        s6_t: "Chỉnh sửa bản vẽ bằng JWcad",
+        svg_s6: "Chỉnh sửa bản vẽ bằng JWcad",
         s6_d: "Đảm bảo sự hài hòa về năng lượng, mang lại tài lộc và bình an cho gia chủ.",
 
 
@@ -970,17 +970,17 @@ addr_hq: "📍 An Hà Đông - Quảng Phú - Đà Nẵng - Việt Nam",
 	    search_placeholder: "検索...",
 
             section_main_title: "私たちのサービス！",
-	s1_t: "らくわく、キズクリ構造検討<br/>（２×4工法）",
+	svg_s1: "らくわく、キズクリ構造検討<br/>（２×4工法）",
         s1_d: "住まいの機能性と美しさを最適化する革新的な設計ソリューション。",
-        s2_t: "PS5生産図<br/>（２×4工法、プレカット・パネル）",
+        svg_s2: "PS5生産図<br/>（２×4工法、プレカット・パネル）",
         s2_d: "日本の木造建築の精髄。耐久性と静寂な空間を提供します。",
-        s3_t: "PS5構造図<br/>（２×4工法）",
+        svg_s3: "PS5構造図<br/>（２×4工法）",
         s3_d: "厳選された素材と熟練した技術の完璧な融合。",
-        s4_t: "手拾い",
+        svg_s4: "手拾い",
         s4_d: "お客様からご提供いただいた構造図および仕様書を基に、IUSでは合わせ柱・合板・金物などの必要数量を拾い出し、詳細な積算表を作成いたします。",
-        s5_t: "プログラム<br/>ソフトウェアの開発",
+        svg_s5: "プログラム<br/>ソフトウェアの開発",
         s5_d: "私たちの仕事は、新しい機能を作成したり、既存の機能をアップグレードしたりすることです！",
-        s6_t: "JW編集",
+        svg_s6: "JW編集",
         s6_d: "エネルギーの調和を確保し、施主に繁栄と平安をもたらします。",
 
 
@@ -1053,15 +1053,15 @@ const setHTML = (id, text) => {
     const el = document.getElementById(id);
     if (el && text) el.innerHTML = text; // .innerHTML sẽ giúp xuống dòng
 };
-    setHTML("svg-s1", t.s1_t);
-    setHTML("svg-s2", t.s2_t);
-    setHTML("svg-s3", t.s3_t);
-    setHTML("svg-s4", t.s4_t);
-    setHTML("svg-s5", t.s5_t);
-    setHTML("svg-s6", t.s6_t);
+    setHTML("svg-s1", t.svg_s1);
+    setHTML("svg-s2", t.svg_s2);
+    setHTML("svg-s3", t.svg_s3);
+    setHTML("svg-s4", t.svg_s4);
+    setHTML("svg-s5", t.svg_s5);
+    setHTML("svg-s6", t.svg_s6);
 
     for (let i = 1; i <= 6; i++) {
-        setHTML(`t${i}`, t[`s${i}_t`]);
+        setHTML(`t${i}`, t[`svg_s${i}`]);
         setHTML(`d${i}`, t[`s${i}_d`]);
     }
 }
