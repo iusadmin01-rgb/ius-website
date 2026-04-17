@@ -168,14 +168,15 @@ header.scrolled .search-container {
 
         /* BANNER (HERO) */
         .hero {
-            position: relative;
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
-                        url('video/dia-phuong-va-chung-toi.mp4');
-    margin-top: 95px;
-            background-size: contain;
-	    background-repeat: no-repeat
+            position: relative; 
+            background-image: url('image/Dia-phuong-va-chung-toi.jpg');
+	    margin-top: 95px;
+            background-size: cover;
+	    background-repeat: no-repeat;
             background-position: center;
-            height: 112vh;
+	background-color: #ffffff;
+            /*height: calc(100vw * (1080 / 1920));*/
+height: 99vh;
             display: flex;
 	    flex-direction: column;
             justify-content: center;
@@ -516,6 +517,7 @@ header.scrolled .menu-toggle {
 @media screen and (max-width: 480px) {
     .hero {
         padding-top: 15px; /* Sát lên trên cùng */
+	height: 250px;
     }
     .title-thin {
         font-size: 1.2rem; 
@@ -732,11 +734,6 @@ align-items: center;
     </header>
 
 <section class="hero">
-    <video autoplay muted loop playsinline id="hero-video">
-        <source src="video/dia-phuong-va-chung-toi.mp4" type="video/mp4">
-        Trình duyệt của bạn không hỗ trợ video.
-    </video>
-    
     <div class="hero-content">
         <h1 class="title-thin" id="f-hero_title">Tin tức và hoạt động của IUS!</h1>
     </div>
