@@ -1152,15 +1152,13 @@ document.querySelectorAll('.nav-links a').forEach(link => {
 //Safari nhận link
 document.querySelectorAll('.node-link').forEach(link => {
     link.addEventListener('click', function(e) {
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
+        e.preventDefault();
+        const targetId = this.getAttribute('href').replace('#', '');
+        const targetElement = document.getElementById(targetId);
         if (targetElement) {
-            e.preventDefault();
-            // Cuộn mượt mà đến mục tiêu
-            window.scrollTo({
-                top: targetElement.offsetTop - 100, // -100 để không bị Header che
-                behavior: 'smooth'
-            });
+            const offset = 100;
+            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - offset;
+            window.scrollTo({ top: targetPosition, behavior: 'smooth' });
         }
     });
 });
