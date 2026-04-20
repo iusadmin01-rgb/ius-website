@@ -173,7 +173,7 @@ header.scrolled .search-container {
                         url('image/Anh-bia-trang-chu.png');
     margin-top: 95px;
             background-size: contain;
-	    background-repeat: no-repeat
+	    background-repeat: no-repeat;
             background-position: center;
             height: calc(100vw * (768 / 1366));
             display: flex;
@@ -578,60 +578,67 @@ header.scrolled .menu-toggle {
 
 
 /* Lưu ý: (Chỉ có riêng ở trang DỊCH VỤ)(Bắt đầu) */
-/* --- CSS SƠ ĐỒ ĐÃ CÁCH LY KHỎI IMAGE HOVER --- */
-.diagram-wrapper {
-    max-width: 1000px; /* To hơn trước */
-    margin: 50px auto;
+/* Container chính */
+.services-circle-nav {
+    position: relative;
+    width: 100%;       /* Để co giãn theo màn hình */
+    max-width: 500px;  /* Tăng từ 340px lên 500px */
+    height: 600px;     /* Tăng chiều cao lên để không bị cụt */
+    margin: 80px auto;
+    -webkit-transform: translateZ(0);
 }
 
-/* Ép SVG không bị ảnh hưởng bởi các hiệu ứng scale hình ảnh bên ngoài */
-.services-svg {
-    width: 100%;
-    height: auto;
-    display: block;
-    transform: none !important; /* Chặn hoàn toàn lệnh phóng to từ bên ngoài */
-    filter: none !important;
+/* Ảnh IUS trung tâm */
+.center-ius {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%; /* Tăng từ 120px lên 150px */
+    z-index: 5;
 }
 
-/* Đường nối: đậm hơn một chút để đỡ mảnh mai */
-.lines line {
-    stroke: #1a4ba0;
-    stroke-width: 2;
-    opacity: 0.25;
-}
-
-/* Ô chữ: Đặc ruột màu xanh dương, chữ trắng to hơn */
-.svg-node-box.color-node {
-    background-color: #5d87d6; /* Màu xanh đồng bộ với IUS */
-    border: 2px solid #1a4ba0; 
-    color: white !important;
-    font-size: 18px; /* Chữ to lên */
-    font-weight: bold;
-    border-radius: 10px;
+/* 6 ô ảnh xung quanh */
+.service-node {
+    position: absolute;
+    width: 60%;      /* Đây là độ rộng tối đa bạn muốn, ví dụ 150px */
+    height: auto;      /* Để chiều cao tự động theo ảnh gốc */
+    top: 50%;
+    left: 50%;
+    /* Không dùng margin-top/left cố định nữa vì chiều cao ảnh thay đổi */
+    transform-origin: center center; 
+    z-index: 10;
+    cursor: pointer;
+    pointer-events: auto;
+    text-decoration: none;
+    
+    /* Căn giữa ô dựa trên kích thước động */
     display: flex;
-    align-items: center;
     justify-content: center;
-    text-align: center;
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-    transition: all 0.3s ease;
-    line-height: 1.3;
-    padding: 10px;
+    align-items: center;
 }
 
-/* Hiệu ứng Hover chuyên nghiệp */
-.node-link:hover .svg-node-box.color-node {
-    background-color: #1a4ba0;
-    box-shadow: 0 10px 25px rgba(26, 75, 160, 0.5);
-    transform: scale(1.05) !important;
+.service-node img {
+    width: 100%;       /* Chiếm hết 150px chiều rộng */
+    height: auto;      /* Hiển thị ĐÚNG tỉ lệ ảnh gốc */
+    object-fit: contain; 
+    border-radius: 10px;
+    transition: transform 0.2s ease;
 }
 
-/* Đường nối và Mũi tên */
-.lines line {
-    stroke: #1a4ba0;
-    stroke-width: 2.5; /* Đường nối đậm hơn */
-    opacity: 0.4;
+/* Tọa độ 60 độ, Khoảng cách tâm R = 150px (có thể tăng nếu muốn xa hơn) */
+/* Thẳng hàng dọc: Node 1 (Trên), Node 4 (Dưới) */
+.n-2 { transform: translate(-50%, -260px); }              /* Lên trên */
+.n-3 { transform: translate(calc(350px - 50%), -155px); }  /* Phải trên */
+.n-6 { transform: translate(calc(350px - 50%), 60px); }   /* Phải dưới */
+.n-5 { transform: translate(-50%, 130px); }               /* Xuống dưới */
+.n-4 { transform: translate(calc(-350px - 50%), 60px); }  /* Trái dưới */
+.n-1 { transform: translate(calc(-350px - 50%), -155px); } /* Trái trên */
+
+/* Hover hiệu ứng cho máy tính */
+.service-node:hover img {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 /* Sửa lỗi link nhảy bị Header che: Cách này giúp nhảy đúng tên đề mục */
@@ -770,67 +777,32 @@ header.scrolled .menu-toggle {
     </section>
 
 <main class="container">
-<section id="services-diagram">
-    <h2 class="section-title">Hệ Sinh Thái Dịch Vụ IUS</h2>
-    
-    <div class="diagram-wrapper">
-        <svg viewBox="0 0 1000 500" preserveAspectRatio="xMidYMid meet" class="services-svg">
-            <defs>
-                <marker id="arrowhead" markerWidth="10" markerHeight="7" 
-                refX="9" refY="3.5" orient="auto">
-                    <polygon points="0 0, 10 3.5, 0 7" fill="#1a4ba0" />
-                </marker>
-            </defs>
+<h2 class="section-title">Hệ Sinh Thái Dịch Vụ IUS</h2>
 
-            <g class="lines">
-                <line x1="500" y1="250" x2="270" y2="120" marker-end="url(#arrowhead)" />
-                <line x1="500" y1="250" x2="500" y2="90" marker-end="url(#arrowhead)" />
-                <line x1="500" y1="250" x2="730" y2="120" marker-end="url(#arrowhead)" />
-                <line x1="500" y1="250" x2="270" y2="380" marker-end="url(#arrowhead)" />
-                <line x1="500" y1="250" x2="500" y2="410" marker-end="url(#arrowhead)" />
-                <line x1="500" y1="250" x2="730" y2="380" marker-end="url(#arrowhead)" />
-            </g>
-
- <rect x="420" y="210" width="160" height="80" rx="12" ry="12" 
-      fill="#5d87d6" stroke="#1a4ba0" stroke-width="3" />
-
-<text x="500" y="250" text-anchor="middle" fill="white" 
-      style="font-weight: 800; font-size: 32px; pointer-events: none; 
-             dominant-baseline: central;">IUS</text>
-
-<a href="#service-1" class="node-link" onclick="event.preventDefault(); scrollToSection('service-1')">
-    <foreignObject x="40" y="70" width="240" height="90">
-        <div id="svg-s1" xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box color-node">Tạo bản vẽ test lực kết cấu</div>
-    </foreignObject>
-</a>
-<a href="#service-2" class="node-link" onclick="event.preventDefault(); scrollToSection('service-2')">
-    <foreignObject x="380" y="5" width="240" height="90">
-        <div id="svg-s2" xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box color-node">Tạo bản vẽ hoàn thiện</div>
-    </foreignObject>
-</a>
-<a href="#service-3" class="node-link" onclick="event.preventDefault(); scrollToSection('service-3')">
-    <foreignObject x="720" y="70" width="240" height="90">
-        <div id="svg-s3" xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box color-node">Tạo bản vẽ kết cấu</div>
-    </foreignObject>
-</a>
-<a href="#service-4" class="node-link" onclick="event.preventDefault(); scrollToSection('service-4')">
-    <foreignObject x="40" y="340" width="240" height="90">
-        <div id="svg-s4" xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box color-node">Lập dự toán vật liệu</div>
-    </foreignObject>
-</a>
-<a href="#service-5" class="node-link" onclick="event.preventDefault(); scrollToSection('service-5')">
-    <foreignObject x="380" y="405" width="240" height="90">
-        <div id="svg-s5" xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box color-node">Lập trình phần mềm</div>
-    </foreignObject>
-</a>
-<a href="#service-6" class="node-link" onclick="event.preventDefault(); scrollToSection('service-6')">
-    <foreignObject x="720" y="340" width="240" height="90">
-        <div id="svg-s6" xmlns="http://www.w3.org/1999/xhtml" class="svg-node-box color-node">Chỉnh sửa bản vẽ bằng JWcad</div>
-    </foreignObject>
-</a>
-        </svg>
+<div class="services-circle-nav">
+    <div class="center-ius">
+        <img src="image/IUS_Diagram_Center.PNG" alt="IUS" style="width: 100%;">
     </div>
-</section>
+
+    <a href="javascript:void(0)" onclick="scrollToSection('service-1')" class="service-node n-1">
+        <img id="img-s1" src="" alt="Dịch vụ 1">
+    </a>
+    <a href="javascript:void(0)" onclick="scrollToSection('service-2')" class="service-node n-2">
+        <img id="img-s2" src="" alt="Dịch vụ 2">
+    </a>
+    <a href="javascript:void(0)" onclick="scrollToSection('service-3')" class="service-node n-3">
+        <img id="img-s3" src="" alt="Dịch vụ 3">
+    </a>
+    <a href="javascript:void(0)" onclick="scrollToSection('service-4')" class="service-node n-4">
+        <img id="img-s4" src="" alt="Dịch vụ 4">
+    </a>
+    <a href="javascript:void(0)" onclick="scrollToSection('service-5')" class="service-node n-5">
+        <img id="img-s5" src="" alt="Dịch vụ 5">
+    </a>
+    <a href="javascript:void(0)" onclick="scrollToSection('service-6')" class="service-node n-6">
+        <img id="img-s6" src="" alt="Dịch vụ 6">
+    </a>
+</div>
 
     <hr style="width: 60%; margin: 80px auto; border: 0; border-top: 3px solid #1a4ba0; opacity: 0.3; border-radius: 10px;">
 
@@ -929,7 +901,7 @@ header.scrolled .menu-toggle {
 	    nav_sub_company: "Công ty thành viên",
             nav_jobs: "Tuyển dụng",
             nav_contact: "Liên hệ",
-            hero_title: "Dịch vụ của IUS!",
+            hero_title: "",
             hero_caption: "Nhà gỗ Nhật Bản (Ảnh: Internet)",
 	    search_placeholder: "Tìm kiếm...",
 
@@ -946,7 +918,10 @@ header.scrolled .menu-toggle {
         s5_d: "Công việc của chúng tôi là tạo các chức năng mới hoặc nâng cấp chức năng cũ!",
         svg_s6: "Chỉnh sửa bản vẽ bằng JWcad",
         s6_d: "Đảm bảo sự hài hòa về năng lượng, mang lại tài lộc và bình an cho gia chủ.",
-
+imgs: [
+            "image/TaoBanVeTestLucKetCau_VI.PNG", "image/TaoBanVeHoanThien_VI.PNG", "image/TaoBanVeKetCau_VI.PNG",
+            "image/LapDuToanVatLieu_VI.PNG", "image/LapTrinhPhanMem_VI.PNG", "image/ChinhSuaBanVeBangJW_VI.PNG"
+        ],
 
             footer_contact: "Liên hệ",
             footer_headquarters: "Trụ sở chính",
@@ -965,7 +940,7 @@ addr_hq: "📍 An Hà Đông - Quảng Phú - Đà Nẵng - Việt Nam",
 	    nav_sub_company: "子会社",
             nav_jobs: "採用情報",
             nav_contact: "お問い合わせ",
-            hero_title: "IUSのサービス！",
+            hero_title: "",
             hero_caption: "日本の木造住宅（写真：インターネット）",
 	    search_placeholder: "検索...",
 
@@ -982,7 +957,10 @@ addr_hq: "📍 An Hà Đông - Quảng Phú - Đà Nẵng - Việt Nam",
         s5_d: "私たちの仕事は、新しい機能を作成したり、既存の機能をアップグレードしたりすることです！",
         svg_s6: "JW編集",
         s6_d: "エネルギーの調和を確保し、施主に繁栄と平安をもたらします。",
-
+imgs: [
+            "image/TaoBanVeTestLucKetCau_JA.PNG", "image/TaoBanVeHoanThien_JA.PNG", "image/TaoBanVeKetCau_JA.PNG",
+            "image/LapDuToanVatLieu_JA.PNG", "image/LapTrinhPhanMem_JA.PNG", "image/ChinhSuaBanVeBangJW_JA.PNG"
+        ],
 
             footer_contact: "連絡先",
             footer_headquarters: "本社",
@@ -1032,39 +1010,46 @@ addr_hq: "📍 An Hà Đông - Quảng Phú - Đà Nẵng - Việt Nam",
         // Main Content
         document.querySelector(".section-title").innerText = t.section_main_title;
 
-        // Footer
+// --- SỬA LẠI ĐOẠN FOOTER ---
         const footerHeaders = document.querySelectorAll(".footer-grid h4");
-        footerHeaders[0].innerText = t.footer_contact;
-        footerHeaders[1].innerText = t.footer_headquarters;
-        footerHeaders[2].innerText = t.footer_branch;
-        document.querySelector(".footer-bottom small").innerText = t.footer_copyright;
+        if (footerHeaders.length > 0 && t.footer_contact) footerHeaders[0].innerText = t.footer_contact;
+        if (footerHeaders.length > 1 && t.footer_headquarters) footerHeaders[1].innerText = t.footer_headquarters;
+        if (footerHeaders.length > 2 && t.footer_branch) footerHeaders[2].innerText = t.footer_branch;
 
-const setText = (id, text) => {
-        const el = document.getElementById(id);
-        if (el && text) el.innerText = text;
-    };
-    setText("f-addr-hq", t.addr_hq);
-    setText("f-addr-b1", t.addr_b1);
-    setText("f-addr-b2", t.addr_b2);
-    setText("f-addr-b3", t.addr_b3);
+        const copyrightEl = document.querySelector(".footer-bottom small") || document.querySelector("footer small");
+        if (copyrightEl) copyrightEl.innerText = t.footer_copyright;
 
+        const setText = (id, text) => {
+            const el = document.getElementById(id);
+            if (el && text) el.innerText = text;
+        };
+        setText("f-addr-hq", t.addr_hq);
+        setText("f-addr-b1", t.addr_b1);
+        setText("f-addr-b2", t.addr_b2);
+        setText("f-addr-b3", t.addr_b3);
 
-const setHTML = (id, text) => {
-    const el = document.getElementById(id);
-    if (el && text) el.innerHTML = text; // .innerHTML sẽ giúp xuống dòng
-};
-    setHTML("svg-s1", t.svg_s1);
-    setHTML("svg-s2", t.svg_s2);
-    setHTML("svg-s3", t.svg_s3);
-    setHTML("svg-s4", t.svg_s4);
-    setHTML("svg-s5", t.svg_s5);
-    setHTML("svg-s6", t.svg_s6);
+        const setHTML = (id, text) => {
+            const el = document.getElementById(id);
+            if (el && text) el.innerHTML = text;
+        };
 
-    for (let i = 1; i <= 6; i++) {
-        setHTML(`t${i}`, t[`svg_s${i}`]);
-        setHTML(`d${i}`, t[`s${i}_d`]);
-    }
-}
+        for (let i = 1; i <= 6; i++) {
+            setHTML(`t${i}`, t[`svg_s${i}`]);
+            setHTML(`d${i}`, t[`s${i}_d`]);
+        }
+
+        // --- SỬA LẠI ĐOẠN ẢNH (Dùng đúng tên img_list) ---
+        const imageArray = t.img_list || t.imgs; // Kiểm tra cả 2 tên biến cho chắc
+        if (imageArray) {
+            for (let i = 1; i <= 6; i++) {
+                const imgEl = document.getElementById(`img-s${i}`);
+                if (imgEl && imageArray[i-1]) {
+                    imgEl.src = imageArray[i-1];
+                }
+            }
+        }
+    } // Đóng hàm applyLanguage
+
 
     // --- logic scroll ---
     const header = document.querySelector("header");
@@ -1176,7 +1161,7 @@ function scrollToSection(sectionId) {
             behavior: "smooth"
         });
     }
-}
+};
 </script>
 </body>
 </html>
