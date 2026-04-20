@@ -641,6 +641,20 @@ header.scrolled .menu-toggle {
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
+@media screen and (max-width: 700px) {
+    .services-circle-nav {
+        transform: scale(0.4); /* Thu nhỏ nhẹ cả khối nếu 800px quá to, hoặc giữ 1.0 tùy bạn */
+    }
+
+    /* Thẳng hàng dọc: Node 1 (Trên), Node 4 (Dưới) */
+    .n-2 { transform: translate(-50%, -170px); }              /* Lên trên */
+    .n-3 { transform: translate(calc(250px - 50%), -125px); }  /* Phải trên */
+    .n-6 { transform: translate(calc(250px - 50%), 40px); }   /* Phải dưới */
+    .n-5 { transform: translate(-50%, 80px); }               /* Xuống dưới */
+    .n-4 { transform: translate(calc(-250px - 50%), 40px); }  /* Trái dưới */
+    .n-1 { transform: translate(calc(-250px - 50%), -125px); } /* Trái trên */
+}
+
 /* Sửa lỗi link nhảy bị Header che: Cách này giúp nhảy đúng tên đề mục */
 /* --- NỘI DUNG DƯỚI SƠ ĐỒ --- */
 .content-block {
