@@ -58,7 +58,11 @@
 	    transition: all 0.3s ease; /* Thêm để các hiệu ứng mượt mà */
     	    display: inline-block;
         }
-
+/* Chỉ in đậm riêng */
+#nav-news {
+    font-weight: 900 !important; /* Đậm hơn hẳn mức 600 mặc định */
+    border-bottom: 2px solid var(--primary-color); /* Thêm gạch chân để dễ nhận biết */
+}
         .nav-links a:hover {
             color: var(--primary-color) !important;
 	    transform: scale(1.1); /* Phóng to 10% */
@@ -175,8 +179,7 @@ header.scrolled .search-container {
 	    background-repeat: no-repeat;
             background-position: center;
 	background-color: #ffffff;
-            /*height: calc(100vw * (1080 / 1920));*/
-height: 99vh;
+            height: calc(100vw * (810 / 1920));
             display: flex;
 	    flex-direction: column;
             justify-content: center;
@@ -953,11 +956,11 @@ const setText = (id, text) => {
 
             section_main_title: "Là điểm đến hấp dẫn của du khách quốc tế<br>với các địa danh nổi tiếng thế giới!",
             sub_place_hoian: "Phố cổ Hội An",
-	    desc_hoian: "Phố cổ Hội An là một đô thị cổ nằm ở hạ lưu sông Thu Bồn, thuộc đồng bằng ven biển tỉnh Quảng Nam, cách thành phố Đà Nẵng khoảng 30km về phía Nam. Nơi đây từng là thương cảng quốc tế sầm uất bậc nhất Đông Nam Á từ thế kỷ 16. Với sự giao thoa văn hóa giữa Việt Nam, Nhật Bản và Trung Hoa, Hội An sở hữu quần thể di tích kiến trúc độc đáo gồm những ngôi nhà gỗ sơn vàng, mái ngói rêu phong và các hội quán rực rỡ. UNESCO đã công nhận Hội An là Di sản Văn hóa Thế giới nhờ nỗ lực bảo tồn nguyên vẹn các giá trị truyền thống. Đến đây, du khách sẽ bị mê hoặc bởi vẻ đẹp lung linh của đèn lồng về đêm và nét ẩm thực đặc trưng như Cao Lầu, bánh mì Hội An.",
+	    desc_hoian: "Phố cổ Hội An là một đô thị cổ nằm ở hạ lưu sông Thu Bồn, thuộc đồng bằng ven biển, cách trung tâm thành phố Đà Nẵng khoảng 30km về phía Nam. Nơi đây từng là thương cảng quốc tế sầm uất bậc nhất Đông Nam Á từ thế kỷ 16. Với sự giao thoa văn hóa giữa Việt Nam, Nhật Bản và Trung Hoa, Hội An sở hữu quần thể di tích kiến trúc độc đáo gồm những ngôi nhà gỗ sơn vàng, mái ngói rêu phong và các hội quán rực rỡ. UNESCO đã công nhận Hội An là Di sản Văn hóa Thế giới nhờ nỗ lực bảo tồn nguyên vẹn các giá trị truyền thống. Đến đây, du khách sẽ bị mê hoặc bởi vẻ đẹp lung linh của đèn lồng về đêm và nét ẩm thực đặc trưng như Cao Lầu, bánh mì Hội An.",
             sub_place_bana: "Bà Nà hills",
 	    desc_bana: "Nằm ở độ cao 1.487m trên đỉnh núi Chúa hùng vĩ, Bà Nà Hills được mệnh danh là 'Đường lên tiên cảnh' và là điểm đến nghỉ dưỡng hàng đầu miền Trung. Nơi đây sở hữu khí hậu ôn hòa với 4 mùa trong một ngày, mang đến cảm giác thư thái tuyệt đối. Điểm nhấn ấn tượng nhất chính là Cầu Vàng (Golden Bridge) – biểu tượng du lịch thế giới với đôi bàn tay khổng lồ nâng đỡ dải lụa vàng giữa mây ngàn. Ngoài ra, du khách còn được khám phá làng Pháp cổ kính, hầm rượu cổ Debay và khu vui chơi trong nhà đẳng cấp quốc tế. Bà Nà Hills không chỉ là nơi ngắm cảnh mà còn là hành trình trải nghiệm đỉnh cao của dịch vụ và kiến trúc phương Tây giữa lòng núi rừng Việt Nam.",
             sub_place_rung7mau: "Rừng dừa 7 mẫu",
-	    desc_rung7mau: "Rừng dừa Bảy Mẫu, hay còn gọi là rừng dừa Cẩm Thanh, được ví như một 'Miền Tây thu nhỏ' giữa lòng Quảng Nam. Cách phố cổ Hội An khoảng 3km, đây là khu sinh thái ngập mặn độc đáo với diện tích rừng dừa nước bạt ngàn. Trải nghiệm thú vị nhất tại đây chính là ngồi thuyền thúng len lỏi qua những con rạch nhỏ, tận hưởng không khí trong lành của sông nước. Du khách sẽ được thưởng thức màn trình diễn 'múa thúng' điêu luyện của các nghệ nhân địa phương, tham gia các trò chơi dân gian và tự tay làm quà lưu niệm từ lá dừa. Đây là điểm đến lý tưởng cho những ai muốn tìm về sự bình yên và khám phá nét văn hóa sông nước mộc mạc của người dân miền Trung.",
+	    desc_rung7mau: "Rừng dừa Bảy Mẫu, hay còn gọi là rừng dừa Cẩm Thanh, được ví như một 'Miền Tây thu nhỏ' giữa lòng Đà Nẵng. Cách phố cổ Hội An khoảng 3km, đây là khu sinh thái ngập mặn độc đáo với diện tích rừng dừa nước bạt ngàn. Trải nghiệm thú vị nhất tại đây chính là ngồi thuyền thúng len lỏi qua những con rạch nhỏ, tận hưởng không khí trong lành của sông nước. Du khách sẽ được thưởng thức màn trình diễn 'múa thúng' điêu luyện của các nghệ nhân địa phương, tham gia các trò chơi dân gian và tự tay làm quà lưu niệm từ lá dừa. Đây là điểm đến lý tưởng cho những ai muốn tìm về sự bình yên và khám phá nét văn hóa sông nước mộc mạc của người dân miền Trung.",
             sub_place_langgomthanhha: "Làng gốm Thanh Hà",
 	    desc_langgomthanhha: "Làng gốm Thanh Hà nằm bên sông Thu Bồn, cách phố cổ Hội An chỉ vài kilômét, là một trong những làng nghề lâu đời nhất miền Trung với lịch sử hơn 400–500 năm. Nghệ nhân nơi đây vẫn giữ nguyên kỹ thuật làm gốm thủ công truyền thống: nhào đất, tạo hình bằng bàn xoay chân và nung bằng lò củi, tạo nên những sản phẩm mộc mạc mang sắc đỏ nâu đặc trưng. Du khách có thể tham quan các xưởng gốm, tự tay nặn thử sản phẩm và ghé thăm Công viên Đất nung Thanh Hà – nơi trưng bày nhiều mô hình kiến trúc nổi tiếng bằng gốm.",
             sub_place_nguhanhson: "Ngũ Hành Sơn",
@@ -998,7 +1001,7 @@ addr_hq: "📍 An Hà Đông - Quảng Phú - Đà Nẵng - Việt Nam",
 
             section_main_title: "国際的な観光客にとって、<br>世界的に有名な観光スポットを有する魅力的な目的地です。",
             sub_place_hoian: "ホイアン旧市街",
-	    desc_hoian: "ホイアン旧市街は、ダナンから南へ約30km、クアンナム省のトゥボン川の下流に位置する古い港町です。16世紀から東南アジア屈指の国際貿易港として栄えました。ベトナム、日本、中国の文化が融合したこの地には、黄色い壁の木造家屋や苔むした瓦屋根、華やかな会館など、独自の建築群が残っています。伝統的な価値観がそのまま保存されていることから、ユネスコ世界文化遺産にも登録されました。夜になると街中を照らすランタンの幻想的な風景や、カオラウやホイアン風バインミーといった独特な食文化は、訪れる人々を魅了してやまない魅力となっています。",
+	    desc_hoian: "ホイアン旧市街は、ダナンから南へ約30km、トゥボン川の下流に位置する古い港町です。16世紀から東南アジア屈指の国際貿易港として栄えました。ベトナム、日本、中国の文化が融合したこの地には、黄色い壁の木造家屋や苔むした瓦屋根、華やかな会館など、独自の建築群が残っています。伝統的な価値観がそのまま保存されていることから、ユネスコ世界文化遺産にも登録されました。夜になると街中を照らすランタンの幻想的な風景や、カオラウやホイアン風バインミーといった独特な食文化は、訪れる人々を魅了してやまない魅力となっています。",
             sub_place_bana: "バーナーセルズ",
 	    desc_bana: "標高1,487メートルの主山（ヌイチア）の頂に位置するバナヒルズは、「地上天国への道」と称される中部ベトナム屈指の避暑地です。1日の中で四季を感じられるほど穏やかな気候が特徴で、最高の癒やしを提供してくれます。最大の見どころは、巨大な手によって支えられた黄金の橋「ゴールデンブリッジ」で、雲の中に浮かぶ金のシルクのような姿は世界的に有名な観光名所となっています。他にも、中世フランスの街並みを再現したフレンチヴィレッジや歴史的なドゥベイワインセラーなど、ベトナムの山中にいながらヨーロッパの雰囲気とハイレベルなサービスを満喫できるエンターテインメント施設です。",
             sub_place_rung7mau: "セつの梛子の森",

@@ -48,7 +48,11 @@
             margin: 0;
             padding: 0;
         }
-
+/* Chỉ in đậm riêng */
+#nav-contact {
+    font-weight: 900 !important; /* Đậm hơn hẳn mức 600 mặc định */
+    border-bottom: 2px solid var(--primary-color); /* Thêm gạch chân để dễ nhận biết */
+}
         .nav-links a {
             text-decoration: none;
             color: var(--primary-color);
@@ -639,39 +643,39 @@ header.scrolled .menu-toggle {
     <div class="contact-grid">
         <div class="map-box">
             <h3 class="sub-branch">Văn Phòng Tam Kỳ</h3>
-            <p>🏠 <b>Tam Kỳ</b></p>
-            <p><i class="fas fa-map-marker-alt"></i> 189 Hùng Vương - Tam Kỳ - Quảng Nam</p>  
+            <p>🏠 <b id="loc-tamky">Tam Kỳ</b></p>
+            <p><i class="fas fa-map-marker-alt"></i> <span id="m-addr-b1">189 Hùng Vương - Tam Kỳ - Đà Nẵng</span></p>  
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4614.136132265936!2d108.47556597586222!3d15.567840385041315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3169dcde2abfc40b%3A0x659f7409a2236436!2zMTg5IEjDuW5nIFbGsMahbmcsIFBoxrDhu51uZyBBbiBN4bu5LCBUYW0gS-G7sywgxJDDoCBO4bq1bmcgNTYwMDAwLCBWaWV0bmFt!5e1!3m2!1sen!2sus!4v1775704988189!5m2!1sen!2sus" width="300" height="225" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 <a 
   href="https://maps.app.goo.gl/58GaB7s4ySoVZATNA"
   target="_blank"
-  class="btn-direction">
+  class="btn-direction" id="dir-tamky">
   👉 Chỉ đường
 </a>
         </div>
 
         <div class="map-box">
             <h3 class="sub-branch">Văn Phòng Quế Sơn</h3>
-            <p>🏠 <b>Quế Sơn</b></p>
-            <p><i class="fas fa-map-marker-alt"></i> Phước Thành - Quế Xuân - Quảng Nam</p>
+            <p>🏠 <b id="loc-queson">Quế Sơn</b></p>
+            <p><i class="fas fa-map-marker-alt"></i><span id="m-addr-b2"> Phước Thành - Quế Xuân - Đà Nẵng</span></p>
             <iframe src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d4611.297552026929!2d108.257167!3d15.693861!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTXCsDQxJzM3LjkiTiAxMDjCsDE1JzI1LjgiRQ!5e1!3m2!1svi!2sjp!4v1775705038794!5m2!1svi!2sjp" width="300" height="225" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 <a 
   href="https://maps.app.goo.gl/b4hyYjTXhfgUdee77"
   target="_blank"
-  class="btn-direction">
+  class="btn-direction" id="dir-queson">
   👉 Chỉ đường
 </a>
         </div>
 
         <div class="map-box">
             <h3 class="sub-branch">Văn Phòng Đà Nẵng</h3>
-            <p>🏠 <b>Đà Nẵng</b></p>
-            <p><i class="fas fa-map-marker-alt"></i> 153 Đống Đa - Hải Châu - Đà Nẵng</p>
+            <p>🏠 <b id="loc-danang">Đà Nẵng</b></p>
+            <p><i class="fas fa-map-marker-alt"></i><span id="m-addr-b3"> 153 Đống Đa - Hải Châu - Đà Nẵng</span></p>
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4602.507395531889!2d108.214465275871!3d16.077997784602765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31421838532ae107%3A0x77a7c2e5d924bfb9!2zMTUzIMSQ4buRbmcgxJBhLCBUaOG6oWNoIFRoYW5nLCBI4bqjaSBDaMOidSwgxJDDoCBO4bq1bmcgNTUwMDAwLCBWaWV0bmFt!5e1!3m2!1sen!2sus!4v1775705075476!5m2!1sen!2sus" width="300" height="225" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 <a 
   href="https://maps.app.goo.gl/7SpHdxgHM396oKES6"
   target="_blank"
-  class="btn-direction">
+  class="btn-direction" id="dir-danang">
   👉 Chỉ đường
 </a>
         </div>
@@ -736,6 +740,13 @@ header.scrolled .menu-toggle {
             section_main_title: "Hệ thống văn phòng & Bản đồ", 
 	    sub_head: "Trụ sở chính", 
 	    sub_branch: "Văn Phòng Làm Việc",
+
+loc_tamky: "Tam Kỳ",
+        loc_queson: "Quế Sơn",
+        loc_danang: "Đà Nẵng",
+        direction: "👉 Chỉ đường",
+addr_b1_1: "🏠 Tầng 2, 189 Hùng Vương - Tam Kỳ - Đà Nẵng",
+
             footer_contact: "Liên hệ",
             footer_headquarters: "Trụ sở chính",
             footer_branch: "Văn Phòng Làm Việc",
@@ -759,6 +770,13 @@ addr_hq: "📍 An Hà Đông - Quảng Phú - Đà Nẵng - Việt Nam",
             section_main_title: "オフィスシステムと地図",
 	    sub_head: "本社", 
 	    sub_branch: "オフィス",
+
+loc_tamky: "タムキー",
+        loc_queson: "クエソン",
+        loc_danang: "ダナン",
+        direction: "👉 道案内",
+addr_b1_1: "🏠 Da Nang, Tam Ky, Hung Vuong, 189(2F)",
+
             footer_contact: "連絡先",
             footer_headquarters: "本社",
             footer_branch: "オフィス",
@@ -782,7 +800,12 @@ addr_hq: "📍 An Hà Đông - Quảng Phú - Đà Nẵng - Việt Nam",
 
         const t = translations[lang];
 	langSelect.value = lang; // Để combobox tự nhảy chữ VI/JA cho đúng
-        
+
+        const setText = (id, text) => {
+        const el = document.getElementById(id);
+        if (el && text) el.innerText = text;
+    };
+
 	if (!t) return;
 
         // Header & Nav
@@ -808,6 +831,18 @@ addr_hq: "📍 An Hà Đông - Quảng Phú - Đà Nẵng - Việt Nam",
 	document.querySelectorAll(".sub-head").forEach(el => {el.innerText = t.sub_head;});
 	document.querySelectorAll(".sub-branch").forEach(el => {el.innerText = t.sub_branch;});
 
+    setText("loc-tamky", t.loc_tamky);
+    setText("loc-queson", t.loc_queson);
+    setText("loc-danang", t.loc_danang);
+
+    setText("dir-tamky", t.direction);
+    setText("dir-queson", t.direction);
+    setText("dir-danang", t.direction);
+
+setText("m-addr-b1", t.addr_b1_1);
+    setText("m-addr-b2", t.addr_b2);
+    setText("m-addr-b3", t.addr_b3);
+
         // Footer
         const footerHeaders = document.querySelectorAll(".footer-grid h4");
         footerHeaders[0].innerText = t.footer_contact;
@@ -815,10 +850,6 @@ addr_hq: "📍 An Hà Đông - Quảng Phú - Đà Nẵng - Việt Nam",
         footerHeaders[2].innerText = t.footer_branch;
         document.querySelector(".footer-bottom small").innerText = t.footer_copyright;
 
-const setText = (id, text) => {
-        const el = document.getElementById(id);
-        if (el && text) el.innerText = text;
-    };
     setText("f-addr-hq", t.addr_hq);
     setText("f-addr-b1", t.addr_b1);
     setText("f-addr-b2", t.addr_b2);

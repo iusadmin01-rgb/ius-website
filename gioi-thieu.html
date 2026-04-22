@@ -172,7 +172,7 @@ header.scrolled .search-container {
             background: url('image/Gioi-thieu.PNG');
              margin-top: 95px;
             background-size: contain;
-	    background-repeat: no-repeat
+	    background-repeat: no-repeat;
             background-position: center;
             height: calc(100vw * (768 / 1366));
             display: flex;
@@ -565,7 +565,11 @@ header.scrolled .menu-toggle {
         height: 70px;       /* Thu nhỏ nhẹ trên mobile */
     }
 }
-
+/* Chỉ in đậm riêng */
+#nav-about {
+    font-weight: 900 !important; /* Đậm hơn hẳn mức 600 mặc định */
+    border-bottom: 2px solid var(--primary-color); /* Thêm gạch chân để dễ nhận biết */
+}
 
 /* Lưu ý: (Chỉ có riêng ở trang GIỚI THIỆU)(Bắt đầu) */
 /* HIỂN THỊ Ở THÂN WEBSITE: Bảng thông tin */
@@ -669,7 +673,7 @@ header.scrolled .menu-toggle {
                 <p id="desc-2">・Công ty TNHH Customer Service là doanh nghiệp xây dựng nhà ở tại Nhật Bản, được thành lập ở tỉnh Aichi vào tháng 9 năm 2013.</p>
                 <p id="desc-3">・Mỗi ngày chúng tôi đều nỗ lực làm việc và vô cùng trân trọng sự hỗ trợ cùng đào tạo từ Công ty TNHH Customer Service.</p>
                 <p id="desc-4">・Khi quan hệ giữa Việt Nam và Nhật Bản ngày càng được cải thiện, chúng tôi kỳ vọng sẽ đóng góp nhiều hơn và phát triển mạnh mẽ hơn nữa.</p>
-                <p id="desc-5">・Chúng tôi hướng đến việc giới thiệu nguồn nhân lực ưu tú cùng lợi thế chi phí của tỉnh Quảng Nam đến các doanh nghiệp Nhật Bản.</p>
+                <p id="desc-5">・Chúng tôi hướng đến việc giới thiệu nguồn nhân lực ưu tú cùng lợi thế chi phí của tỉnh Đà Nẵng đến các doanh nghiệp Nhật Bản.</p>
 
             <h2 class="section-title" id="title-profile">Sơ lược công ty</h2>
                 <table class="info-table">
@@ -681,7 +685,7 @@ header.scrolled .menu-toggle {
                 <tr><th id="th-manage">Điều hành</th><td id="td-manage">Lê Ngọc Sỹ</td></tr>
                 <tr><th id="th-staff">Nhân sự</th><td id="td-staff">50 nhân viên (Tính đến 2026/05)</td></tr>
                 <tr><th id="th-parent">Công ty mẹ (Nhật)</th><td id="td-parent">Customer Service</td></tr>
-                <tr><th id="th-subsidiary">Công ty trực thuộc</th><td id="td-subsidiary">Tanpopo software(TPS)</td></tr>
+                <tr><th id="th-subsidiary">Công ty trực thuộc</th><td id="td-subsidiary">Tanpopo Software(TPS)</td></tr>
                 <tr><th id="th-office">Văn phòng làm việc</th><td id="td-office">Tầng 2, 189 Hùng Vương; Phước Thành - Quế Sơn Trung; Tầng 6, 153 Đống Đa</td></tr>
                 <tr><th id="th-partner">Công ty đối tác</th><td id="td-partner">Mitsuihome, Takayama, Nhà máy CS,…</td></tr>
                 <tr><th id="th-software">Phần mềm sử dụng</th><td id="td-software">PS5, RAKUWAKU, KIZUKURI, JWCAD</td></tr>
@@ -775,7 +779,7 @@ header.scrolled .menu-toggle {
             td_manage: "Lê Ngọc Sỹ",
             td_staff: "50 nhân viên (Tính đến 2026/05, bao gồm thực tập sinh)",
             td_parent: "Customer Service",
-            td_subsidiary: "Tanpopo software(TPS)",
+            td_subsidiary: "Tanpopo Software(TPS)",
             td_office: "Tầng 2, 189 Hùng Vương - Tam Kỳ<br>Phước Thành - Quế Sơn Trung<br>Tầng 6, 153 Đống Đa - Hải Châu",
             td_partner: "Mitsuihome, Takayama, Nhà máy CS,…",
             td_software: "PS5, RAKUWAKU, KIZUKURI, JWCAD",
@@ -830,7 +834,7 @@ header.scrolled .menu-toggle {
             td_manage: "レ－　ゴック　シ－",
             td_staff: "50名（2026年5月、研修生も含む）",
             td_parent: "カスタマーサービス株式会社",
-            td_subsidiary: "Tanpopo software(TPS)",
+            td_subsidiary: "Tanpopo Software(TPS)",
             td_office: "Da Nang市、Tam Ky区、Hung Vuong通り、189番地 2階<br>Da Nang市、 Que Son Trung区、Phuoc Thanh村<br>Da Nang市、 Hai Chau区、 Dong Da通り、153番地 6階",
             td_partner: "三井ホームエステート株式会社、タカヤマ金属工業株式会社、CS工業等",
             td_software: "PS5, らくわく, キズクリ, JWCad",
