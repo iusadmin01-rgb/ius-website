@@ -189,6 +189,38 @@ header.scrolled .search-container {
 	    background-attachment: fixed;
         }
 
+.hero {
+    position: relative;
+    height: calc(100vw * (810 / 1920));
+    min-height: 300px; /* Đảm bảo trên điện thoại không bị quá dẹt */
+    overflow: hidden; /* Cắt bỏ phần dư thừa của ảnh nền */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('image/Tuyen-dung.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* Tạo ra một lớp đứng im bên dưới nội dung */
+    position: fixed; /* Thay thế cho background-attachment: fixed */
+    z-index: -1; 
+}
+
+.hero-content {
+    color: white;
+    text-align: center;
+    z-index: 1; /* Đảm bảo chữ luôn nằm trên ảnh */
+}
+
         .title-thin {
             font-weight: 300;
             font-size: 2.5rem;
@@ -712,7 +744,10 @@ u b {
     </header>
 
     <section class="hero">
-        <h1 class="title-thin">Tin tức tuyển dụng của IUS!</h1>
+        <div class="hero-bg"></div> 
+        <div class="hero-content">
+            <h1 class="title-thin">Tin tức tuyển dụng của IUS!</h1>
+	</div>
     </section>
 
     <main class="container">
