@@ -169,23 +169,43 @@ header.scrolled .search-container {
 .hero {
     position: relative;
     width: 100%;
-    min-height: 400px; /* Dùng min-height cố định cho mobile và linh hoạt cho desktop */
+    min-height: 250px; /* Dùng min-height cố định cho mobile và linh hoạt cho desktop */
     height: calc(100vw * (1024 / 1536));
+    margin-top: 95px;
     
-    background: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), 
-            url('image/Anh-bia-trang-chu-new.png?v=1.1'); /* Thêm ?v=1.1 vào sau để tránh lỗi lưu cache ảnh cũ của web brower */
-    
-    background-size: contain; /* Hiện toàn bộ ảnh */
-    background-repeat: no-repeat;
-    background-position: top center; /* Bắt đầu từ đỉnh ảnh */
     background-color: #ffffff; /* Nền trắng */
-    background-attachment: fixed;
     display: flex;
     justify-content: flex-end; /* Đẩy khối nội dung sang phải */
     align-items: flex-start; 
     padding-top: 80px; /* Độ cao từ Header xuống */
     padding-right: 20%; /* đẩy chữ sang trái nhiều hơn */
     box-sizing: border-box;
+clip-path: inset(0 0 0 0);
+}
+.hero-bg {
+    position: fixed; /* Cố định ảnh */
+    top: 95px;
+    left: 0;
+    width: 100%;
+    height: calc(100vw * (810 / 1920));
+    
+    background: linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)), 
+            url('image/Anh-bia-trang-chu-new.png?v=1.1'); /* Thêm ?v=1.1 vào sau để tránh lỗi lưu cache ảnh cũ của web brower */
+    background-size: contain; 
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    z-index: -1; /* Đẩy ra sau cùng */
+    
+    /* Loại bỏ sự dịch chuyển khi cuộn trên một số trình duyệt */
+    will-change: transform;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: white;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
 
 .title-thin {
@@ -519,6 +539,19 @@ header.scrolled .menu-toggle {
 
 /* Dành cho máy tính bảng và điện thoại (màn hình nhỏ hơn 1024px) */
 @media screen and (max-width: 1024px) {
+.hero, .hero-bg {
+        /* Trên mobile, tỉ lệ ngang của ảnh 1920x810 sẽ rất dẹt, 
+           nên ta để chiều cao cố định để thấy được nội dung chính của ảnh */
+        height: 300px; 
+        top: 95px;
+    }
+    
+    .hero-bg {
+        /* Ép ảnh fixed hoạt động tốt hơn trên Safari */
+        position: fixed;
+        background-attachment: scroll;
+    }
+
     .menu-toggle {
         display: block; /* Hiện nút 3 gạch */
 	color: var(--primary-color);
@@ -563,9 +596,6 @@ header.scrolled .menu-toggle {
 
 /* --- ĐIỀU CHỈNH CHO ĐIỆN THOẠI NHỎ (Dưới 480px) --- */
 @media screen and (max-width: 480px) {
-    .hero {
-        padding-top: 15px; /* Sát lên trên cùng */
-    }
     .title-thin {
         font-size: 1.2rem; 
     }
@@ -703,7 +733,10 @@ header.scrolled .menu-toggle {
     </header>
 
     <section class="hero">
+<div class="hero-bg"></div> 
+        <div class="hero-content">
         <h1 class="title-thin">Kiến tạo ngôi nhà bền vững của bạn!</h1>
+</div>
     </section>
 
     <main class="container">
