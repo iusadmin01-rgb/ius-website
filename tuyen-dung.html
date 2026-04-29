@@ -174,34 +174,40 @@ header.scrolled .search-container {
         /* BANNER (HERO) */
 .hero {
     position: relative;
+    width: 100%;
     height: calc(100vw * (810 / 1920));
-    min-height: 300px; /* Đảm bảo trên điện thoại không bị quá dẹt */
-    overflow: hidden; /* Cắt bỏ phần dư thừa của ảnh nền */
+    min-height: 300px;
+    margin-top: 95px;
+    
+    clip-path: inset(0 0 0 0); 
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .hero-bg {
-    position: absolute;
+    position: fixed; /* Cố định ảnh */
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('image/Tuyen-dung.png');
-    background-size: contain;
+    
+    background-image: url('image/Lien-he.PNG');
+    background-size: cover; /* Để ảnh phủ kín khung hình mà không bị quá to */
     background-position: center;
     background-repeat: no-repeat;
     
-    /* Tạo ra một lớp đứng im bên dưới nội dung */
-    position: fixed; /* Thay thế cho background-attachment: fixed */
-    z-index: -1; 
+    z-index: -1; /* Đẩy ra sau cùng */
+    
+    /* Loại bỏ sự dịch chuyển khi cuộn trên một số trình duyệt */
+    will-change: transform;
 }
 
 .hero-content {
+    position: relative;
+    z-index: 2;
     color: white;
-    text-align: center;
-    z-index: 1; /* Đảm bảo chữ luôn nằm trên ảnh */
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
 
         .title-thin {
