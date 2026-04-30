@@ -172,7 +172,7 @@ header.scrolled .search-container {
     min-height: 250px; /* Dùng min-height cố định cho mobile và linh hoạt cho desktop */
     height: calc(100vw * (1024 / 1536));
     margin-top: 95px;
-    
+    overflow: hidden;
     background-color: #ffffff; /* Nền trắng */
     display: flex;
     justify-content: flex-end; /* Đẩy khối nội dung sang phải */
@@ -202,7 +202,7 @@ clip-path: inset(0 0 0 0);
 }
 
 .hero-content {
-    position: relative;
+    position: fixed
     z-index: 2;
     color: white;
     text-shadow: 0 2px 10px rgba(0,0,0,0.5);
