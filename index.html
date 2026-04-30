@@ -173,7 +173,6 @@ header.scrolled .search-container {
     height: calc(100vw * (810 / 1920));
     margin-top: 95px;
     overflow: hidden;
-    background-color: #ffffff; /* Nền trắng */
     display: flex;
     justify-content: flex-end; /* Đẩy khối nội dung sang phải */
     align-items: flex-start; 
@@ -183,8 +182,8 @@ header.scrolled .search-container {
 clip-path: inset(0 0 0 0);
 }
 .hero-bg {
-    position: fixed; /* Cố định ảnh */
-    top: 95px;
+    position: absolute;
+    top: 0;
     left: 0;
     width: 100%;
     height: calc(100vw * (810 / 1920));
@@ -542,8 +541,7 @@ header.scrolled .menu-toggle {
 .hero, .hero-bg {
         /* Trên mobile, tỉ lệ ngang của ảnh 1920x810 sẽ rất dẹt, 
            nên ta để chiều cao cố định để thấy được nội dung chính của ảnh */
-        height: 300px; 
-        top: 95px;
+        height: 250px; 
     }
     
     .hero-bg {
