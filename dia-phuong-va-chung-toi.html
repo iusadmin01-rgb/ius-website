@@ -182,29 +182,15 @@ header.scrolled .search-container {
     clip-path: inset(0 0 0 0); 
     display: flex;
     justify-content: center;
-    align-items: center;
-}
-
-.hero-bg {
-    position: fixed; /* Cố định ảnh */
-    top: 95px;
-    left: 0;
-    width: 100%;
-    height: calc(100vw * (810 / 1920));
-    
-    background-image: url('image/Dia-phuong-va-chung-toi.jpg');
+    align-items: flex-start;
+background-image: url('image/Dia-phuong-va-chung-toi.jpg');
     background-size: contain; 
     background-position: center;
     background-repeat: no-repeat;
-    
-    z-index: -1; /* Đẩy ra sau cùng */
-    
-    /* Loại bỏ sự dịch chuyển khi cuộn trên một số trình duyệt */
-    will-change: transform;
 }
 
 .hero-content {
-    position: relative;
+    position: absolute;
     z-index: 2;
     color: white;
     text-shadow: 0 2px 10px rgba(0,0,0,0.5);
@@ -496,17 +482,11 @@ header.scrolled .menu-toggle {
 
 /* Dành cho máy tính bảng và điện thoại (màn hình nhỏ hơn 1024px) */
 @media screen and (max-width: 1024px) {
-.hero, .hero-bg {
+.hero {
         /* Trên mobile, tỉ lệ ngang của ảnh 1920x810 sẽ rất dẹt, 
            nên ta để chiều cao cố định để thấy được nội dung chính của ảnh */
         height: 300px; 
         margin-top: 95px;
-    }
-    
-    .hero-bg {
-        /* Ép ảnh fixed hoạt động tốt hơn trên Safari */
-        position: fixed;
-        background-attachment: scroll;
     }
 
     .menu-toggle {
@@ -768,7 +748,6 @@ align-items: center;
     </header>
 
 <section class="hero">
-<div class="hero-bg"></div>
     <div class="hero-content">
         <h1 class="title-thin" id="f-hero_title">Tin tức và hoạt động của IUS!</h1>
     </div>
