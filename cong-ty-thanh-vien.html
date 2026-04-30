@@ -174,7 +174,8 @@ header.scrolled .search-container {
 
         /* BANNER (HERO) */
 .hero {
-    position: relative;
+    position: sticky;
+    z-index: -1;
     width: 100%;
     height: calc(100vw * (810 / 1920));
     min-height: 250px;
@@ -223,6 +224,8 @@ header.scrolled .search-container {
 
         /* NỘI DUNG */
         .container {
+	    position: relative;
+	    z-index: 1;
             max-width: 1100px;
             margin: 50px auto;
             padding: 30px;
