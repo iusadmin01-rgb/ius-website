@@ -169,7 +169,10 @@ header.scrolled .search-container {
 
         /* BANNER (HERO) */
 .hero {
-    position: relative;
+    position: sticky;
+    top: 95px;
+    z-index: -1;
+
     width: 100%;
     height: calc(100vw * (810 / 1920));
     min-height: 250px;
@@ -217,9 +220,18 @@ header.scrolled .search-container {
         }
 
         /* NỘI DUNG */
+.main-wrapper {
+    width: 100%;
+    background-color: #f8f9fa; /* Màu nền này phải ĐẶC để che ảnh bìa ở 2 hông */
+    position: relative;
+    z-index: 1;
+    padding-top: 50px; /* Tạo khoảng cách với ảnh bìa */
+}
+
         .container {
+            position: relative;
             max-width: 1100px;
-            margin: 50px auto;
+            margin: 0 auto;
             padding: 30px;
             background: white;
             border-radius: 8px;
@@ -681,6 +693,7 @@ header.scrolled .menu-toggle {
 </div>
     </section>
 
+<div class="main-wrapper">
     <main class="container">
         <section id="about">
             <h2 class="section-title" id="title-intro">Giới thiệu</h2>
@@ -707,6 +720,7 @@ header.scrolled .menu-toggle {
                 </table>
         </section>
     </main>
+</div>
 
     <footer>
         <div class="footer-content">
