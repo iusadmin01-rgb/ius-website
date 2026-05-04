@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
     <title>IUS</title>
     <link rel="icon" type="image/png" href="image/lo-go-cong-ty.PNG">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -484,6 +485,16 @@ header.scrolled .search-container {
             padding-top: 20px;
         }
 
+/* Điều chỉnh màu số điện thoại ở footer */
+.footer-hotline {
+    color: #bdc1c6 !important; /* Màu xám nhạt*/
+    text-decoration: none !important; /* Bỏ gạch chân */
+}
+
+.footer-hotline:hover {
+    color: #ffffff !important; /* Di chuột vào sẽ sáng lên */
+}
+
 /* Style cho khối chứa QR và nhãn */
 .footer-certificates {
     display: flex;
@@ -716,7 +727,7 @@ header.scrolled .menu-toggle {
     <div>
         <h4 id="f-title-contact">Liên hệ</h4>
         <p><i class="fas fa-envelope"></i> Email: ngocsy@thietkeius.asia</p>
-        <p><i class="fas fa-phone"></i> Hotline: 070 2929 345</p>
+        <p><i class="fas fa-phone"></i> Hotline: <a href="tel:0702929345" class="footer-hotline">070 2929 345</a></p>
 
 	<div class="footer-certificates">
     	<div class="qr-item">
