@@ -722,11 +722,10 @@ header.scrolled .menu-toggle {
                 <tr><th id="th-founded">Ngày thành lập</th><td id="td-founded">04-06-2019</td></tr>
                 <tr><th id="th-rep">Đại diện pháp luật</th><td id="td-rep">Lê Ngọc Sỹ</td></tr>
                 <tr><th id="th-manage">Điều hành</th><td id="td-manage">Lê Ngọc Sỹ</td></tr>
-                <tr><th id="th-staff">Nhân sự</th><td id="td-staff">50 nhân viên (Tính đến 2026/05)</td></tr>
-                <tr><th id="th-parent">Công ty mẹ (Nhật)</th><td id="td-parent">Customer Service</td></tr>
+                <tr><th id="th-staff">Nhân sự</th><td id="td-staff"></td></tr>
                 <tr><th id="th-subsidiary">Công ty trực thuộc</th><td id="td-subsidiary">Tanpopo Software(TPS)</td></tr>
                 <tr><th id="th-office">Văn phòng làm việc</th><td id="td-office">Tầng 2, 189 Hùng Vương; Phước Thành - Quế Sơn Trung; Tầng 6, 153 Đống Đa</td></tr>
-                <tr><th id="th-partner">Công ty đối tác</th><td id="td-partner">Mitsuihome, Takayama, Nhà máy CS,…</td></tr>
+                <tr><th id="th-partner">Công ty đối tác</th><td id="td-partner">Mitsuihome, Takayama, Nhà máy CS, Customer Service, …</td></tr>
                 <tr><th id="th-software">Phần mềm sử dụng</th><td id="td-software">PS5, RAKUWAKU, KIZUKURI, JWCAD</td></tr>
                 </table>
         </section>
@@ -805,7 +804,6 @@ header.scrolled .menu-toggle {
             th_rep: "Đại diện pháp luật",
             th_manage: "Điều hành",
             th_staff: "Nhân sự",
-            th_parent: "Công ty mẹ tại Nhật",
             th_subsidiary: "Công ty trực thuộc",
             th_office: "Văn phòng làm việc",
             th_partner: "Công ty đối tác",
@@ -817,11 +815,10 @@ header.scrolled .menu-toggle {
             td_founded: "04-06-2019",
             td_rep: "Lê Ngọc Sỹ",
             td_manage: "Lê Ngọc Sỹ",
-            td_staff: "50 nhân viên (Tính đến 2026/05, bao gồm thực tập sinh)",
-            td_parent: "Customer Service",
+            td_staff: "40 nhân viên (Tính đến 2026/05)",
             td_subsidiary: "Tanpopo Software(TPS)",
             td_office: "Tầng 2, 189 Hùng Vương - Tam Kỳ<br>Phước Thành - Quế Sơn Trung<br>Tầng 6, 153 Đống Đa - Hải Châu",
-            td_partner: "Mitsuihome, Takayama, Nhà máy CS,…",
+            td_partner: "Mitsuihome, Takayama, Nhà máy CS, Customer Service, …",
             td_software: "PS5, RAKUWAKU, KIZUKURI, JWCAD",
 
             footer_contact: "Liên hệ",
@@ -860,7 +857,6 @@ header.scrolled .menu-toggle {
             th_rep: "代表取締役",
             th_manage: "経営者",
             th_staff: "従業員数",
-            th_parent: "日本での親会社",
             th_subsidiary: "子会社",
             th_office: "サテライト事務所",
             th_partner: "取引先企業",
@@ -872,11 +868,10 @@ header.scrolled .menu-toggle {
             td_founded: "2019年6月4日",
             td_rep: "レ－　ゴック　シ－",
             td_manage: "レ－　ゴック　シ－",
-            td_staff: "50名（2026年5月、研修生も含む）",
-            td_parent: "カスタマーサービス株式会社",
+            td_staff: "40名（2026年5月）",
             td_subsidiary: "Tanpopo Software(TPS)",
             td_office: "Da Nang市、Tam Ky区、Hung Vuong通り、189番地 2階<br>Da Nang市、 Que Son Trung区、Phuoc Thanh村<br>Da Nang市、 Hai Chau区、 Dong Da通り、153番地 6階",
-            td_partner: "三井ホームエステート株式会社、タカヤマ金属工業株式会社、CS工業等",
+            td_partner: "三井ホームエステート株式会社、タカヤマ金属工業株式会社、CS工業等、カスタマーサービス株式会社、。。。",
             td_software: "PS5, らくわく, キズクリ, JWCad",
 
             footer_contact: "連絡先",
@@ -953,7 +948,6 @@ const setHTML = (id, text) => {
         setText("th-rep", t.th_rep);
         setText("th-manage", t.th_manage);
         setText("th-staff", t.th_staff);
-        setText("th-parent", t.th_parent);
         setText("th-subsidiary", t.th_subsidiary);
         setHTML("th-office", t.th_office);
         setText("th-partner", t.th_partner);
@@ -966,7 +960,6 @@ const setHTML = (id, text) => {
         setText("td-rep", t.td_rep);
         setText("td-manage", t.td_manage);
         setText("td-staff", t.td_staff);
-        setText("td-parent", t.td_parent);
         setText("td-subsidiary", t.td_subsidiary);
         setHTML("td-office", t.td_office);
         setText("td-partner", t.td_partner);
