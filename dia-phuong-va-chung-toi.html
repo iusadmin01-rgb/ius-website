@@ -641,6 +641,17 @@ header.scrolled .menu-toggle {
     transition: transform 0.3s ease;
 }
 
+/* Khi một hàng chỉ có 1 ảnh */
+.image-row img:only-child {
+    flex: unset;              /* Hủy tính năng chia đều flex */
+    width: 100%;              /* Trên màn hình nhỏ rộng 100% */
+    max-width: 500px;         /* Giới hạn độ rộng tối đa để ảnh không bị quá bè */
+    height: auto;             /* Tự động tính chiều cao theo tỷ lệ gốc của ảnh */
+    max-height: 600px;        /* Đặt chiều cao tối đa nếu ảnh quá dài */
+    object-fit: contain;      /* Đảm bảo toàn bộ ảnh hiển thị trọn vẹn, không bị cắt */
+    margin: 0 auto;           /* Căn giữa ảnh trong .image-row */
+}
+
 .image-row img:hover {
     transform: scale(1.03);
 }
@@ -903,6 +914,9 @@ align-items: center;
         <div class="image-row">
             <img src="image/Bao_Nhat_1.png" alt="IUS trên báo Nhật 1!">
             <img src="image/Bao_Nhat_2.png" alt="IUS trên báo Nhật 2!">
+        </div>
+        <div class="image-row">
+            <img src="image/Bao_Nhat_3.png" alt="IUS trên báo Nhật 3!">
         </div>
     </div>
 </section>
